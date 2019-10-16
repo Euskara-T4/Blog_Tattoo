@@ -290,7 +290,7 @@ input:focus, textarea:focus, *:required:focus{border-color:#F7AF9D;}
 .row1 + .row2{border-color:rgba(255,255,255,.2);}
 .row3{color:#474747; background-color:#FFFFFF;}
 .row4{color:#A8A7A6;}
-.row5, .row5 a{color:#FFFFFF; background-color:#F7AF9D;}
+.row5, .row5 a{color:#FFFFFF; background-color:black;}
 
 
 /* Top Bar */
@@ -338,7 +338,7 @@ input:focus, textarea:focus, *:required:focus{border-color:#F7AF9D;}
 .pagination a, .pagination strong{border-color:#F4F4F4;}
 .pagination .current *{color:#FFFFFF; background-color:#F7AF9D;}
 
-#backtotop{color:#FFFFFF; background-color:#F7AF9D;}
+#backtotop{color:#FFFFFF; background-color:rgba(0, 0, 0, 0.493);}
 
 
 /* Tables + Comments */
