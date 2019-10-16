@@ -7,8 +7,7 @@
 		header("Location: welcome.php");
 	}
 	
-	if(!empty($_POST))
-	{
+	if(!empty($_POST)) {
 		$usuario = mysqli_real_escape_string($mysqli,$_POST['root']);
 		$password = mysqli_real_escape_string($mysqli,$_POST['']);
 		$error = '';
