@@ -40,6 +40,13 @@
 
 
 
+SELECT nombreUsuario FROM usuario WHERE usuario = " $usuario");
+if(true) {
+	no puedes crearlo;
+} else {
+	insert; 
+}
+
 
 
 

@@ -4,12 +4,11 @@
 <head>
     <title>Blog Tattoo</title>
     <meta charset="utf-8">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0,
-            maximum-scale=1.0, user-scalable=no">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=1.0, user-scalable=no">
     <link href="../layout/styles/layout.css" rel="stylesheet" type="text/css" media="all">
 
     <!-- VALIDAR EL REGISTRO -->
-    <script src="validacion.js"></script>
+    <!-- <script src="../js/validacion.js"></script> -->
 </head>
 
 <body id="top">
@@ -24,10 +23,8 @@
                 <li><i class="fa fa-phone"></i> +00 (123) 456 7890</li>
                 <li><i class="fa fa-envelope-o"></i> info@domain.com</li>
                 <li><a href="#"><i class="fa fa-lg fa-home"></i></a></li>
-                <li><a href="login.html" title="Login"><i class="fa fa-lg
-                                fa-sign-in"></i></a></li>
-                <li><a href="registro.html" title="Sign Up"><i class="fa
-                                fa-lg fa-edit"></i></a></li>
+                <li><a href="login.html" title="Login"><i class="fa fa-lg fa-sign-in"></i></a></li>
+                <li><a href="registro.html" title="Sign Up"><i class="fa fa-lg fa-edit"></i></a></li>
             </ul>
             <!-- ################################################################################################ -->
         </div>
@@ -50,10 +47,8 @@
                         <li><a class="drop" href="#">Pages</a>
                             <ul>
                                 <li><a href="pages/gallery.html">Gallery</a></li>
-                                <li><a href="pages/full-width.html">Full
-                                        Width</a></li>
-                                <li><a href="pages/sidebar-left.html">Sidebar
-                                        Left</a></li>
+                                <li><a href="pages/full-width.html">Full Width</a></li>
+                                <li><a href="pages/sidebar-left.html">Sidebar Left</a></li>
                                 <li><a href="pages/sidebar-right.html">Sidebar
                                         Right</a></li>
                                 <li><a href="pages/basic-grid.html">Basic
@@ -90,14 +85,17 @@
                     <form method="post" action="../php/registro.php">
                         <fieldset>
                             <legend>Newsletter:</legend>
-                            <input class="btmspace-15" type="text" placeholder="Izena" name="nombre" required>
-                            <input class="btmspace-15" type="text" placeholder="Abizena" name="apellido" required>
-                            <input class="btmspace-15" type="text" placeholder="Erabiltzailea Izena" name="usuario" required>
-                            <input class="btmspace-15" type="text" placeholder="Email" name="correo" required>
-                            <input class="btmspace-15" type="password" placeholder="Pasahitza" name="contraseña" required>
-                            <input class="btmspace-15" type="password" placeholder="Pasahitzaren Konfirmazioa" name="contraseña_confirm" required>
-
-                            <button type="submit" value="submit">SORTU</button>
+                            <input class="btmspace-15" type="text" placeholder="Izena" name="nombre"  id="nombre" pattern="[A-Z a-z]{2,20}" required>
+                            <input class="btmspace-15" type="text" placeholder="Abizena" name="apellido"  id="apellido" pattern="[A-Z a-z]{2,30}" required>
+                            <input class="btmspace-15" type="text" placeholder="Erabiltzailea Izena" name="usuario" id="usuario" pattern="[A-Z a-z 0-9]{8,20}" required>
+                            <input class="btmspace-15" type="text" placeholder="Email" name="correo" id="correo" pattern="[A-Z a-z . 0-9 - _]{1,20}[@][a-z]{1,20}[.][a-z]{2,3}" required>
+                            <input class="btmspace-15" type="password" placeholder="Pasahitza" name="contraseña" id="contraseña" pattern="[A-Z a-z 0-9]{1,20}" required>
+                            <input class="btmspace-15" type="password" placeholder="Pasahitzaren Konfirmazioa" id="contraseña2" pattern="[A-Z a-z 0-9]{1,20}" name="contraseña_confirm" required>
+                            
+                            <div class="flex">
+                                <button type="reset" value="borrar" id="borrar" class="flexBtn">BORRAR</button>
+                                <button type="submit" value="submit" id="enviar" class="flexBtn">SORTU</button>
+                            </div>
                         </fieldset>
                     </form>
                 </div>
@@ -125,6 +123,8 @@
         <script src="../layout/scripts/jquery.backtotop.js"></script>
         <script src="../layout/scripts/jquery.mobilemenu.js"></script>
         <script src="../layout/scripts/jquery.fitvids.js"></script>
+        <script src="../js/validacion.js"></script>
+
 </body>
 
 </html>

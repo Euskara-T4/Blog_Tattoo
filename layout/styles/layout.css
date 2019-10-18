@@ -12,6 +12,8 @@ File: Layout CSS
 @import url("framework.css");
 
 
+
+
 /* Rows
 --------------------------------------------------------------------------------------------------------------- */
 .row0, .row0 a{}
@@ -319,7 +321,7 @@ input:focus, textarea:focus, *:required:focus{border-color:#F7AF9D;}
 #footer input, #footer button{border-color:transparent;}
 #footer input{color:#FFFFFF; background-color:#222222;}
 #footer input:focus{border-color:#F7AF9D;}
-#footer button{color:#FFFFFF; background-color:#F7AF9D;}
+#footer button{color:rgb(0, 0, 0); background-color:rgba(216, 216, 216, 0.822);}
 
 
 /* Navigation */
@@ -429,4 +431,28 @@ table a, #comments a{background-color:inherit;}
 
 	#pageintro article, #pageintro p:first-of-type{max-width:none; width:100%;}
 	#pageintro .heading{font-size:1.6rem;}
+}
+
+/*---------- BUTTONS ----------- */
+#footer .flex {
+	display: flex;
+    flex-direction: row;
+    justify-content: center;
+    align-items: center;
+}
+
+#footer .flexBtn {
+	background: rgb(163, 163, 163);
+	color: black;
+	padding: 10px 20px;
+	text-align: center;
+	display: inline-block;
+	font-size: 16px;
+	margin-top: 15px;
+	margin-left: 10px;
+	margin-right: 10px;
+}
+
+.error {
+	border: solid 2px #FF0000;
 }
