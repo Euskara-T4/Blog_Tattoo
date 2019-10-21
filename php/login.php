@@ -1,72 +1,48 @@
-<?php
-	require('../BD/conexionBD.php');
+<?php	
+	include_once "../BD/conexionBD.php";
+	  
+	$nombre_usuario = $_POST["erabiltzaile_iz"];
+	$pasahitza = $_POST["pasahitza"];
+	// Tenemos la contraseña encriptada
+	$passEncript = password_hash($pasahitza, PASSWORD_DEFAULT);
 	
-	session_start();
+	$sql = "SELECT * FROM erabiltzailea WHERE erabiltzaile_iz='$nombre_usuario' AND pasahitza='$passEncript'";
+	$result = $conexionBD->query($sql);
+	$rows = $result->num_rows;
 	
-	if(isset($_SESSION["id_usuario"])){
-		header("Location: welcome.php");
+	if($rows > 0) {
+		//header("location: welcome.php");
+		echo "<h3>ONGI ETORRI $nombre_usuario</h3>";
+	} else {
+		echo "<h3>El nombre o contraseña son incorrectos</h3>";
 	}
+
+
+	// require('../BD/conexionBD.php');	
+	// session_start();
+	// if(isset($_SESSION["$nombre"])){
+	// 	header("Location: welcome.php");
+	// }
 	
-	if(!empty($_POST)) {
-		$usuario = mysqli_real_escape_string($mysqli,$_POST['root']);
-		$password = mysqli_real_escape_string($mysqli,$_POST['']);
-		$error = '';
+	// if(!empty($_POST)) {
+	// 	$usuario = mysqli_real_escape_string($mysqli, $_POST['root']);
+	// 	$password = mysqli_real_escape_string($mysqli, $_POST['']);
+	// 	$error = '';
 		
-		$sha1_pass = sha1($password);
+	// 	$sha1_pass = sha1($password);
 		
-		$sql = "SELECT usuario_iz, id_tipo FROM usuarios WHERE usuario = '$usuario' AND password = '$sha1_pass'";
-		$result=$mysqli->query($sql);
-		$rows = $result->num_rows;
+	// 	$sql = "SELECT usuario_iz, id_tipo FROM usuarios WHERE usuario = '$usuario' AND password = '$sha1_pass'";
+	// 	$result=$mysqli->query($sql);
+	// 	$rows = $result->num_rows;
 		
-		if($rows > 0) {
-			$row = $result->fetch_assoc();
-			$_SESSION['id_usuario'] = $row['id'];
-			$_SESSION['tipo_usuario'] = $row['id_tipo'];
+	// 	if($rows > 0) {
+	// 		$row = $result->fetch_assoc();
+	// 		$_SESSION['id_usuario'] = $row['id'];
+	// 		$_SESSION['tipo_usuario'] = $row['id_tipo'];
 			
-			header("location: welcome.php");
-			} else {
-			$error = "El nombre o contraseña son incorrectos";
-		}
-	}
-?>
-
-
-
-
-
-
-
-
-
-
-
-SELECT nombreUsuario FROM usuario WHERE usuario = " $usuario");
-if(true) {
-	no puedes crearlo;
-} else {
-	insert; 
-}
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
+	// 		header("location: welcome.php");
+	// 		} else {
+	// 		$error = "El nombre o contraseña son incorrectos";
+	// 	}
+	// }
 ?>

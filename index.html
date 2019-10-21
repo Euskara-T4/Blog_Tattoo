@@ -1,123 +1,143 @@
 <!DOCTYPE html>
-<!--
-Template Name: Natucam
-Author: <a href="https://www.os-templates.com/">OS Templates</a>
-Author URI: https://www.os-templates.com/
-Licence: Free to use under our free template licence terms
-Licence URI: https://www.os-templates.com/template-terms
--->
+
 <html lang="es">
-  <!-- HEADER.PHP -->
-  <head>
-    <title>Blog Tattoo</title>
-    <meta charset="utf-8">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0,
+<!-- HEADER.PHP -->
+
+<head>
+  <title>Blog Tattoo</title>
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0,
       maximum-scale=1.0, user-scalable=no">
-    <link href="layout/styles/layout.css" rel="stylesheet" type="text/css"
-      media="all">
-  </head>
+  <link href="layout/styles/layout.css" rel="stylesheet" type="text/css" media="all">
+  <script src="js/login.js"></script>
 
-  <body id="top">
-    <!-- ################################################################################################ -->
-    <!-- ################################################################################################ -->
-    <!-- ################################################################################################ -->
-    <div class="wrapper row0">
-      <div id="topbar" class="hoc clear">
-        <!-- ################################################################################################ -->
-        <ul>
-          <li><i class="fa fa-clock-o"></i> Mon. - Fri. 8am - 5pm</li>
-          <li><i class="fa fa-phone"></i> +00 (123) 456 7890</li>
-          <li><i class="fa fa-envelope-o"></i> info@domain.com</li>
-          <li><a href="#"><i class="fa fa-lg fa-home"></i></a></li>
-          <li><a href="pages/login.html" title="Login"><i class="fa fa-lg
-                fa-sign-in"></i></a></li>
-          <li><a href="pages/registro.html" title="Sign Up"><i class="fa fa-lg
-                fa-edit"></i></a></li>
-        </ul>
-        <!-- ################################################################################################ -->
-      </div>
-    </div>
-    <!-- ################################################################################################ -->
-    <!-- ################################################################################################ -->
-    <!-- ################################################################################################ -->
-    <!-- Top Background Image Wrapper -->
-    <div class='bgded overlay'
-      style="background-image:url('images/demo/backgrounds/fondoIndex.jpg');">
-      <!-- ################################################################################################ -->
-      <div class="wrapper row1">
-        <header id="header" class="hoc clear">
-          <!-- ################################################################################################ -->
-          <div id="logo" class="fl_left">
-            <h1><a href="index.html">Blog Tattoo</a></h1>
-          </div>
-          <nav id="mainav" class="fl_right">
-            <ul class="clear">
-              <li class="active"><a href="index.html">Home</a></li>
-              <li><a class="drop" href="#">Pages</a>
-                <ul>
-                  <li><a href="pages/gallery01.html">Gallery</a></li>
-                  <li><a href="pages/full-width.html">Full Width</a></li>
-                  <li><a href="pages/sidebar-left.html">Sidebar Left</a></li>
-                  <li><a href="pages/sidebar-right.html">Sidebar Right</a></li>
-                  <li><a href="pages/basic-grid.html">Basic Grid</a></li>
-                </ul>
-              </li>
-              <li><a class="drop" href="#">Dropdown</a>
-                <ul>
-                  <li><a href="#">Level 2</a></li>
-                  <li><a class="drop" href="#">Level 2 + Drop</a>
-                    <ul>
-                      <li><a href="#">Level 3</a></li>
-                      <li><a href="#">Level 3</a></li>
-                      <li><a href="#">Level 3</a></li>
-                    </ul>
-                  </li>
-                  <li><a href="#">Level 2</a></li>
-                </ul>
-              </li>
-              <li><a href="pages/aboutUs.html">ABOUT US</a></li>
-              <li><a href="#">Link Text</a></li>
-            </ul>
-          </nav>
-          <!-- ################################################################################################ -->
-        </header>
-      </div>
-      <!-- ################################################################################################ -->
-      <!-- ################################################################################################ -->
-      <!-- ################################################################################################ -->
-      <div id="pageintro" class="hoc clear">
-        <article>
-          <!-- ################################################################################################ -->
-          <h3 class="heading"> BLOG TATTOO</h3>
-          <p> Ongi etorri gure tatuajeen blogera</p>
-          <!-- ################################################################################################ -->
-        </article>
-      </div>
-      <!-- ################################################################################################ -->
-    </div>
+</head>
 
-    <!-- FOOTER -->
-    <!-- ################################################################################################ -->
-    <div class="wrapper row5">
-      <div id="copyright" class="hoc clear">
+<body id="top">
+  <!-- ################################################################################################ -->
+  <!-- ################################################################################################ -->
+  <!-- ################################################################################################ -->
+  <div class="wrapper row0">
+    <div id="topbar" class="hoc clear">
+      <!-- ################################################################################################ -->
+      <ul>
+        <li><i class="fa fa-clock-o"></i> Mon. - Fri. 8am - 5pm</li>
+        <li><i class="fa fa-phone"></i> +00 (123) 456 7890</li>
+        <li><i class="fa fa-envelope-o"></i> info@domain.com</li>
         <!-- ################################################################################################ -->
-        <p class="fl_left">Copyright &copy; 2018 - All Rights Reserved - <a
-            href="#">Domain Name</a></p>
-        <p class="fl_right">Template by <a target="_blank"
-            href="https://www.os-templates.com/"
-            title="Free Website Templates">OS Templates</a></p>
-        <!-- ################################################################################################ -->
+        <!-- USER ACTION ICONS -->
+        <li><a href="#" title="User"><i class="fa fa-lg fa-home"></i></a></li>
+        <li><a href="#" title="Login" id="btnLogin"><i class="fa fa-lg fa-sign-in"></i></a></li>
+        <li><a href="pages/registro.html" title="Sign Up"><i class="fa fa-lg fa-edit"></i></a></li>
+      </ul>
+      <!-- ################################################################################################ -->
+    </div>
+  </div>
+  <!-- ################################################################################################ -->
+  <!-- ################################################################################################ -->
+  <!-- LOGIN MODAL -->
+  <div id="loginModal" class="modal">
+    <form class="modal-content animate" action="php/login.php" method="post">
+      <!-- ################################################################################################ -->
+      <div class="imgcontainer">
+        <span class="close" id="close" title="Close Modal">&times;</span>
+        <img src="images/demo/avatar.png" alt="Avatar" class="avatar">
       </div>
+
+      <div class="logContainer">
+        <label for="erabiltzaile_iz"><b>Erabiltzaile izena:</b></label>
+        <input type="text" placeholder="Sartu erabiltzailea" name="erabiltzaile_iz" required>
+
+        <label for="psw"><b>Pasahitza:</b></label>
+        <input type="password" placeholder="Sartu pasahitza" name="pasahitza" required>
+        <!-- <label>
+            <input type="checkbox" checked="checked" name="remember"> Remember me
+          </label> -->
+      </div>
+
+      <div class="btnContainer">
+        <button type="button" class="loginBtn" id="loginBtn">Login</button>
+        <button type="button" class="cancelBtn" id="cancelBtn">Cancel</button>
+      </div>
+    </form>
+  </div>
+  <!-- ################################################################################################ -->
+  <!-- ################################################################################################ -->
+  <!-- Top Background Image Wrapper -->
+  <div class='bgded overlay' style="background-image:url('images/demo/backgrounds/fondoIndex.jpg');">
+    <!-- ################################################################################################ -->
+    <div class="wrapper row1">
+      <header id="header" class="hoc clear">
+        <!-- ################################################################################################ -->
+        <div id="logo" class="fl_left">
+          <h1><a href="index.html">Blog Tattoo</a></h1>
+        </div>
+        <nav id="mainav" class="fl_right">
+          <ul class="clear">
+            <li class="active"><a href="index.html">Home</a></li>
+            <li><a class="drop" href="#">Pages</a>
+              <ul>
+                <li><a href="pages/gallery01.html">Gallery</a></li>
+                <li><a href="pages/full-width.html">Full Width</a></li>
+                <li><a href="pages/sidebar-left.html">Sidebar Left</a></li>
+                <li><a href="pages/sidebar-right.html">Sidebar Right</a></li>
+                <li><a href="pages/basic-grid.html">Basic Grid</a></li>
+              </ul>
+            </li>
+            <li><a class="drop" href="#">Dropdown</a>
+              <ul>
+                <li><a href="#">Level 2</a></li>
+                <li><a class="drop" href="#">Level 2 + Drop</a>
+                  <ul>
+                    <li><a href="#">Level 3</a></li>
+                    <li><a href="#">Level 3</a></li>
+                    <li><a href="#">Level 3</a></li>
+                  </ul>
+                </li>
+                <li><a href="#">Level 2</a></li>
+              </ul>
+            </li>
+            <li><a href="pages/aboutUs.html">ABOUT US</a></li>
+            <li><a href="#">Link Text</a></li>
+          </ul>
+        </nav>
+        <!-- ################################################################################################ -->
+      </header>
     </div>
     <!-- ################################################################################################ -->
     <!-- ################################################################################################ -->
     <!-- ################################################################################################ -->
-    <a id="backtotop" href="#top"><i class="fa fa-chevron-up"></i></a>
-    <!-- JAVASCRIPTS -->
-    <script src="layout/scripts/jquery.min.js"></script>
-    <script src="layout/scripts/jquery.backtotop.js"></script>
-    <script src="layout/scripts/jquery.mobilemenu.js"></script>
-    <script src="layout/scripts/jquery.fitvids.js"></script>
-  </body>
+    <div id="pageintro" class="hoc clear">
+      <article>
+        <!-- ################################################################################################ -->
+        <h3 class="heading"> BLOG TATTOO</h3>
+        <p> Ongi etorri gure tatuajeen blogera</p>
+        <!-- ################################################################################################ -->
+      </article>
+    </div>
+    <!-- ################################################################################################ -->
+  </div>
+
+  <!-- FOOTER -->
+  <!-- ################################################################################################ -->
+  <div class="wrapper row5">
+    <div id="copyright" class="hoc clear">
+      <!-- ################################################################################################ -->
+      <p class="fl_left">Copyright &copy; 2018 - All Rights Reserved - <a href="#">Domain Name</a></p>
+      <p class="fl_right">Template by <a target="_blank" href="https://www.os-templates.com/"
+          title="Free Website Templates">OS Templates</a></p>
+      <!-- ################################################################################################ -->
+    </div>
+  </div>
+  <!-- ################################################################################################ -->
+  <!-- ################################################################################################ -->
+  <!-- ################################################################################################ -->
+  <a id="backtotop" href="#top"><i class="fa fa-chevron-up"></i></a>
+  <!-- JAVASCRIPTS -->
+  <script src="layout/scripts/jquery.min.js"></script>
+  <script src="layout/scripts/jquery.backtotop.js"></script>
+  <script src="layout/scripts/jquery.mobilemenu.js"></script>
+  <script src="layout/scripts/jquery.fitvids.js"></script>
+</body>
 
 </html>

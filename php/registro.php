@@ -1,9 +1,8 @@
 <?php
-
-    //header("Location: ../index.html");
+    header("Location: ../index.html");
     
     #Salir si alguno de los datos no está presente
-    if(!isset($_POST["nombre"]) || !isset($_POST["apellido"])|| !isset($_POST["usuario"])|| !isset($_POST["correo"])|| !isset($_POST["contraseña"])) exit();
+    if(!isset($_POST["nombre"]) || !isset($_POST["apellido"]) || !isset($_POST["usuario"]) || !isset($_POST["correo"]) || !isset($_POST["contraseña"]) || !isset($_POST["contraseña2"])) exit();
 
     #Si todo va bien, se ejecuta esta parte del código...
     include_once "../BD/conexionBD.php";
@@ -12,8 +11,7 @@
     $nombre_usuario = $_POST["usuario"];
     $correo = $_POST["correo"];
     $pss = $_POST["contraseña"];
-    $pss2 = $_POST["contraseña_confirm"];
-  
+    $pss2 = $_POST["contraseña_confirm"];  
 
     // COMPROBACIONES DB
     if($pss == $pss2){
@@ -53,7 +51,7 @@
         if($resultado == true){
             echo "<h3>Usuario insertado correctamente</h3>";
         } else{
-            echo "<h3>ERROR AL INSERTAR</h3>";
+            echo "<h3>Ha ocurrido un error al insertar el usuario</h3>";
         }     
     }
    
