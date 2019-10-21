@@ -337,8 +337,8 @@ input:focus, textarea:focus, *:required:focus{border-color:#F7AF9D;}
 .container .sidebar nav a{color:inherit; border-color:#F4F4F4;}
 .container .sidebar nav a:hover{color:#F7AF9D;}
 
-.pagination a, .pagination strong{border-color:#F4F4F4;}
-.pagination .current *{color:#FFFFFF; background-color:#F7AF9D;}
+.pagination a, .pagination strong{background-color: black; color: white; border-color:rgb(0, 0, 0);}
+.pagination .current *{color:rgb(0, 0, 0); background-color:rgb(255, 255, 255);}
 
 #backtotop{color:#FFFFFF; background-color:rgba(0, 0, 0, 0.493);}
 

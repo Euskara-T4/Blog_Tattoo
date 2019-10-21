@@ -1,6 +1,6 @@
 <?php
 
-    header("Location: ../index.html");
+    //header("Location: ../index.html");
     
     #Salir si alguno de los datos no está presente
     if(!isset($_POST["nombre"]) || !isset($_POST["apellido"])|| !isset($_POST["usuario"])|| !isset($_POST["correo"])|| !isset($_POST["contraseña"])) exit();
@@ -13,27 +13,48 @@
     $correo = $_POST["correo"];
     $pss = $_POST["contraseña"];
     $pss2 = $_POST["contraseña_confirm"];
-
+  
 
     // COMPROBACIONES DB
     if($pss == $pss2){
-        // Comprobar si el usuario ya existe en la BD
-        $sentencia = $conexionBD-> query("SELECT * FROM erabiltzailea WHERE erabiltzaile_iz='$nombre_usuario'");
-        $select = mysql_fetch_array($sentencia);
-        if ($select->num_rows > 0) {
-            echo "<h3>Ese nombre de usuario ya existe</h3>";
-        } else {
-            $passHash = password_hash($pss, PASSWORD_DEFAULT);
-            $sentencia = $conexionBD-> prepare("INSERT INTO erabiltzailea(izena, abizena, erabiltzaile_-iz, email, pasahitza) VALUES (?, ?, ?, ?, ?);");
-            $resultado = $sentencia-> execute([$nombre, $apellido, $nombre_usuario, $correo, $passHash]); 
-            
-            if($resultado == true){
-                echo "<h3>Usuario insertado correctamente</h3>";
-            }
-        } 
+        $userNameExist = comprobarUsuario($conexionBD, $nombre_usuario);
+        $emailExist = comprobarCorreo($conexionBD, $correo);
+        
+        if($userNameExist == false &&  $emailExist = false){
+            insertarUsuario($conexionBD, $nombre, $apellido, $nombre_usuario, $correo, $pss2);    
+        }          
     } else{
         echo "<h3>Las contraseñas no coinciden</h3>";
     }
-    // nahiaaaa19
+
+    function comprobarUsuario($conexionBD, $nombre_usuario){
+        $sql = "SELECT * FROM erabiltzailea WHERE erabiltzaile_iz='$nombre_usuario'";
+        foreach ($conexionBD->query($sql) as $row) {
+            echo "<h3>Nombre de usuario -- $nombre_usuario -- ya existe</h3>";
+            return true;
+        }
+        return false;
+    }
+
+    function comprobarCorreo($conexionBD, $correo){
+        $sql = "SELECT * FROM erabiltzailea WHERE email='$correo'";
+        foreach ($conexionBD->query($sql) as $row) {
+            echo "<h3>Usuario con correo -- $correo -- ya existe</h3>";
+            return true;
+        }
+        return false;
+    }
+
+    function insertarUsuario($conexionBD, $nombre, $apellido, $nombre_usuario, $correo, $pss2) {
+        $passHash = password_hash($pss2, PASSWORD_DEFAULT);
+        $sentencia = $conexionBD-> prepare("INSERT INTO erabiltzailea(izena, abizena, erabiltzaile_iz, email, pasahitza) VALUES (?, ?, ?, ?, ?);");
+        $resultado = $sentencia-> execute([$nombre, $apellido, $nombre_usuario, $correo, $passHash]); 
+        
+        if($resultado == true){
+            echo "<h3>Usuario insertado correctamente</h3>";
+        } else{
+            echo "<h3>ERROR AL INSERTAR</h3>";
+        }     
+    }
    
 ?>
