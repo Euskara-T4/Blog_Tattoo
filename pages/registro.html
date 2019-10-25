@@ -81,7 +81,7 @@
         </div>
         <!-- ################################################################################################ -->
         <!-- ################################################################################################ -->
-        <div class="wrapper row4 bgded overlay" style="background-image:url('images/demo/backgrounds/04.png');">
+        <div class="wrapper row4 bgded overlay" style="background-image:url('../images/demo/backgrounds/fondoRegistro.jpg');">
             <footer id="footer" class="hoc clear">
                 <!-- ################################################################################################ -->
                 <div class="one_third">
@@ -91,17 +91,20 @@
                     <form method="post" action="../php/registro.php">
                         <fieldset>
                             <legend>Newsletter:</legend>
-                            <input class="btmspace-15" type="text" placeholder="Izena" name="nombre"  id="nombre" pattern="[A-Z a-z]{2,20}" required>
-                            <input class="btmspace-15" type="text" placeholder="Abizena" name="apellido"  id="apellido" pattern="[A-Z a-z]{2,30}" required>
-                            <input class="btmspace-15" type="text" placeholder="Erabiltzailea Izena" name="usuario" id="usuario" pattern="[A-Z a-z 0-9]{8,20}" required>
-                            <input class="btmspace-15" type="text" placeholder="Email" name="correo" id="correo" pattern="[A-Z a-z . 0-9 - _]{1,20}[@][a-z]{1,20}[.][a-z]{2,3}" required>
-                            <input class="btmspace-15" type="password" placeholder="Pasahitza" name="contraseña" id="contraseña" pattern="[A-Z a-z 0-9]{1,20}" required>
-                            <input class="btmspace-15" type="password" placeholder="Pasahitzaren Konfirmazioa" id="contraseña2" pattern="[A-Z a-z 0-9]{1,20}" name="contraseña_confirm" required>
-                            
+                            <input class="btmspace-15" type="text" placeholder="Izena" name="nombre"  id="nombre" pattern="[A-Za-zñÑ ]{1,20}" min="2" max="20" required>
+                            <input class="btmspace-15" type="text" placeholder="Abizena" name="apellido"  id="apellido" pattern="[A-Za-zñÑ ]{1,30}" min="2" max="30" required>
+                            <input class="btmspace-15" type="text" placeholder="Erabiltzailea Izena" name="usuario" id="usuario" pattern="[A-Za-zñÑ0-9 ]{1,20}" min="5" max="20" required>
+                            <input class="btmspace-15" type="text" placeholder="Email" name="correo" id="correo" pattern="[A-Za-z.0-9-_]{1,20}[@][a-z]{1,20}[.][a-z]{1,3}" min="10" max="50" required>
+                            <input class="btmspace-15" type="password" placeholder="Pasahitza" name="contraseña" id="contraseña" pattern="[A-Za-zÑñ0-9]{1,20}" min="5" max="100" required>
+                            <input class="btmspace-15" type="password" placeholder="Pasahitzaren Konfirmazioa" name="contraseña_confirm" id="contraseña2" pattern="[A-Za-zÑñ0-9]{1,20}" min="5" max="100" required>
+                           
+                            <p id="mensajeError"></p>
+
                             <div class="flex">
                                 <button type="reset" value="borrar" id="borrar" class="flexBtn">BORRAR</button>
                                 <button type="submit" value="submit" id="enviar" class="flexBtn">SORTU</button>
                             </div>
+
                         </fieldset>
                     </form>
                 </div>

@@ -4,20 +4,24 @@
 	$nombre_usuario = $_POST["erabiltzaile_iz"];
 	$pasahitza = $_POST["pasahitza"];
 	// Tenemos la contraseña encriptada
-	$passEncript = password_hash($pasahitza, PASSWORD_DEFAULT);
-	
-	$sql = "SELECT * FROM erabiltzailea WHERE erabiltzaile_iz='$nombre_usuario' AND pasahitza='$passEncript'";
-	$result = $conexionBD->query($sql);
-	$rows = $result->num_rows;
-	
-	if($rows > 0) {
-		//header("location: welcome.php");
+	$passEncript = md5($pasahitza);
+	$userCorrect = comprobarUsuario($conexionBD, $nombre_usuario, $passEncript);
+
+	if($userCorrect == true) {
 		echo "<h3>ONGI ETORRI $nombre_usuario</h3>";
-	} else {
-		echo "<h3>El nombre o contraseña son incorrectos</h3>";
+	} else{
+		echo "<h3>Nombre o contraseña no son correctas--> $nombre_usuario // $pasahitza</h3>";
 	}
 
+	function comprobarUsuario($conexionBD, $nombre_usuario, $passEncript){
+		$sql = "SELECT * FROM erabiltzailea WHERE erabiltzaile_iz='$nombre_usuario' AND pasahitza='$passEncript'";
 
+        foreach ($conexionBD->query($sql) as $row) {
+			return true;
+		}
+        return false;
+	}
+	
 	// require('../BD/conexionBD.php');	
 	// session_start();
 	// if(isset($_SESSION["$nombre"])){
