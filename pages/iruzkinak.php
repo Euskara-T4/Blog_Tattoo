@@ -1,15 +1,18 @@
 <!DOCTYPE html>
 
 <html lang="es">
+<!-- To declare your language - read more here: https://www.w3.org/International/questions/qa-html-language-declarations -->
 
 <head>
-  <title>Blog Tattoo | Galeria | Kolorezkoa</title>
+  <title>Natucam | Pages | Blog Width</title>
   <meta charset="utf-8">
   <meta name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=1.0, user-scalable=no">
   <link href="../layout/styles/layout.css" rel="stylesheet" type="text/css" media="all">
 </head>
 
 <body id="top">
+  <!-- ################################################################################################ -->
+  <!-- ################################################################################################ -->
   <div class="wrapper row0">
     <div id="topbar" class="hoc clear">
       <!-- ################################################################################################ -->
@@ -26,23 +29,22 @@
   </div>
   <!-- ################################################################################################ -->
   <!-- ################################################################################################ -->
-  <!-- ################################################################################################ -->
   <!-- Top Background Image Wrapper -->
-  <div class="bgded overlay" style="background-image:url('../images/demo/backgrounds/01.png');">
-    <!-- ################################################################################################ -->
+  <div class="bgded overlay">
     <div class="wrapper row1">
+
       <header id="header" class="hoc clear">
-        <!-- ################################################################################################ -->
         <div id="logo" class="fl_left">
           <h1><a href="../index.html">Natucam</a></h1>
         </div>
+
         <nav id="mainav" class="fl_right">
           <ul class="clear">
             <li><a href="../index.html">Home</a></li>
             <li class="active"><a class="drop" href="#">Pages</a>
               <ul>
-                <li class="active"><a href="gallery.html">Gallery</a></li>
-                <li><a href="full-width.html">Full Width</a></li>
+                <li><a href="gallery.html">Gallery</a></li>
+                <li class="active"><a href="full-width.html">Full Width</a></li>
                 <li><a href="sidebar-left.html">Sidebar Left</a></li>
                 <li><a href="sidebar-right.html">Sidebar Right</a></li>
                 <li><a href="basic-grid.html">Basic Grid</a></li>
@@ -61,7 +63,7 @@
                 <li><a href="#">Level 2</a></li>
               </ul>
             </li>
-            <li><a href="aboutUs.html">Link Text</a></li>
+            <li><a href="#">Link Text</a></li>
             <li><a href="#">Link Text</a></li>
           </ul>
         </nav>
@@ -70,21 +72,19 @@
     </div>
     <!-- ################################################################################################ -->
     <!-- ################################################################################################ -->
-    <!-- ################################################################################################ -->
-    <div>
+    <div class="wrapper row2">
       <div id="breadcrumb" class="hoc clear">
-        <!-- ################################################################################################ -->
         <ul>
           <li><a href="../index.html">Hasiera</a></li>
-          <li><a href="gallery.html">Galeria</a></li>
-          <li><a href="galeriaColor.html">Kolorezkoa</a></li>
+          <li><a href="iruzkinak.html">IRUZKINAK</a></li>
         </ul>
-        <!-- ################################################################################################ -->
       </div>
     </div>
     <!-- ################################################################################################ -->
   </div>
-
+  <!-- End Top Background Image Wrapper -->
+  <!-- ################################################################################################ -->
+  <!-- ################################################################################################ -->
   <!-- ################################################################################################ -->
   <div class="wrapper row3">
     <main class="hoc container clear">
@@ -92,47 +92,60 @@
       <!-- ################################################################################################ -->
       <div class="content">
         <!-- ################################################################################################ -->
-        <div id="gallery">
-          <figure>
-            <header class="heading">KOLOREZKO TATUAJEAK</header>
-            <!-- HABRIA QUE METER UN CODIGO PHO JUSTO AQUI --->
-           
-                <?php
-                  include_once "../BD/conexionBD.php";
-		              $sql = "SELECT * FROM argazkia WHERE erabiltzaile_iz='$nombre_usuario' AND pasahitza='$passEncript'";
+        <h1>POST</h1>
+  
+        <?php?>
+          <!-- SELECT DE TITULOS DEL TEMA  -->
+        <?php?>
 
-                  foreach ($conexionBD->query($sql) as $row) {
-                    echo " 
-                      <li class='one_quarter first'>
-                        <img src='$row['url']' alt='$row['izena']'>
-                        <figcaption>$row['url']</figcaption>
-                      </li>      
-                    ";
-                  }
-
-                ?>
-          </figure>
-        </div>
-        <!-- ################################################################################################ -->
-        <!-- ################################################################################################ -->
-        <nav class="pagination">
+        <div id="comments">
+          <h2>Comments</h2>
           <ul>
-            <li><a href="#">&laquo; Previous</a></li>
-            <li class="current"><a href="#">1</a></li>
-            <li><a href="#">2</a></li>
-            <li><a href="#">3</a></li>
-            <li><strong>&hellip;</strong></li>
-            <li><a href="#">Next &raquo;</a></li>
+
+            <li>
+              <article>
+                <header>
+                  <figure class="avatar">
+                    <img class="avatarImg" src="../images/demo/avatar.png" alt="user icon">
+                  </figure>
+                  <address>
+                    By <a href="#">A Name</a>
+                  </address>
+                  <time datetime="2045-04-06T08:15+00:00">Friday, 6<sup>th</sup> April 2045 @08:15:00</time>
+                </header>
+                <div class="comcont">
+                  <p>This is an example of a comment made on a post. You can either edit the comment, delete the comment
+                    or reply to the comment. Use this as a place to respond to the post or to share what you are
+                    thinking.</p>
+                </div>
+              </article>
+            </li>
           </ul>
-        </nav>
+
+          <!-- AÑADIMOS EL COMENTARIO -->
+          <div class="insertarComentario">
+            <h2>IRUZKINA SARTU</h2>
+            <form method="post" action="../php/comentario.php">
+
+              <div class="block clear">
+                <label for="iruzkina">Zure iruzkina:</label>
+                <textarea name="iruzkina" id="comment" cols="25" rows="10"></textarea>
+              </div>
+
+              <div class="flex">
+                <input type="submit" class="flexBtn" name="submit" value="Bidali">
+                <input type="reset" class="flexBtn" name="reset" value="Borratu">
+              </div>
+            </form>
+          </div>
         <!-- ################################################################################################ -->
+        </div>
       </div>
       <!-- ################################################################################################ -->
       <!-- / main body -->
       <div class="clear"></div>
     </main>
   </div>
-  <!-- ################################################################################################ -->
   <!-- ################################################################################################ -->
   <!-- ################################################################################################ -->
   <div class="wrapper row5">

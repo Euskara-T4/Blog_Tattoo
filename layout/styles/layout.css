@@ -10,7 +10,7 @@ File: Layout CSS
 
 @import url("font-awesome.min.css");
 @import url("framework.css");
-@import url("login.css");
+@import url("myCss.css");
 
 
 
@@ -344,11 +344,11 @@ input:focus, textarea:focus, *:required:focus{border-color:#F7AF9D;}
 
 
 /* Tables + Comments */
-table, th, td, #comments .avatar, #comments input, #comments textarea{border-color:#F4F4F4;}
+table, th, td, #comments .avatar, #comments input, #comments textarea{border-color:#F4F4F4; color: black;} 
 #comments input:focus, #comments textarea:focus, #comments *:required:focus{border-color:#F7AF9D;}
 th{color:#FFFFFF; background-color:#373737;}
 tr, #comments li, #comments input[type="submit"], #comments input[type="reset"]{color:inherit; background-color:#FBFBFB;}
-tr:nth-child(even), #comments li:nth-child(even){color:inherit; background-color:#F7F7F7;}
+tr:nth-child(even), #comments li:nth-child(even){color:inherit; background-color:rgb(224, 224, 224);}
 table a, #comments a{background-color:inherit;}
 
 
@@ -431,28 +431,4 @@ table a, #comments a{background-color:inherit;}
 
 	#pageintro article, #pageintro p:first-of-type{max-width:none; width:100%;}
 	#pageintro .heading{font-size:1.6rem;}
-}
-
-/*---------- BUTTONS ----------- */
-#footer .flex {
-	display: flex;
-    flex-direction: row;
-    justify-content: center;
-    align-items: center;
-}
-
-#footer .flexBtn {
-	background: rgb(163, 163, 163);
-	color: black;
-	padding: 10px 20px;
-	text-align: center;
-	display: inline-block;
-	font-size: 16px;
-	margin-top: 15px;
-	margin-left: 10px;
-	margin-right: 10px;
-}
-
-.error {
-	border: solid 2px #FF0000;
 }

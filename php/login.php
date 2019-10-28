@@ -1,7 +1,5 @@
 <?php	
 	include_once "../BD/conexionBD.php";
-	header("Location: ../index.html");
-
 	  
 	$nombre_usuario = $_POST["erabiltzaile_iz"];
 	$pasahitza = $_POST["pasahitza"];
@@ -20,8 +18,10 @@
 
         foreach ($conexionBD->query($sql) as $row) {
 			return true;
+			header("Location: ../pages/user.html");
 		}
-        return false;
+		return false;
+		header("Location: ../index.html");
 	}
 	
 	// require('../BD/conexionBD.php');	

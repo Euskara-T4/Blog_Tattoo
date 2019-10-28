@@ -17,8 +17,7 @@ function validaNombre() {
             return false;
         }
 
-        if (elemento.validity.rangeUnderflow || elemento.validity.rangeOverflow) {
-            alert(elemento.value);
+        if (elemento.value.length < 2) {
             error(elemento, "Izenaren luzeera 2-20 artean egon behar da.");
             return false;
         }
@@ -41,8 +40,7 @@ function validaApellido() {
             return false;
         }
 
-        if (elemento.validity.rangeUnderflow || elemento.validity.rangeOverflow) {
-            alert(elemento.value);
+        if (elemento.value.length < 2) {
             error(elemento, "Abizenaren luzeera 2-30 artean egon behar da.");
             return false;
         }
@@ -60,8 +58,7 @@ function validaUsuario() {
             return false;
         }
 
-        if (elemento.validity.rangeUnderflow || elemento.validity.rangeOverflow) {
-            alert(elemento.value);
+        if (elemento.value.length < 5) {
             error(elemento, "Erabiltzaile luzeera 5-20 artean egon behar da.");
             return false;
         }
@@ -83,8 +80,7 @@ function validaCorreo() {
             error(elemento, "Ezin da horrelako emaila izan, example: -------@----.---");
         }
 
-        if (elemento.validity.rangeUnderflow || elemento.validity.rangeOverflow) {
-            alert(elemento.value);
+        if (elemento.value.length < 10) {
             error(elemento, "Emailaren luzeera 10-50 artean egon behar da.");
             return false;
         }
@@ -103,8 +99,7 @@ function validaContraseña() {
             error(elemento, "Pasahitza jarri behar duzu.")
         }
 
-        if (elemento.validity.rangeUnderflow || elemento.validity.rangeOverflow) {
-            alert(elemento.value);
+        if (elemento.value.length < 10) {
             error(elemento, "Pasahitzaren luzeera 10-50 artean egon behar da.");
             return false;
         }
@@ -117,8 +112,7 @@ function validaContraseña() {
             error(elemento, "Pasahitza jarri behar duzu.")
         }
 
-        if (elemento.validity.rangeUnderflow || elemento.validity.rangeOverflow) {
-            alert(elemento.value);
+        if (elemento.value.length < 10) {
             error(elemento, "Pasahitzaren luzeera 10-50 artean egon behar da.");
             return false;
         }
