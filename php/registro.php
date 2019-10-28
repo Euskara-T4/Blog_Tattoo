@@ -2,7 +2,7 @@
     header("Location: ../index.html");
     
     #Salir si alguno de los datos no está presente
-    if(!isset($_POST["nombre"]) || !isset($_POST["apellido"]) || !isset($_POST["usuario"]) || !isset($_POST["correo"]) || !isset($_POST["contraseña"]) || !isset($_POST["contraseña_confirm"])) exit();-
+    if(!isset($_POST["nombre"]) || !isset($_POST["apellido"]) || !isset($_POST["usuario"]) || !isset($_POST["correo"]) || !isset($_POST["contraseña"]) || !isset($_POST["contraseña_confirm"])) exit();
 
     #Si todo va bien, se ejecuta esta parte del código...
     include_once "../BD/conexionBD.php";
@@ -47,7 +47,7 @@
 
     // Despues de hacer las comprobaciones, insertamos a la base de datos
     function insertarUsuario($conexionBD, $nombre, $apellido, $nombre_usuario, $correo, $pss2) {
-        $passHash = md5($pss2);
+        $passHash = hash("sha256", $pss2);
         $sentencia = $conexionBD-> prepare("INSERT INTO erabiltzailea(izena, abizena, erabiltzaile_iz, email, pasahitza) VALUES (?, ?, ?, ?, ?);");
         $resultado = $sentencia-> execute([$nombre, $apellido, $nombre_usuario, $correo, $passHash]); 
         

@@ -1,16 +1,18 @@
 <?php	
 	include_once "../BD/conexionBD.php";
+	header("Location: ../index.html");
+
 	  
 	$nombre_usuario = $_POST["erabiltzaile_iz"];
 	$pasahitza = $_POST["pasahitza"];
 	// Tenemos la contraseña encriptada
-	$passEncript = md5($pasahitza);
+	$passEncript = hash("sha256", $pasahitza);
 	$userCorrect = comprobarUsuario($conexionBD, $nombre_usuario, $passEncript);
 
 	if($userCorrect == true) {
 		echo "<h3>ONGI ETORRI $nombre_usuario</h3>";
 	} else{
-		echo "<h3>Nombre o contraseña no son correctas--> $nombre_usuario // $pasahitza</h3>";
+		echo "<h3>Nombre o contraseña no son correctas--> $nombre_usuario // $passEncript</h3>";
 	}
 
 	function comprobarUsuario($conexionBD, $nombre_usuario, $passEncript){
