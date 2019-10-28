@@ -101,18 +101,16 @@
                   include_once "../BD/conexionBD.php";
 		              $sql = "SELECT * FROM argazkia WHERE erabiltzaile_iz='$nombre_usuario' AND pasahitza='$passEncript'";
 
-
                   foreach ($conexionBD->query($sql) as $row) {
                     echo " 
-                      <li class="one_quarter first">
-                        <img src="$row['url']" alt="$row['izena']">
+                      <li class='one_quarter first'>
+                        <img src='$row['url']' alt='$row['izena']'>
                         <figcaption>$row['url']</figcaption>
                       </li>      
                     ";
                   }
 
                 ?>
-            -->
 
             <li class="one_quarter first">
               <img src="../images/demo/gallery/01.png" alt="">
