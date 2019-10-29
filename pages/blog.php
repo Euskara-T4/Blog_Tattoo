@@ -97,7 +97,7 @@
                             <header class="heading">TATUAJEEN BURUZKO POSTAK</header>
 
                             <?php
-                                // Recoger informacion sobre los temas
+                                // Recoger informacion sobre los temas correspondientes
                                 include_once "../BD/conexionBD.php";
                                 $sql = "SELECT * FROM gaia";
 
