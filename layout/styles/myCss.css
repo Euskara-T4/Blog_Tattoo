@@ -230,15 +230,31 @@ span.psw {
   margin-right: 5px;
 }
 
-.gaiaFlex {
+.usuarioFlex {
   display: flex;
   flex-direction: row;
   justify-content: left;
   align-items: left;
+}
 
+.gaiaContainer {  
+  margin-bottom: 50px;  
 }
 
 .gaiaImg {
   border: 7px solid black;
   margin-bottom: 10px;  
+}
+
+.postImg {
+  display: inline;
+  flex-direction: row;
+  justify-content: left;
+  align-items: left;
+  border: 7px solid black;
+  margin-bottom: 10px;  
+}
+
+.iruzkinakTitle {
+  padding-top: 50px;
 }

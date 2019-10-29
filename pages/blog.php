@@ -115,19 +115,22 @@
                                         $img_src = $rowImg['url'];
                                         $img_name = $rowImg['izena'];
                             ?>
-
-                                    <a href='iruzkinak.php'>
-                                        <li class='one_quarter first'>
+                                    <div class="gaiaContainer">
+                                        <a href='iruzkinak.php?idGaia=<?php echo $id_gaia;?>'>
+                                            <!-- Imagen -->
                                             <img class="gaiaImg" src= "<?php echo $img_src; ?>" alt="<?php echo $img_name; ?>">
+                                            <!-- Titulo -->
                                             <h3 class="gaiaTitulo"><?php echo $gaia;?></h3>
-                                            <div class="gaiaFlex">
+                                            <!-- Recoger ID del tema -->
+                                            <!-- Avatar y nombre usuario -->
+                                            <div class="usuarioFlex">
                                                 <img class="gaiaAvatar" src="../images/demo/avatar.png" alt="user icon">
                                                 <h4 class="gaiaUsuario"><?php echo $erabiltzailea;?></h4>
-                                            </div>                                            
+                                            </div>                                
+                                            <!-- Resumen -->
                                             <figcaption class="gaiaLaburpena"><?php echo $laburpena;?></figcaption>
-                                        </li>  
-                                    </a>
-
+                                        </a>
+                                    </div>
                             <?php
                                     }
                                 }
