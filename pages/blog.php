@@ -94,26 +94,44 @@
               <div class="content">
                   <div id="gallery">
                       <figure>
-                          <header class="heading">TATUAJEEN BURUZKO POSTAK</header>
+                            <header class="heading">TATUAJEEN BURUZKO POSTAK</header>
 
-                          <?php
-                            include_once "../BD/conexionBD.php";
-                            $sql = "SELECT * FROM gaia";
+                            <?php
+                                // Recoger informacion sobre los temas
+                                include_once "../BD/conexionBD.php";
+                                $sql = "SELECT * FROM gaia";
 
-                            foreach ($conexionBD->query($sql) as $row) {
-                              echo " 
-                                <a href='iruzkinak.html'>
-                                  <li class='one_quarter first'>
-                                    <img src='$row['url']' alt='$row['izena']'>
-                                    <h3>$row['titulua']</h3>
-                                    <h4>$row['erabiltzaile_iz']</h4>
-                                    <figcaption>$row['laburpena']</figcaption>
-                                  </li>  
-                                <a/>    
-                              ";
-                            }
+                                foreach ($conexionBD->query($sql) as $row) {    
+                                    $id_gaia = $row['id_gaia'];
+                                    $erabiltzailea = $row['erabiltzaile_iz'];
+                                    $gaia = $row['titulua'];
+                                    $laburpena = $row['laburpena'];
+                                    $deskribapena = $row['deskribapena'];
 
-                          ?>
+                                    // Recogemos la imagen que le corresponde
+                                    $sqlImg = "SELECT * FROM argazkia WHERE id_gaia='$id_gaia'";
+                                    
+                                    foreach ($conexionBD->query($sqlImg) as $rowImg) {    
+                                        $img_src = $rowImg['url'];
+                                        $img_name = $rowImg['izena'];
+                            ?>
+
+                                    <a href='iruzkinak.php'>
+                                        <li class='one_quarter first'>
+                                            <img class="gaiaImg" src= "<?php echo $img_src; ?>" alt="<?php echo $img_name; ?>">
+                                            <h3 class="gaiaTitulo"><?php echo $gaia;?></h3>
+                                            <div class="gaiaFlex">
+                                                <img class="gaiaAvatar" src="../images/demo/avatar.png" alt="user icon">
+                                                <h4 class="gaiaUsuario"><?php echo $erabiltzailea;?></h4>
+                                            </div>                                            
+                                            <figcaption class="gaiaLaburpena"><?php echo $laburpena;?></figcaption>
+                                        </li>  
+                                    </a>
+
+                            <?php
+                                    }
+                                }
+                            ?>
                       </figure>
                   </div>
                   <!-- ################################################################################################ -->

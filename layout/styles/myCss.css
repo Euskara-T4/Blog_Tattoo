@@ -200,3 +200,45 @@ span.psw {
   color: white;
   padding: 10px;
 }
+
+/* CSS DEL COMENTARIO */
+.gaiaTitulo {
+  margin: 0 0 20px 0;
+  font-size: 22px;
+  line-height: normal;
+  font-weight: normal;
+  text-transform: uppercase;
+  color: #000 !important;
+}
+
+.gaiaUsuario {
+  margin: 0 0 20px 0;
+  font-size: 15px;
+  line-height: normal;
+  font-weight: normal;
+  text-transform: uppercase;
+  color: rgb(68, 68, 68) !important;
+}
+
+.gaiaLaburpena {
+  color: rgb(68, 68, 68) !important;
+}
+
+.gaiaAvatar {
+  width: 20px;
+  height: 20px;
+  margin-right: 5px;
+}
+
+.gaiaFlex {
+  display: flex;
+  flex-direction: row;
+  justify-content: left;
+  align-items: left;
+
+}
+
+.gaiaImg {
+  border: 7px solid black;
+  margin-bottom: 10px;  
+}

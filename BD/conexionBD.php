@@ -11,5 +11,4 @@
 			echo "Ocurrió algo con la base de datos: " . $e->getMessage();
 		}
 
-	echo "conexion exitosa";
 ?>
