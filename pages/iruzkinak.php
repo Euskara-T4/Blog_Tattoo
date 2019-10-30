@@ -128,7 +128,7 @@
                 $id_gaia = $row['id_gaia'];
                 $erabiltzailea = $row['erabiltzaile_iz'];
                 $iruzkina = $row['iruzkina'];
-                $data = $row['data'];
+                $sortze_data = $row['sortze_data'];
             ?>
                 
                 <ul>
@@ -141,7 +141,7 @@
 
                         <address><?php echo $erabiltzailea;?></address>
 
-                        <time datetime="2045-04-06T08:15+00:00"><?php echo $data;?></time>
+                        <time datetime="2045-04-06T08:15+00:00"><?php echo $sortze_data;?></time>
                       </header>
 
                       <div class="comcont">
@@ -165,6 +165,8 @@
                   <label for="iruzkina">Zure iruzkina:</label>
                   <textarea name="iruzkina" id="comment" cols="25" rows="10"></textarea>
                 </div>
+
+                <input type="hidden" name="gaiaId" value="<?php echo $id_gaia; ?>">
 
                 <div class="flex">
                   <input type="submit" class="flexBtn" name="submit" value="Bidali">

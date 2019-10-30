@@ -1,5 +1,10 @@
 <?php
-    echo "          
+    echo "
+        <!-- INICIAMOS LA SESION -->
+        <?php
+            session_start();
+        ?>          
+
         <head>
             <title>Blog Tattoo</title>
             <meta charset='utf-8'>
@@ -18,8 +23,24 @@
 
                         <!-- BOTONES LOGIN -->
                         <li><a href='#'><i class='fa fa-lg fa-home'></i></a></li>
-                        <li><a href='#' title='Login'><i class='fa fa-lg fa-sign-in'></i></a></li>
+                        <!-- COMPRAMOS SI LA SESION EXISTE -->
+                        <?php
+                          if(!isset($_SESSION['usuario'])){
+                        ?>
+                            <!-- Si la sesion no esta iniciada -->
+                            <li><a href='#' title='Login' id='btnLogin'><i class='fa fa-lg fa-sign-in'></i></a></li>
+                        
+                        <?php
+                          } else{
+                            echo $_SESSION['usuario'];
+                        ?>              
+                            <li><a href='#' title='Logout' id='btnLogout'><i class='fa fa-lg fa-sign-out'></i></a></li>
+                            
+                        <?php
+                          }
+                        ?>
                         <li><a href='#' title='Sign Up'><i class='fa fa-lg fa-edit'></i></a></li>
+                        
                         <!-------------------------------------------->
                     </ul>
                 </div>

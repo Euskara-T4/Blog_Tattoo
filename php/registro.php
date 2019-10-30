@@ -1,4 +1,7 @@
 <?php
+    // INICIAMOS LA SESION
+    session_start();
+
     header("Location: ../index.html");
     
     #Salir si alguno de los datos no está presente

@@ -10,5 +10,7 @@
 		}catch(Exception $e){
 			echo "Ocurrió algo con la base de datos: " . $e->getMessage();
 		}
+		
+	echo "Conexion exitosa";
 
 ?>

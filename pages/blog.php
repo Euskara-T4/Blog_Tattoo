@@ -1,6 +1,12 @@
-<!DOCTYPE html>
+<?php
+  // INICIAMOS LA SESION
+  session_start();
+?>
 
-<html lang="es">
+
+<!DOCTYPE php>
+
+<php lang="es">
 
   <head>
       <title>Blog Tattoo | Galeria</title>
@@ -14,11 +20,27 @@
           <div id="topbar" class="hoc clear">
               <!-- ################################################################################################ -->
               <ul>
-                  <li><i class="fa fa-clock-o"></i> Mon. - Fri. 8am - 5pm</li>
-                  <li><i class="fa fa-phone"></i> +00 (123) 456 7890</li>
-                  <li><i class="fa fa-envelope-o"></i> info@domain.com</li>
-                  <li><a href="#"><i class="fa fa-lg fa-home"></i></a></li>
-                  <li><a href="#" title="Login"><i class="fa fa-lg fa-sign-in"></i></a></li>
+                    <li><i class="fa fa-clock-o"></i> Mon. - Fri. 8am - 5pm</li>
+                    <li><i class="fa fa-phone"></i> +00 (123) 456 7890</li>
+                    <li><i class="fa fa-envelope-o"></i> info@domain.com</li>
+                    <li><a href="#"><i class="fa fa-lg fa-home"></i></a></li>
+
+                    <?php
+                        if(!isset($_SESSION['usuario'])){
+                    ?>
+                        <!-- Si la sesion no esta iniciada -->
+                        <li><a href='#' title='Login' id='btnLogin'><i class='fa fa-lg fa-sign-in'></i></a></li>
+                    
+                    <?php
+                        } else{
+                        echo $_SESSION['usuario'];
+                    ?>              
+                        <li><a href='../php/logout.php' title='Logout' id='btnLogout'><i class='fa fa-lg fa-sign-out'></i></a></li>
+                        
+                    <?php
+                        }
+                    ?>
+                    
                   <li><a href="#" title="Sign Up"><i class="fa fa-lg fa-edit"></i></a></li>
               </ul>
               <!-- ################################################################################################ -->
@@ -34,18 +56,18 @@
               <header id="header" class="hoc clear">
                   <!-- ################################################################################################ -->
                   <div id="logo" class="fl_left">
-                      <h1><a href="../index.html">Natucam</a></h1>
+                      <h1><a href="../index.php">Natucam</a></h1>
                   </div>
                   <nav id="mainav" class="fl_right">
                       <ul class="clear">
-                          <li><a href="../index.html">Home</a></li>
+                          <li><a href="../index.php">Home</a></li>
                           <li class="active"><a class="drop" href="#">Pages</a>
                               <ul>
-                                  <li class="active"><a href="gallery.html">Gallery</a></li>
-                                  <li><a href="full-width.html">Full Width</a></li>
-                                  <li><a href="sidebar-left.html">Sidebar Left</a></li>
-                                  <li><a href="sidebar-right.html">Sidebar Right</a></li>
-                                  <li><a href="basic-grid.html">Basic Grid</a></li>
+                                  <li class="active"><a href="gallery.php">Gallery</a></li>
+                                  <li><a href="full-width.php">Full Width</a></li>
+                                  <li><a href="sidebar-left.php">Sidebar Left</a></li>
+                                  <li><a href="sidebar-right.php">Sidebar Right</a></li>
+                                  <li><a href="basic-grid.php">Basic Grid</a></li>
                               </ul>
                           </li>
                           <li><a class="drop" href="#">Dropdown</a>
@@ -61,7 +83,7 @@
                                   <li><a href="#">Level 2</a></li>
                               </ul>
                           </li>
-                          <li><a href="aboutUs.html">Link Text</a></li>
+                          <li><a href="aboutUs.php">Link Text</a></li>
                           <li><a href="#">Link Text</a></li>
                       </ul>
                   </nav>
@@ -75,8 +97,8 @@
               <div id="breadcrumb" class="hoc clear">
                   <!-- ################################################################################################ -->
                   <ul>
-                      <li><a href="../index.html">Home</a></li>
-                      <li><a href="gallery.html">Galeria</a></li>
+                      <li><a href="../index.php">Home</a></li>
+                      <li><a href="gallery.php">Galeria</a></li>
                       <li><a href="#">Ipsum</a></li>
                       <li><a href="#">Dolor</a></li>
                   </ul>
@@ -178,4 +200,4 @@
       <script src="../layout/scripts/jquery.mobilemenu.js"></script>
   </body>
 
-</html>
+</php>
