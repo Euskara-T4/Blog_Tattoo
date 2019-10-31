@@ -7,6 +7,14 @@
     <meta charset="utf-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=1.0, user-scalable=no">
     <link href="../layout/styles/layout.css" rel="stylesheet" type="text/css" media="all">
+    <link rel="stylesheet" href="https://www.w3schools.com/w3css/4/w3.css">
+    <style>
+    .mySlides {display:none;}
+    img{
+      width:50%;
+      height:90%;
+    }
+    </style>
   </head>
 
   <body id="top">
@@ -109,11 +117,49 @@
               foreach ($conexionBD->query($sqlImg) as $rowImg) {    
                 $img_src = $rowImg['url'];
                 $img_name = $rowImg['izena'];
-          ?>      
+          ?>   
+
+          <!-------slider imagen de blog con botones
+          
+                  carga de imagenes desde la BD-------------------------->  
+          
+          <div name="imagen">
               <!-- Informacion sobre el tema  -->
-              <img class="postImg" src="<?php echo $img_src; ?>" alt="<?php echo $img_name; ?>">  
+              <img class="mySlides" src="<?php echo $img_src; ?>" alt="<?php echo $img_name; ?>">  
+              
+              <!----------------------------------------------------------------->
+              <!---------------script para recorrer imagen ---------------------->
          <?php
               }
+              ?>
+              <script>
+                  var slideIndex = 1;
+                    showDivs(slideIndex);
+
+                    function plusDivs(n) {
+                      showDivs(slideIndex += n);
+                    }
+
+                    function showDivs(n) {
+                      var i;
+                      var x = document.getElementsByClassName("mySlides");
+                      if (n > x.length) {slideIndex = 1}
+                      if (n < 1) {slideIndex = x.length} ;
+                      for (i = 0; i < x.length; i++) {
+                        x[i].style.display = "none";
+                      }
+                      x[slideIndex-1].style.display = "block";
+                    }
+                </script>
+                <!--botones para pasar imagenes por el slider-->
+                <button class="w3-button w3-display-left" onclick="plusDivs(-1)">&#10094;</button>
+                <button class="w3-button w3-display-right" onclick="plusDivs(+1)">&#10095;</button>
+
+                </div>
+                
+
+
+          <?php    
             }
           ?>
 
@@ -128,7 +174,7 @@
                 $id_gaia = $row['id_gaia'];
                 $erabiltzailea = $row['erabiltzaile_iz'];
                 $iruzkina = $row['iruzkina'];
-                $sortze_data = $row['sortze_data'];
+                $data = $row['data'];
             ?>
                 
                 <ul>
@@ -141,7 +187,7 @@
 
                         <address><?php echo $erabiltzailea;?></address>
 
-                        <time datetime="2045-04-06T08:15+00:00"><?php echo $sortze_data;?></time>
+                        <time datetime="2045-04-06T08:15+00:00"><?php echo $data;?></time>
                       </header>
 
                       <div class="comcont">
@@ -165,8 +211,6 @@
                   <label for="iruzkina">Zure iruzkina:</label>
                   <textarea name="iruzkina" id="comment" cols="25" rows="10"></textarea>
                 </div>
-
-                <input type="hidden" name="gaiaId" value="<?php echo $id_gaia; ?>">
 
                 <div class="flex">
                   <input type="submit" class="flexBtn" name="submit" value="Bidali">

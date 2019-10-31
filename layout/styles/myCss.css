@@ -258,3 +258,10 @@ span.psw {
 .iruzkinakTitle {
   padding-top: 50px;
 }
+
+.mySlides {display:none;}
+img{
+  width:50%;
+      height:90%;
+      align: center;
+    }
