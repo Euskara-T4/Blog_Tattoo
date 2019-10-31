@@ -259,9 +259,10 @@ span.psw {
   padding-top: 50px;
 }
 
-.mySlides {display:none;}
-img{
+.mySlides {
+  display:none;
   width:50%;
-      height:90%;
-      align: center;
-    }
+  height:90%;
+  margin-left: 25%;
+}
+
