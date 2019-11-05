@@ -34,7 +34,6 @@ function log(){
 }
 
 function logout(){
-    window.open("php/logout.php");
-
-
+    // Esto hay que cambiarlo
+    window.open("php/logout.php", "_self");
 }

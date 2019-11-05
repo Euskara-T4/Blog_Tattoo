@@ -1,3 +1,8 @@
+<?php
+  // INICIAMOS LA SESION    
+  session_start();
+?>
+
 <!DOCTYPE html>
 
 <html lang="es">
@@ -20,8 +25,25 @@
           <li><i class="fa fa-phone"></i> +00 (123) 456 7890</li>
           <li><i class="fa fa-envelope-o"></i> info@domain.com</li>
           <li><a href="#"><i class="fa fa-lg fa-home"></i></a></li>
-          <li><a href="#" title="Login"><i class="fa fa-lg fa-sign-in"></i></a></li>
-          <li><a href="#" title="Sign Up"><i class="fa fa-lg fa-edit"></i></a></li>
+          
+          <!-- BOTON LOGIN -->
+          <?php
+              if(!isset($_SESSION['usuario'])){
+          ?>
+              <!-- Si la sesion no esta iniciada -->
+              <li><a href='#' title='Login' id='btnLogin'><i class='fa fa-lg fa-sign-in'></i></a></li>
+          
+          <?php
+              } else{
+              echo $_SESSION['usuario'];
+          ?>              
+              <li><a href='../php/logout.php' title='Logout' id='btnLogout'><i class='fa fa-lg fa-sign-out'></i></a></li>
+              
+          <?php
+              }
+          ?>          
+          <!-- ---------------- -->
+          <li><a href="pages/registro.html" title="Sign Up"><i class="fa fa-lg fa-user-plus"></i></a></li>
         </ul>
         <!-- ################################################################################################ -->
       </div>
@@ -129,52 +151,91 @@
                 $erabiltzailea = $row['erabiltzaile_iz'];
                 $iruzkina = $row['iruzkina'];
                 $sortze_data = $row['sortze_data'];
+                $id_iruzkina = $row['id_iruzkina'];
             ?>
-                
+
+              <form method="post" action="../php/comentario.php">
                 <ul>
                   <li>
                     <article>
                       <header>
-                        <figure class="avatar">
-                          <img class="avatarImg" src="../images/demo/avatar.png" alt="user icon">
-                        </figure>
+                          <figure class="avatar">
+                            <i class="fa fa-user-circle-o" id="avatarImg"></i>
+                          </figure>
 
-                        <address><?php echo $erabiltzailea;?></address>
+                          <address><?php echo $erabiltzailea;?></address>
 
-                        <time datetime="2045-04-06T08:15+00:00"><?php echo $sortze_data;?></time>
-                      </header>
+                          <input type="hidden" name="iruzkinaId" value="<?php echo $id_iruzkina; ?>">
+                          <input type="hidden" name="idGaia" value="<?php echo $id_gaia; ?>">
 
-                      <div class="comcont">
-                        <p><?php echo $iruzkina;?></p>
-                      </div>
-                    </article>
-                  </li>
-                </ul>
+                          <time datetime="2045-04-06T08:15+00:00"><?php echo $sortze_data;?></time>
+                        </header>
+
+                        <div class="comcont">
+                          <p><?php echo $iruzkina;?></p>
+                        </div>
+                        
+                        <!-- COMPRAMOS SI LA EL USUARIO ES EL CORRESPONDIENTE -->
+                        <?php
+                          if(isset($_SESSION["usuario"])){
+                            if($_SESSION["usuario"] == $erabiltzailea || $_SESSION["usuario"] == "admin") {
+                        ?>
+                        <div class="commentsIcon">
+                            <button type="submit" name="btnDelete">
+                              <i class="fa fa-lg fa-trash-o"></i>
+                            </button >
+
+                            <!-- <button type="submit">
+                              <i class="fa fa-lg fa-edit"></i>
+                            </button > -->
+                        </div>
+                        
+                        <?php
+                            }
+                          }
+                        ?>
+                      </article>
+                    </li>
+                  </ul>
+
+              <?php
+                    
+                  }
+              ?>     
+                
+               </form>
+            <!-- -------------------- -->
+
+
+          <!-- COMPRAMOS SI LA SESION EXISTE -->
+            <?php
+              if(isset($_SESSION["usuario"])){
+            ?>
+              <!-- AÑADIMOS EL COMENTARIO -->
+              <div class="insertarComentario">
+                <h2>IRUZKINA SARTU</h2>
+                <form method="post" action="../php/comentario.php">
+
+                  <div class="block clear">
+                    <label for="iruzkina">Zure iruzkina:</label>
+                    <textarea name="iruzkina" id="comment" cols="25" rows="10"></textarea>
+                  </div>
+
+                  <input type="hidden" name="idGaia" value="<?php echo $id_gaia; ?>">
+
+                  <div class="flex">
+                    <input type="submit" class="flexBtn" name="send" value="Bidali">
+                    <input type="reset" class="flexBtn" name="reset" value="Borratu">
+                  </div>
+                </form>
+                <p name="errores"></p>
+              </div>
 
             <?php
-                  
-                }
-            ?>     
+              }
+            ?>
 
-            <!-- AÑADIMOS EL COMENTARIO -->
-            <div class="insertarComentario">
-              <h2>IRUZKINA SARTU</h2>
-              <form method="post" action="../php/comentario.php">
-
-                <div class="block clear">
-                  <label for="iruzkina">Zure iruzkina:</label>
-                  <textarea name="iruzkina" id="comment" cols="25" rows="10"></textarea>
-                </div>
-
-                <input type="hidden" name="gaiaId" value="<?php echo $id_gaia; ?>">
-
-                <div class="flex">
-                  <input type="submit" class="flexBtn" name="submit" value="Bidali">
-                  <input type="reset" class="flexBtn" name="reset" value="Borratu">
-                </div>
-              </form>
-            </div>
-          <!-- ################################################################################################ -->
+            <!-- ################################################################################################ -->
           </div>
         </div>
         <!-- ################################################################################################ -->

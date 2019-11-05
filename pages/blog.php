@@ -6,7 +6,7 @@
 
 <!DOCTYPE php>
 
-<php lang="es">
+<html lang="es">
 
   <head>
       <title>Blog Tattoo | Galeria</title>
@@ -41,7 +41,7 @@
                         }
                     ?>
                     
-                  <li><a href="#" title="Sign Up"><i class="fa fa-lg fa-edit"></i></a></li>
+                    <li><a href="pages/registro.html" title="Sign Up"><i class="fa fa-lg fa-user-plus"></i></a></li>
               </ul>
               <!-- ################################################################################################ -->
           </div>
@@ -200,4 +200,4 @@
       <script src="../layout/scripts/jquery.mobilemenu.js"></script>
   </body>
 
-</php>
+</html>

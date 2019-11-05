@@ -30,27 +30,32 @@
           <li><i class="fa fa-envelope-o"></i> info@domain.com</li>
           <!-- ################################################################################################ -->
           <!-- USER ACTION ICONS -->
-          <li><a href="#" title="User"><i class="fa fa-lg fa-home"></i></a></li>
+          <li><a href="#" title="Perfila"><i class="fa fa-lg fa-home"></i></a></li>
           
           <!-- COMPRAMOS SI LA SESION EXISTE -->
           <?php
             if(!isset($_SESSION["usuario"])){
           ?>
               <!-- Si la sesion no esta iniciada -->
-              <li><a href="#" title="Login" id="btnLogin"><i class="fa fa-lg fa-sign-in"></i></a></li>
-          
+              <li><a href="#" title="Logeatu" id="btnLogin"><i class="fa fa-lg fa-sign-in"></i></a></li>
           <?php
             } else{
               echo $_SESSION["usuario"];
           ?>              
-              <li><a href="#" title="Logout" id="btnLogout"><i class="fa fa-lg fa-sign-out"></i></a></li>
+              <li><a href="#" title="Irten" id="btnLogout"><i class="fa fa-lg fa-sign-out"></i></a></li>
               
           <?php
+                if($_SESSION["adminRol"] = 1 || $_SESSION["adminRol"] = 2){
+          ?>
+                  <li><a href="pages/ajusteak.php" title="Ajusteak" id="btnSettings"><i class="fa fa-lg fa-cog"></i></a></li>
+          
+          <?php
+              }            
             }
           ?>
           <!-- -------------------------------------- -->
           
-          <li><a href="pages/registro.html" title="Sign Up"><i class="fa fa-lg fa-edit"></i></a></li>
+          <li><a href="pages/registro.html" title="Sortu"><i class="fa fa-lg fa-user-plus"></i></a></li>
         </ul>
         <!-- ################################################################################################ -->
       </div>

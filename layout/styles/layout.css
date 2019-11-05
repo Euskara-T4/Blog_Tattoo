@@ -269,8 +269,8 @@ td{border-width:0 1px;}
 
 /* Colours
 --------------------------------------------------------------------------------------------------------------- */
-body{color:#FFFFFF; background-color:#F7AF9D;}
-a{color:#F7AF9D;}
+body{color:#FFFFFF; background-color:rgb(88, 88, 88);}
+a{color:rgb(255, 255, 255);}
 a:active, a:focus{background:transparent;}/* IE10 + 11 Bugfix - prevents grey background */
 hr, .borderedbox{border-color:#F4F4F4;}
 label span{color:#FF0000; background-color:inherit;}
@@ -344,7 +344,7 @@ input:focus, textarea:focus, *:required:focus{border-color:#F7AF9D;}
 
 
 /* Tables + Comments */
-table, th, td, #comments .avatar, #comments input, #comments textarea{border-color:#F4F4F4; color: black;} 
+table, th, td, #comments .avatar, #comments input, #comments textarea{border-color:#F4F4F4; color: black; text-align: center;} 
 #comments input:focus, #comments textarea:focus, #comments *:required:focus{border-color:#F7AF9D;}
 th{color:#FFFFFF; background-color:#373737;}
 tr, #comments li, #comments input[type="submit"], #comments input[type="reset"]{color:inherit; background-color:#FBFBFB;}
@@ -367,7 +367,7 @@ table a, #comments a{background-color:inherit;}
 /* Max Wrapper Width - Laptop, Desktop etc.
 --------------------------------------------------------------------------------------------------------------- */
 @media screen and (min-width:978px){
-	.hoc{max-width:978px;}
+	.hoc{max-width:1100px;}
 }
 
 
