@@ -122,7 +122,7 @@
             <div class="carrusel">
               <!-- Informacion sobre el tema  -->
               <img class="mySlides" src="<?php echo $img_src; ?>" alt="<?php echo $img_name; ?>">
-
+            </div>
               <!----------------------------------------------------------------->
               <!---------------script para recorrer imagen automatica ---------------------->
             <?php
@@ -142,19 +142,14 @@
                     slideIndex++;
                     if (slideIndex > x.length) {slideIndex = 1}
                     x[slideIndex-1].style.display = "block";
-                    setTimeout(carousel, 8000); // Change image every 2 seconds
+                    setTimeout(carousel, 8000); // Change image every 8 seconds
                   }
           </script>
           <?php
           }
           ?>
-            </div>
+
       </div>
-
-  </div>
-
-
-  </div>
   <div id="comments">
     <h3 class="iruzkinakTitle">Iruzkinak</h3>
     <!-- Vamos a mostrar los comentarios de la base de datos -->
