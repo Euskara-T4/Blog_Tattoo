@@ -124,38 +124,27 @@
               <img class="mySlides" src="<?php echo $img_src; ?>" alt="<?php echo $img_name; ?>">
 
               <!----------------------------------------------------------------->
-              <!---------------script para recorrer imagen ---------------------->
+              <!---------------script para recorrer imagen automatica ---------------------->
             <?php
               }
               ?>
             <script>
-              var slideIndex = 1;
-              showDivs(slideIndex);
+                var slideIndex = 1;
+                var slideIndex = 0;
+                  carousel();
 
-              function plusDivs(n) {
-                showDivs(slideIndex += n);
-              }
-
-              function showDivs(n) {
-                var i;
-                var x = document.getElementsByClassName("mySlides");
-                if (n > x.length) {
-                  slideIndex = 1
-                }
-                if (n < 1) {
-                  slideIndex = x.length
-                };
-                for (i = 0; i < x.length; i++) {
-                  x[i].style.display = "none";
-                }
-                x[slideIndex - 1].style.display = "block";
-              }
-            </script>
-            <!--botones para pasar imagenes por el slider-->
-            <div class="buCa">
-              <button class="w3-button w3-display-left" onclick="plusDivs(-1)">&#10094;</button>
-              <button class="w3-button w3-display-right" onclick="plusDivs(+1)">&#10095;</button>
-            </div>
+                  function carousel() {
+                    var i;
+                    var x = document.getElementsByClassName("mySlides");
+                    for (i = 0; i < x.length; i++) {
+                      x[i].style.display = "none";
+                    }
+                    slideIndex++;
+                    if (slideIndex > x.length) {slideIndex = 1}
+                    x[slideIndex-1].style.display = "block";
+                    setTimeout(carousel, 8000); // Change image every 2 seconds
+                  }
+          </script>
           <?php
           }
           ?>

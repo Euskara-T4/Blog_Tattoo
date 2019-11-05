@@ -11,7 +11,7 @@ input[type="password"] {
   border: 1px solid #ccc;
   box-sizing: border-box;
   color: black;
-}
+  }
 
 .loginBtn {
   background-color: grey;
@@ -259,10 +259,14 @@ span.psw {
   padding-top: 50px;
 }
 
+/** slider  */
+
 .mySlides {
   display:none;
   width:50%;
-  height:90%;
+  height:650px  ;
   margin-left: 25%;
+  border: 7px solid black;
+  
 }
 
