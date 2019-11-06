@@ -270,7 +270,6 @@ span.psw {
 }
 
 .commentsIcon button {
-  margin-left: 10px;
   border:none;
   background-color: transparent;
   cursor: pointer;
@@ -298,21 +297,20 @@ span.psw {
   text-align: center;
 }
 
-#emailSet {
+#email {
   width: 200px !important;
 }
 
-#adminSet {
+#adminRol {
   width: 50px !important;
 }
-/** slider  */
 
+/** slider  */
 .mySlides {
   display:none;
   width:50%;
   height:650px  ;
   margin-left: 25%;
-  border: 7px solid black;
-  
+  border: 7px solid black;  
 }
 

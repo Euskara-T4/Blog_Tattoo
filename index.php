@@ -45,7 +45,7 @@
               <li><a href="#" title="Irten" id="btnLogout"><i class="fa fa-lg fa-sign-out"></i></a></li>
               
           <?php
-                if($_SESSION["adminRol"] = 1 || $_SESSION["adminRol"] = 2){
+                if($_SESSION["adminRol"] == 1 || $_SESSION["adminRol"] == 2){
           ?>
                   <li><a href="pages/ajusteak.php" title="Ajusteak" id="btnSettings"><i class="fa fa-lg fa-cog"></i></a></li>
           
