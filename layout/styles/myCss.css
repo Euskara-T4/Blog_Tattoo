@@ -185,9 +185,9 @@ span.psw {
 
 /* Imagen del avatar */
 .avatarImg {
-	width: 100px;
+	width: 50px;
 	max-width: 100%;
-	height: 100px ;
+	height: 50px ;
 	margin: 0;
 	padding: 0;
 	border: none;
@@ -255,18 +255,62 @@ span.psw {
   /* margin-bottom: 10px;   */
 }
 
+
+
+/* COMMENTS SECTION */
 .iruzkinakTitle {
   padding-top: 50px;
 }
 
-/** slider  */
+.commentsIcon{
+  display: flex;
+  flex-direction: row;
+  justify-content: right;
+  align-items: right;
+}
 
+.commentsIcon button {
+  border:none;
+  background-color: transparent;
+  cursor: pointer;
+  text-align: center;
+}
+
+#avatarImg {
+  font-size: 2em;
+}
+
+/* USER CONFIG */
+#userTable {
+  margin-top: 100px;
+  margin-bottom: 100px;
+  padding: 3%;
+  background-color: #888;
+}
+
+.inputSetting {
+  border: none !important;
+  background-color: transparent !important;
+  width: 130px !important;
+  height: 5px !important;
+  padding: 10px 10px !important;
+  text-align: center;
+}
+
+#email {
+  width: 200px !important;
+}
+
+#adminRol {
+  width: 50px !important;
+}
+
+/** slider  */
 .mySlides {
   display:none;
   width:50%;
   height:650px  ;
   margin-left: 25%;
-  border: 7px solid black;
-  
+  border: 7px solid black;  
 }
 
