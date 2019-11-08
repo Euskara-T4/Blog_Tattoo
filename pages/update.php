@@ -1,3 +1,8 @@
+<?php
+  // INICIAMOS LA SESION
+  session_start();
+?>
+
 <!DOCTYPE html>
 <html lang="es">
 
@@ -27,7 +32,22 @@
                 <li><i class="fa fa-phone"></i> +00 (123) 456 7890</li>
                 <li><i class="fa fa-envelope-o"></i> info@domain.com</li>
                 <li><a href="#"><i class="fa fa-lg fa-home"></i></a></li>
-                <li><a href="login.html" title="Login"><i class="fa fa-lg fa-sign-in"></i></a></li>
+                <?php
+                    if(!isset($_SESSION['usuario'])){
+                ?>
+                    <!-- Si la sesion no esta iniciada -->
+                    <li><a href='#' title='Login' id='btnLogin'><i class='fa fa-lg fa-sign-in'></i></a></li>
+                
+                <?php
+                    } else{
+                    echo $_SESSION['usuario'];
+                ?>              
+                    <li><a href='../php/logout.php' title='Logout' id='btnLogout'><i class='fa fa-lg fa-sign-out'></i></a></li>
+                    
+                <?php
+                    }
+                ?>       
+                
                 <li><a href="registro.html" title="Sign Up"><i class="fa fa-lg fa-edit"></i></a></li>
             </ul>
             <!-- ################################################################################################ -->
@@ -86,10 +106,11 @@
                 <!-- ################################################################################################ -->
                 <div class="one_third">
                     <?php
+                        $nombreUsuario = $_SESSION['usuario'];
 
-                    include_once "../BD/conexionBD.php";
+                        include_once "../BD/conexionBD.php";
                        /*seleccionaremos los datos del usuario de la BD y los mostraremos para modificar*/
-                       $sql = "SELECT * FROM erabiltzailea WHERE erabiltzaile_iz = 'pruebas'";
+                       $sql = "SELECT * FROM erabiltzailea WHERE erabiltzaile_iz = '$nombreUsuario'";
            
                        foreach ($conexionBD->query($sql) as $row) {
                            $usuario = $row['erabiltzaile_iz'];
@@ -100,8 +121,8 @@
            
                            echo "<h1>$usuario</h1>";
                        }
-           
-                       ?>
+                    
+                    ?>
                        <!--creamos un form con los posibles datos a modificar-->
                        <!-- // GUARDAR DATOS DE PERFIL -->
 
@@ -109,16 +130,28 @@
                        <div name="DatosUsuario">
                            <h3>datos de perfil</h3>
                            <ul>
-                               <li><label>nombre</label> <input class="btmspace-15" type="text" name="nombre" id="nombre" placeholder="<?php echo $izena; ?>">
-                                                        <input type="hidden" name="nombreBD" value="<?php echo $izena; ?>"> 
-                               </li>
-                               <li> <label>apellido</label> <input class="btmspace-15" type="text" name="apellido" id="apellido" placeholder="<?php echo $abizena; ?>">
-                                                            <input type="hidden" name="apeBD" value="<?php echo $abizena; ?>">
-                               <li> <label>correo</label><input class="btmspace-15" type="text" name="correo" placeholder="<?php echo $email; ?>">
-                                                         <input type="hidden" name="correoBD" value="<?php echo $email; ?>"> 
+                                <li>
+                                    <label>Izena</label>
+                                    <input class="btmspace-15" type="text" name="nombre" id="nombre" placeholder="<?php echo $izena; ?>">                                                       
+                                    <input type="hidden" name="nombreBD" value="<?php echo $izena; ?>"> 
                                 </li>
-                               <li> <label>contraseña</label><input class="btmspace-15" type="password" name="PssActual" placeholder="***********">
-           
+
+                                <li>
+                                    <label>Abizena</label>
+                                    <input class="btmspace-15" type="text" name="apellido" id="apellido" placeholder="<?php echo $abizena; ?>">                                
+                                    <input type="hidden" name="apeBD" value="<?php echo $abizena; ?>">
+                                </li> 
+
+                                <li>
+
+                                    <label>Email</label>
+                                    <input class="btmspace-15" type="text" name="correo" placeholder="<?php echo $email; ?>">                                    
+                                    <input type="hidden" name="correoBD" value="<?php echo $email; ?>"> 
+                                </li>
+
+                                <li>
+                                    <label>Pasahitza</label>
+                                    <input class="btmspace-15" type="password" name="PssActual" placeholder="***********">           
                                </li>
                            </ul>  
                        </div>
@@ -129,11 +162,22 @@
                        <div name="DatosUsuario">
                            <h3>datos de usuario</h3>
                            <ul>
-                               <li><label>contraseña actual</label> <input class="btmspace-15" type="text" name="contraseña" id="pss" placeholder="*************">
+                               <li>
+                                <label>contraseña actual</label> 
+                                <input class="btmspace-15" type="text" name="contraseña" id="pss" placeholder="*************">
                                </li>
-                               <li> <label>nueva cotraseña</label> <input class="btmspace-15" type="password" name="nuevaContra" id="pss"></li>
-                               <li> <label>repetir nueva contraseña</label><input class="btmspace-15" type="password" name="repetirNueva"></li>
-                                                                           <input type="hidden" name="contraseñaAntigua" value="<?php echo $pasahitza; ?>">
+
+                               <li> 
+                                    <label>nueva cotraseña</label>
+                                    <input class="btmspace-15" type="password" name="nuevaContra" id="pss">
+                                </li>
+
+                               <li> 
+                                    <label>repetir nueva contraseña</label>
+                                    <input class="btmspace-15" type="password" name="repetirNueva">
+                               </li>
+                                                                           
+                                <input type="hidden" name="contraseñaAntigua" value="<?php echo $pasahitza; ?>">
                            </ul>  
                        </div>
                        <input type="submit" value="guardar" name="guardar2">

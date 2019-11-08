@@ -30,8 +30,14 @@
           <li><i class="fa fa-envelope-o"></i> info@domain.com</li>
           <!-- ################################################################################################ -->
           <!-- USER ACTION ICONS -->
-          <li><a href="#" title="Perfila"><i class="fa fa-lg fa-home"></i></a></li>
-          
+          <?php
+            if(isset($_SESSION['usuario'])){          
+          ?>
+            <li><a href="pages/update.php" title="Perfila"><i class="fa fa-lg fa-home"></i></a></li>
+            
+          <?php
+            }        
+          ?>
           <!-- COMPRAMOS SI LA SESION EXISTE -->
           <?php
             if(!isset($_SESSION["usuario"])){
