@@ -113,6 +113,80 @@
     <!-- ################################################################################################ -->
     <!-- ################################################################################################ -->
     <!-- ################################################################################################ -->
+<<<<<<< HEAD
+  </div>
+  <!-- End Top Background Image Wrapper -->
+  <!-- ################################################################################################ -->
+  <!-- ################################################################################################ -->
+  <!-- ################################################################################################ -->
+  <div class="wrapper row3">
+    <main class="hoc container clear">
+      <!-- main body -->
+      <!-- ################################################################################################ -->
+      <div class="content">
+
+        <!--------------------------------->
+        <!-- SELECT DE TITULOS DEL TEMA  -->
+        <!--------------------------------->
+        <?php
+        include_once "../BD/conexionBD.php";
+        $id_gaia = $_GET["idGaia"];
+        $sql = "SELECT * FROM gaia WHERE id_gaia='$id_gaia'";
+
+        foreach ($conexionBD->query($sql) as $row) {
+          $erabiltzailea = $row['erabiltzaile_iz'];
+          $gaia = $row['titulua'];
+          $deskribapena = $row['deskribapena'];
+
+          $sqlImg = "SELECT * FROM argazkia WHERE id_gaia='$id_gaia'";
+
+          foreach ($conexionBD->query($sqlImg) as $rowImg) {
+            $img_src = $rowImg['url'];
+            $img_name = $rowImg['izena'];
+            ?>
+
+            <!-------slider imagen de blog con botones
+          
+                  carga de imagenes desde la BD-------------------------->
+
+            <div class="carrusel">
+              <!-- Informacion sobre el tema  -->
+              <img class="mySlides" src="<?php echo $img_src; ?>" alt="<?php echo $img_name; ?>">
+            </div>
+              <!----------------------------------------------------------------->
+              <!---------------script para recorrer imagen automatica ---------------------->
+            <?php
+              }
+              ?>
+            <script>
+                var slideIndex = 1;
+                var slideIndex = 0;
+                  carousel();
+
+                  function carousel() {
+                    var i;
+                    var x = document.getElementsByClassName("mySlides");
+                    for (i = 0; i < x.length; i++) {
+                      x[i].style.display = "none";
+                    }
+                    slideIndex++;
+                    if (slideIndex > x.length) {slideIndex = 1}
+                    x[slideIndex-1].style.display = "block";
+                    setTimeout(carousel, 8000); // Change image every 8 seconds
+                  }
+          </script>
+          <?php
+          }
+          ?>
+
+      </div>
+  <div id="comments">
+    <h3 class="iruzkinakTitle">Iruzkinak</h3>
+    <!-- Vamos a mostrar los comentarios de la base de datos -->
+    <?php
+    include_once "../BD/conexionBD.php";
+    $sql = "SELECT * FROM iruzkina WHERE id_gaia='$id_gaia'";
+=======
     <div class="wrapper row3">
         <main class="hoc container clear">
             <!-- main body -->
@@ -182,6 +256,7 @@
                             <figure class="avatar">
                                 <i class="fa fa-user-circle-o" id="avatarImg"></i>
                             </figure>
+>>>>>>> 277e9b81157f40a1da533267cdc1f0e5aced8e6f
 
                             <address><?php echo $erabiltzailea;?></address>
 

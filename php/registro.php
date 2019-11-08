@@ -51,6 +51,7 @@
     // Despues de hacer las comprobaciones, insertamos a la base de datos
     function insertarUsuario($conexionBD, $nombre, $apellido, $nombre_usuario, $correo, $pss2) {
         $passHash = hash("sha256", $pss2);
+        
         $sentencia = $conexionBD-> prepare("INSERT INTO erabiltzailea(izena, abizena, erabiltzaile_iz, email, pasahitza) VALUES (?, ?, ?, ?, ?);");
         $resultado = $sentencia-> execute([$nombre, $apellido, $nombre_usuario, $correo, $passHash]); 
         
