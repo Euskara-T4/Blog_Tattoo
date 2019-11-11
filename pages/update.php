@@ -182,19 +182,25 @@
                                 <ul>
                                     <li>
                                         <label>Izena</label>
-                                        <input class="btmspace-15" type="text" name="nombre" id="nombre" pattern="[A-Za-zñÑ ]{1,20}" minlength="2" maxlength="20" required placeholder="<?php echo $izena; ?>">                                                       
+                                        <input class="btmspace-15" type="text" name="nombre" id="nombre" placeholder="<?php echo $izena; ?>">                                                       
                                         <input type="hidden" name="nombreBD" value="<?php echo $izena; ?>"> 
                                     </li>
 
                                     <li>
                                         <label>Abizena</label>
-                                        <input class="btmspace-15" type="text" name="apellido" id="apellido" pattern="[A-Za-zñÑ ]{1,30}" minlength="2" maxlength="30" required placeholder="<?php echo $abizena; ?>">                                
+                                        <input class="btmspace-15" type="text" name="apellido" id="apellido" placeholder="<?php echo $abizena; ?>">                                
                                         <input type="hidden" name="apeBD" value="<?php echo $abizena; ?>">
                                     </li>
 
                                     <li>
+                                        <label>Email*</label>
+                                        <input class="btmspace-15" type="text" name="correo" id="correo" placeholder="<?php echo $email; ?>" >                                    
+                                        <input type="hidden" name="correoBD" value="<?php echo $email; ?>"> 
+                                    </li>
+
+                                    <li>
                                         <label>Pasahitza*</label>
-                                        <input class="btmspace-15" type="password" name="PssActual" required placeholder="***********">           
+                                        <input class="btmspace-15" type="password" name="PssActual"  placeholder="***********">           
                                     </li>
                                 </ul>  
                             
@@ -208,11 +214,7 @@
                             <div class="divUser">
                                 <h3>PERFILAREN DATUAK</h3>
                                 <ul>
-                                    <li>
-                                        <label>Email*</label>
-                                        <input class="btmspace-15" type="text" name="correo" id="correo" placeholder="<?php echo $email; ?>" pattern="[A-Za-z.0-9-_]{1,20}[@][a-z]{1,20}[.][a-z]{1,3}" minlength="10" maxlength="50" required>                                    
-                                        <input type="hidden" name="correoBD" value="<?php echo $email; ?>"> 
-                                    </li>
+                                    
                                     <li>
                                         <label>Pasahitza</label> 
                                         <input class="btmspace-15" type="text" name="contraseña" id="pss" placeholder="*************">
@@ -220,7 +222,7 @@
 
                                     <li> 
                                         <label>Pasahitza berria</label>
-                                        <input class="btmspace-15" type="password" name="nuevaContra" id="contraseña" pattern="[A-Za-zÑñ0-9]{1,20}" minlength="5" maxlength="100" required>
+                                        <input class="btmspace-15" type="password" name="nuevaContra" id="contraseña" >
                                     </li>
 
                                     <li> 

@@ -28,13 +28,30 @@
 
                 //si introducimos correo nuevo
                 if ($correo != NULL ) {
-                    $conexionBD->prepare($sql)->execute([$nombre, $apellido, $correo]);
-                    echo"datos modificados correctamente";
+                    $nuevoCorreo = $correo;
+                }else{ 
+                    $nuevoCorreo = $correoBD;
+                }
+
+                // Darle nuevo valor al nombre
+                if ($nombre != NULL ) {
+                    $nuevoNombre = $nombre;
+                }else{ 
+                    $nuevoNombre = $nombreBD;
+                }
+
+
+                // Darle nuevo valor al apellido
+                if ($apellido != NULL ) {
+                    $nuevoApe = $apellido;
                 }else{ 
                     //en caso de no querer correo nuevo 
-                    $conexionBD->prepare($sql)->execute([$nombreBD, $apeBD, $correoBD]);
-                    echo"datos modificados correctamente";
+                    $nuevoApe = $apeBD;                    
                 }
+
+                // Si tdo esta bien
+                $conexionBD->prepare($sql)->execute([$nuevoNombre, $nuevoApe, $nuevoCorreo]);
+                
 
 
                 exit;
