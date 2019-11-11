@@ -117,15 +117,6 @@
                             <li class='active'><a href='index.php'>Hasiera</a></li>
                             <li><a href='blog.php'>Blog</a></li>
                             <li><a class='drop' href='#'>Galeria</a>
-                                <ul>
-                                    <li><a href='galeriaByN.html'>Zuri beltzak</a></li>
-                                    <li><a href='galeriaColor.php'>Kolorez</a></li>
-                                    <li><a class='drop' href='#'>Artistak</a>
-                                    <ul>
-                                        <li><a href='galeriaIvanP.html'>Ivan Pelegrin</a></li>
-                                        <li><a href='#'>Ivan Morant</a></li>
-                                        <li><a href='#'>Kat Von D</a></li>
-                                    </ul>
                                     </li>
                 
                                 </ul>
@@ -211,7 +202,7 @@
                     
                         
                             <!-- // GUARDAR DATOS DE PERFIL -->
-                            <div class="divUser">
+                            <div class="divPer">
                                 <h3>PERFILAREN DATUAK</h3>
                                 <ul>
                                     

@@ -172,7 +172,7 @@
                     </tr>
 
                     <tr>
-                        <form method="post" action="../php/ajustes.php">
+                        
                             <?php
                                 include_once "../BD/conexionBD.php";
 
@@ -192,7 +192,7 @@
                                     $pasahitza = $row['pasahitza'];
                                     $adminRol = $row['admin'];            
                             ?>
-
+                                <form method="post" action="../php/ajustes.php">
                                     <td id="erabiltzaileaTd"> <input class="inputSetting" type="text" id="erabiltzaileaTxt" name="erabiltzailea" value="<?php echo $erabiltzaile_iz ?>" readonly></td>
                                     <td id="izenaTd"> <input class="inputSetting" type="text" id="izenaTxt" name="izena" placeholder="<?php echo $izena ?>" readonly></td>
                                     <input type="hidden" name="izena" value="<?php echo $izena ?>">
@@ -208,7 +208,7 @@
                                                 <i class="fa fa-lg fa-trash-o"></i>
                                             </button>
 
-                                            <button type="button" name="btnEdit" id="btnEditUser">
+                                            <button type="button" name="btnEditUser" id="btnEditUser">
                                                 <i class="fa fa-lg fa-edit" id="iconEdit"></i>
                                             </button>
                                         </div>
@@ -216,10 +216,11 @@
                     
                     
                     </tr>
-                            <?php
-                                }
-                            ?>
+                            
                         </form>
+                    <?php
+                                }
+                        ?>
                 </table>           
 
             </div>
@@ -264,7 +265,7 @@
                                                 <i class="fa fa-lg fa-trash-o"></i>
                                             </button>
 
-                                            <button type="button" name="btnEdit" id="btnEditPost">
+                                            <button type="button" name="btnEditPost" id="btnEditPost">
                                                 <i class="fa fa-lg fa-edit" id="iconEdit"></i>
                                             </button>
                                         </div>

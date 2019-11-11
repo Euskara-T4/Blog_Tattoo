@@ -14,7 +14,7 @@
 
         // Me coge el valor anterior
         echo $izena;
-        editarUsuario($erabiltzaile_iz, $izena, $abizena, $email, $password, $adminRol);                                 
+        //editarUsuario($erabiltzaile_iz, $izena, $abizena, $email, $password, $adminRol);                                 
     }
 
     // SI HA SELECIONADO BORRAR USUARIO

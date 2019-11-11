@@ -343,6 +343,13 @@ span.psw {
   margin: 5%;
   
 }
+.divPer {
+  background-color: rgb(58, 58, 58);
+  padding: 5%;
+  color: white !important;
+  margin: 5%;
+  
+}
 
 
 .divUser button {
@@ -425,3 +432,5 @@ hr {
 }
 
 /* ******************* */
+
+
