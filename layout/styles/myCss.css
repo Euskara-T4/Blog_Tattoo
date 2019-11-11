@@ -11,6 +11,7 @@ input[type="text"], input[type="password"] {
   border: 1px solid #ccc;
   box-sizing: border-box;
   color: black;
+  background-color: white !important;
 }
 
 
@@ -88,6 +89,10 @@ span.psw {
   cursor: pointer;
 }
 
+.addUser {
+  background-color: #4747475b;
+  padding: 2%;
+}
 
 /*---------- BUTTONS ----------- */
 
@@ -196,18 +201,19 @@ span.psw {
 .usuarioFlex {
   display: flex;
   flex-direction: row;
-  justify-content: left;
+  justify-content: center;
   align-items: left;
 }
 
 .gaiaContainer {  
   margin-bottom: 50px;  
+  text-align: center;
 }
 
 .gaiaImg {
   border: 7px solid black;
   margin-bottom: 10px;  
-  width: 30%;
+  width: 40%;
   height: auto;
 }
 
@@ -217,7 +223,6 @@ span.psw {
   justify-content: left;
   align-items: left;
   border: 7px solid black;
-  /* margin-bottom: 10px;   */
 }
 
 /* ******************* */
@@ -373,9 +378,50 @@ hr {
   padding-bottom: 5%;
 }
 /* ***************** */
-/* TO DO */
-/* FOOTER BOTTM 100% */
 
+
+
+/* ABOUT US */
+.aboutUs {
+  background-color: #47474742;
+  padding: 5% !important;
+  padding-bottom: 0%;
+  margin: 5%;
+  text-align: center;
+}
+
+.txtAboutUs {
+  text-align: left !important;
+  margin-left: 5%;
+
+}
+
+iframe {
+  width: 315px; 
+  height: 315px; 
+  border: none;
+  margin-left: 10%;
+}
+/* ******************* */
+
+/* ADD POST */
+.addPost {
+  background-color: #4747475b;
+  padding: 5%;
+  width: 100%;
+}
+
+.postMargin {
+  width: 25% !important;
+}
+
+.inputFile {
+  position: relative;
+  cursor: pointer !important;
+  border: none !important;  
+}
+
+/* ******************* */
 
 /* ZOOM ANIMATION */
 .animate {

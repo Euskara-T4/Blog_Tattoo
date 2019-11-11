@@ -1,17 +1,20 @@
 window.addEventListener("load", hasiera);
 
 function hasiera() {
-    document.getElementById("btnEdit").addEventListener("click", editUser);
+    document.getElementById("btnEditUser").addEventListener("click", editUser);
+    // document.getElementById("btnEditPost").addEventListener("click", editPost);
+
 }
 
+
 function editUser() {
-    var izena = document.getElementById("izena");
-    var abizena = document.getElementById("abizena");
-    var email = document.getElementById("email");
-    var password = document.getElementById("password");
-    var adminRol = document.getElementById("adminRol");
+    var izena = document.getElementById("izenaTxt");
+    var abizena = document.getElementById("abizenaTxt");
+    var email = document.getElementById("emailTxt");
+    var password = document.getElementById("passwordTxt");
+    var adminRol = document.getElementById("adminRolTxt");
     var icon = document.getElementById("iconEdit");
-    var btn = document.getElementById("btnEdit");
+    var btn = document.getElementById("btnEditUser");
 
 
 

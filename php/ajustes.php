@@ -1,7 +1,6 @@
 <?php	
     session_start();   
 
-    
     // SI HA SELECCIONADO EDITAR USUARIO
     if(isset($_POST['btnEditUser'])){    
         // Datos de usuarios
@@ -14,7 +13,7 @@
 
         // Me coge el valor anterior
         echo $izena;
-        editarUsuario($erabiltzaile_iz, $izena, $abizena, $email, $password, $adminRol);                                 
+        //editarUsuario($erabiltzaile_iz, $izena, $abizena, $email, $password, $adminRol);                                 
     }
 
     // SI HA SELECIONADO BORRAR USUARIO

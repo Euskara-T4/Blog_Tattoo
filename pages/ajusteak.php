@@ -16,6 +16,7 @@
 
         <!-- JAVASCRIPTS -->
         <script src='../js/login.js'></script>
+        <script src='../js/edit.js'></script>
         <script src="../layout/scripts/jquery.min.js"></script>
         <script src="../layout/scripts/jquery.backtotop.js"></script>
         <script src="../layout/scripts/jquery.mobilemenu.js"></script>
@@ -99,7 +100,7 @@
         <!-- ################################################################################################ -->
         <!-- ################################################################################################ -->
         <!-- Top Background Image Wrapper -->
-        <div class='bgded overlay' style="background-image:url('../images/demo/backgrounds/fondoIndex.jpg');">
+        <div class='bgded overlay' style="background-image:url('../images/demo/backgrounds/fondoNegro.jpg');">
             <!-- ################################################################################################ -->
             <div class='wrapper row1'>
                 <header id='header' class='hoc clear'>
@@ -115,7 +116,7 @@
                         <ul class='clear'>
                             <li><a href='index.php'>Hasiera</a></li>
                             <li><a href='blog.php'>Blog</a></li>
-                            <li><a class='drop' href='#'>Galeria</a>
+                            <!-- <li><a class='drop' href='#'>Galeria</a>
                                 <ul>
                                     <li><a href='galeriaByN.html'>Zuri beltzak</a></li>
                                     <li><a href='galeriaColor.php'>Kolorez</a></li>
@@ -128,153 +129,155 @@
                                     </li>
                 
                                 </ul>
-                            </li>
+                            </li> -->
                             <li><a href='aboutUs.php'>Guri buruz</a></li>
                         </ul>
                     </nav>
                     <!-- ################################################################################################ -->
                 </header>
             </div>
-
             <!-- ################################################################################################ -->
-            
             <!-- MIGAS -->
             <div class="migas">
-                <div id="breadcrumb" class="hoc clear">
-                    <!-- ################################################################################################ -->
-                    <ul>
-                        <li><a href="index.php">Hasiera</a></li>
-                        <li><a href="ajusteak.php">Ajusteak</a></li>
-                    </ul>
-                    <!-- ################################################################################################ -->
-                </div>
+              <div id="breadcrumb" class="hoc clear">
+                  <!-- ################################################################################################ -->
+                  <ul>
+                      <li><a href="index.php">Hasiera</a></li>
+                      <li><a href="ajusteak.php">Ajusteak</a></li>
+                  </ul>
+                  <!-- ################################################################################################ -->
+              </div>
             </div>
             <!-- ----------------- -->
+        </div>
 
-            <!-- ################################################################################################ -->
+        <!-- ################################################################################################ -->
 
-            <!-- ---------------------------------- -->
-            <!-- TABLA DE USUARIOS -->
-            <div id="settingsTable" class="hoc clear">
-                <h2>ERABILTZAILEEN TAULA</h2>
+        <!-- ---------------------------------- -->
+        <!-- TABLA DE USUARIOS -->
+        <div id="settingsTable" class="hoc clear">
+            <h2>ERABILTZAILEEN TAULA</h2>
 
-                <table>
-                    <tr>
-                        <th>Erabiltzailea</th>
-                        <th>Izena</th>
-                        <th>Abizena</th>
-                        <th>Emaila</th>
-                        <th>Pasahitza</th>
-                        <th>Admin Rol</th>
-                        <th>Aukerak</th>
-                    </tr>
+            <table>
+                <tr>
+                    <th>Erabiltzailea</th>
+                    <th>Izena</th>
+                    <th>Abizena</th>
+                    <th>Emaila</th>
+                    <th>Pasahitza</th>
+                    <th>Admin Rol</th>
+                    <th>Aukerak</th>
+                </tr>
 
-                    <tr>
-                        <form method="post" action="../php/ajustes.php">
-                            <?php
-                                include_once "../BD/conexionBD.php";
+                <tr>
+                    <?php
+                        include_once "../BD/conexionBD.php";
 
-                                // Comprobar que administrador ha entrado
-                                if($_SESSION["adminRol"] == 2){
-                                    $sql = "SELECT * FROM erabiltzailea WHERE admin!=2";
-                                    
-                                } else if($_SESSION["adminRol"] == 1){
-                                    $sql = "SELECT * FROM erabiltzailea WHERE admin=0";
-                                }
+                        // Comprobar que administrador ha entrado
+                        if($_SESSION["adminRol"] == 2){
+                            $sql = "SELECT * FROM erabiltzailea WHERE admin!=2";
+                            
+                        } else if($_SESSION["adminRol"] == 1){
+                            $sql = "SELECT * FROM erabiltzailea WHERE admin=0";
+                        }
 
-                                foreach ($conexionBD->query($sql) as $row) {
-                                    $erabiltzaile_iz = $row['erabiltzaile_iz'];
-                                    $izena = $row['izena'];
-                                    $abizena = $row['abizena'];
-                                    $email = $row['email'];
-                                    $pasahitza = $row['pasahitza'];
-                                    $adminRol = $row['admin'];            
-                            ?>
+                        foreach ($conexionBD->query($sql) as $row) {
+                            $erabiltzaile_iz = $row['erabiltzaile_iz'];
+                            $izena = $row['izena'];
+                            $abizena = $row['abizena'];
+                            $email = $row['email'];
+                            $pasahitza = $row['pasahitza'];
+                            $adminRol = $row['admin'];            
+                    ?>
+                            <form method="post" action="../php/ajustes.php">
 
-                                    <td id="erabiltzaileaTd"> <input class="inputSetting" type="text" id="erabiltzaileaTxt" name="erabiltzailea" value="<?php echo $erabiltzaile_iz ?>" readonly></td>
-                                    <td id="izenaTd"> <input class="inputSetting" type="text" id="izenaTxt" name="izena" placeholder="<?php echo $izena ?>" readonly></td>
-                                    <input type="hidden" name="izena" value="<?php echo $izena ?>">
+                                <td id="erabiltzaileaTd"> <input class="inputSetting" type="text" id="erabiltzaileaTxt" name="erabiltzailea" value="<?php echo $erabiltzaile_iz ?>" readonly></td>
 
-                                    <td id="abizenaTd"> <input class="inputSetting" type="text" id="abizenaTxt" name="abizena" value="<?php echo $abizena ?>" readonly></td>
-                                    <td id="emailTd"> <input class="inputSetting" type="text" id="emailTxt"  name="email" value="<?php echo $email ?>" readonly></td>
-                                    <td id="passwordTd"> <input class="inputSetting" type="text" id="passwordTxt" name="password" value="*********" readonly></td>
-                                    <td id="adminRolTd"> <input class="inputSetting" type="text" id="adminRolTxt" name="adminRol" value="<?php echo $adminRol ?>" readonly></td>
-                                    <td>
-                                        <!-- BOTONES DE LAS OPCIONES CORRESPONDIENTES -->
-                                        <div class="commentsIcon">
-                                            <button type="submit" name="btnDeleteUser">
-                                                <i class="fa fa-lg fa-trash-o"></i>
-                                            </button>
+                                <td id="izenaTd"> <input class="inputSetting" type="text" id="izenaTxt" name="izena" value="<?php echo $izena ?>" readonly></td>
+                                <input type="hidden" name="izena" value="<?php echo $izena ?>">
 
-                                            <button type="button" name="btnEdit" id="btnEditUser">
-                                                <i class="fa fa-lg fa-edit" id="iconEdit"></i>
-                                            </button>
-                                        </div>
-                                    </td>
-                    
-                    
-                    </tr>
-                            <?php
-                                }
-                            ?>
+                                <td id="abizenaTd"> <input class="inputSetting" type="text" id="abizenaTxt" name="abizena" value="<?php echo $abizena ?>" readonly></td>
+
+                                <td id="emailTd"> <input class="inputSetting" type="text" id="emailTxt"  name="email" value="<?php echo $email ?>" readonly></td>
+
+                                <td id="passwordTd"> <input class="inputSetting" type="text" id="passwordTxt" name="password" value="*********" readonly></td>
+
+                                <td id="adminRolTd"> <input class="inputSetting" type="text" id="adminRolTxt" name="adminRol" value="<?php echo $adminRol ?>" readonly></td>
+                                <td>
+                                    <!-- BOTONES DE LAS OPCIONES CORRESPONDIENTES -->
+                                    <div class="commentsIcon">
+                                        <button type="submit" name="btnDeleteUser">
+                                            <i class="fa fa-lg fa-trash-o"></i>
+                                        </button>
+
+                                        <button type="button" name="btnEdit" id="btnEditUser">
+                                            <i class="fa fa-lg fa-edit" id="iconEdit"></i>
+                                        </button>
+                                    </div>
+                                </td>                
+                
+                </tr>
+                        <?php
+                            }
+                        ?>
                         </form>
-                </table>           
+            </table>           
 
-            </div>
-            <!-- ---------------------------------- -->
+        </div>
+        <!-- ---------------------------------- -->
 
 
-            
-            <!-- ---------------------------------- -->
-            <!-- TABLA DE POSTS -->
-            <div id="settingsTable" class="hoc clear">
-                <h2>POST GUZTIEN TAULA</h2>
+        
+        <!-- ---------------------------------- -->
+        <!-- TABLA DE POSTS -->
+        <div id="settingsTable" class="hoc clear">
+            <h2>POST GUZTIEN TAULA</h2>
 
-                <table>
-                    <tr>
-                        <th>Titulua</th>
-                        <th>Sortzailea</th>
-                        <th>Laburpena</th>
-                        <th>Aukerak</th>
-                    </tr>
+            <table>
+                <tr>
+                    <th>Titulua</th>
+                    <th>Sortzailea</th>
+                    <th>Laburpena</th>
+                    <th>Aukerak</th>
+                </tr>
 
-                    <tr>
-                        <form method="post" action="../php/ajustes.php">
-                            <?php
-                                include_once "../BD/conexionBD.php";
-                               
-                                $sql = "SELECT * FROM gaia";
-                                
+                <tr>
+                    <form method="post" action="../php/ajustes.php">
+                        <?php
+                            include_once "../BD/conexionBD.php";
+                            
+                            $sql = "SELECT * FROM gaia";
+                            
 
-                                foreach ($conexionBD->query($sql) as $row) {
-                                    $titulua = $row['titulua'];
-                                    $erabiltzaile_iz = $row['erabiltzaile_iz'];
-                                    $laburpena = $row['laburpena'];
-                            ?>
+                            foreach ($conexionBD->query($sql) as $row) {
+                                $titulua = $row['titulua'];
+                                $erabiltzaile_iz = $row['erabiltzaile_iz'];
+                                $laburpena = $row['laburpena'];
+                        ?>
 
-                                    <td id="tituluaTd"> <input class="inputSetting" type="text" id="tituluaTxt" name="titulua" value="<?php echo $titulua ?>" readonly></td>
-                                    <td id="erabiltzaile_izTd"> <input class="inputSetting" type="text" id="erabiltzaile_izTxt" name="erabiltzaile_iz" value="<?php echo $erabiltzaile_iz ?>" readonly></td>
-                                    <td id="laburpenaTd" > <input class="inputSetting" type="text" id="laburpenaTxt"  name="laburpena" value="<?php echo $laburpena ?>" readonly></td>
-                                    <td>
-                                        <!-- BOTONES DE LAS OPCIONES CORRESPONDIENTES -->
-                                        <div class="commentsIcon">
-                                            <button type="submit" name="btnDeletePost">
-                                                <i class="fa fa-lg fa-trash-o"></i>
-                                            </button>
+                                <td id="tituluaTd"> <input class="inputSetting" type="text" id="tituluaTxt" name="titulua" value="<?php echo $titulua ?>" readonly></td>
+                                <td id="erabiltzaile_izTd"> <input class="inputSetting" type="text" id="erabiltzaile_izTxt" name="erabiltzaile_iz" value="<?php echo $erabiltzaile_iz ?>" readonly></td>
+                                <td id="laburpenaTd" > <input class="inputSetting" type="text" id="laburpenaTxt"  name="laburpena" value="<?php echo $laburpena ?>" readonly></td>
+                                <td>
+                                    <!-- BOTONES DE LAS OPCIONES CORRESPONDIENTES -->
+                                    <div class="commentsIcon">
+                                        <button type="submit" name="btnDeletePost">
+                                            <i class="fa fa-lg fa-trash-o"></i>
+                                        </button>
 
-                                            <button type="button" name="btnEdit" id="btnEditPost">
-                                                <i class="fa fa-lg fa-edit" id="iconEdit"></i>
-                                            </button>
-                                        </div>
-                                    </td>
-                    </tr>
-                            <?php
-                                }
-                            ?>
-                        </form>
-                </table>           
+                                        <button type="button" name="btnEdit" id="btnEditPost">
+                                            <i class="fa fa-lg fa-edit" id="iconEdit"></i>
+                                        </button>
+                                    </div>
+                                </td>
+                </tr>
+                        <?php
+                            }
+                        ?>
+                    </form>
+            </table>           
 
-            </div>
+        </div>
             <!-- ---------------------------------- -->
 
 

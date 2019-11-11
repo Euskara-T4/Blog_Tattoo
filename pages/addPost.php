@@ -99,12 +99,14 @@
         <!-- ################################################################################################ -->
         <!-- ################################################################################################ -->
         <!-- Top Background Image Wrapper -->
-        <div class='bgded overlay'>
+            <!-- ################################################################################################ -->
+        <!-- Top Background Image Wrapper -->
+        <div class='bgded overlay' style="background-image:url('../images/demo/backgrounds/fondoNegro.jpg');">
             <!-- ################################################################################################ -->
             <div class='wrapper row1'>
                 <header id='header' class='hoc clear'>
                     <div id='logo' class='fl_left'>
-                    <h1><a href='index.php'>Blog Tattoo</a></h1>
+                        <h1><a href='index.php'>Blog Tattoo</a></h1>
                     </div>
         
                     <!-------------------------------------------------->
@@ -115,7 +117,7 @@
                         <ul class='clear'>
                             <li><a href='index.php'>Hasiera</a></li>
                             <li><a href='blog.php'>Blog</a></li>
-                            <li><a class='drop' href='#'>Galeria</a>
+                            <!-- <li><a class='drop' href='#'>Galeria</a>
                                 <ul>
                                     <li><a href='galeriaByN.html'>Zuri beltzak</a></li>
                                     <li><a href='galeriaColor.php'>Kolorez</a></li>
@@ -128,130 +130,61 @@
                                     </li>
                 
                                 </ul>
-                            </li>
+                            </li> -->
                             <li><a href='aboutUs.php'>Guri buruz</a></li>
                         </ul>
                     </nav>
                     <!-- ################################################################################################ -->
                 </header>
             </div>
-        <!-- ################################################################################################ -->
-        <!-- MIGAS -->
-        <div class="migas">
-            <div id="breadcrumb" class="hoc clear">
-                <!-- ################################################################################################ -->
-                <ul>
-                    <li><a href="index.php">Hasiera</a></li>
-                    <li><a href="addPost.php">Posta gehitu</a></li>
-                </ul>
-                <!-- ################################################################################################ -->
+            <!-- ################################################################################################ -->
+            <!-- MIGAS -->
+            <div class="migas">
+              <div id="breadcrumb" class="hoc clear">
+                  <!-- ################################################################################################ -->
+                  <ul>
+                      <li><a href="index.php">Hasiera</a></li>
+                      <li><a href="addPost.php">Posta gehitu</a></li>
+                  </ul>
+                  <!-- ################################################################################################ -->
+              </div>
             </div>
+            <!-- ----------------- -->
         </div>
-        <!-- ----------------- -->
         
         <!-- ################################################################################################ -->
-        <div class="wrapper row4 bgded overlay" style="background-image:url('../images/demo/backgrounds/fondoRegistro.jpg');">
-            <div id="footer" class="hoc clear">
+        <div class="wrapper row4 bgded overlay" style="background-image:url('../images/demo/backgrounds/fondo.jpg');">
+            <div id="footer" class="hoc clear postMargin">
                 <!-- ################################################################################################ -->
-                <div class="one_third">
+                <div class="one_third addPost">
                     <h6 class="heading">POST BERRIA</h6>
                     
                     <!-- FORM REGISTRO PHP -->
-                    <form method="post" action="<?php $SERVER['PHP_SELF']?>">
+                    <form method="post" action="../php/post.php">
                         <fieldset>
                             <legend>Newsletter:</legend>
                             <input class="btmspace-15" type="text" placeholder="Titulua" name="titulua"  id="titulua" pattern="[A-Za-zñÑ ]{1,20}" minlength="2" maxlength="20" required>
                             <input class="btmspace-15" type="text" placeholder="Laburpena" name="laburpena" id="laburpena" pattern="[A-Za-zñÑ0-9 ]{1,20}" minlength="5" maxlength="50" required>
                             <input class="btmspace-15" type="text" placeholder="Deskribapena" name="deskribapena" id="deskribapena" pattern="[A-Za-zñÑ0-9 ]{1,40}" minlength="10" maxlength="100" required>
-                            <input class="btmspace-15" type="text" placeholder="Argazkia" name="argazkia" id="argazkia" pattern="[A-Za-zñÑ0-9/ ]{1,40}" minlength="5" maxlength="100" required>
+                            <input class="btmspace-15" type="text" placeholder="Argazkiaren izena" name="izena" id="izena" pattern="[A-Za-zñ ]{1,40}" minlength="10" maxlength="100" required>
+                            <input class="btmspace-15 inputFile" type="file" name="argazkia" multiple required>
 
                             <p id="mensajeError"></p>
 
                             <div class="flex">
                                 <button type="reset" value="borrar" id="borrar" class="flexBtn">BORRAR</button>
-                                <button type="submit" value="submit" id="enviar" class="flexBtn">SORTU</button>
+                                <button type="submit" value="submit" id="enviar" name="enviar" class="flexBtn">SORTU</button>
                             </div>
-
                         </fieldset>
                     </form>
                 </div>
                 <!-- ################################################################################################ -->
-            </footer>
+            </div>
         </div>
-        
 
-        <?php
-            if(!isset($_POST["titulua"]) || !isset($_POST["deskribapena"]) || !isset($_POST["argazkia"]) || !isset($_POST["laburpena"]) || !isset($_POST["enviar"])) exit();
-
-            #Si todo va bien, se ejecuta esta parte del código...
-            include_once "../BD/conexionBD.php";
-            $sortzailea = $_SESSION['usuario'];
-            $titulua = $_POST["titulua"];
-            $laburpena = $_POST["laburpena"];
-            $deskribapena = $_POST["deskribapena"];
-            $argazkia = $_POST["argazkia"];
-            
-            // COMPROBACIONES DB
-            $temaExist = comprobarTema($conexionBD, $titulua);
-            
-            if($temaExist == false){
-                insertarTema($conexionBD, $titulua, $sortzailea, $laburpena, $deskribapena, $argazkia);       
-            } else{
-                echo "<h3>Fail insertar el tema</h3>";
-            }          
-        
-            // Comprobaremos si el tema ya metido existe en la base de datos
-            function comprobarTema($conexionBD, $titulua){
-                $sql = "SELECT * FROM gaia WHERE titulua='$titulua'";
-
-                foreach ($conexionBD->query($sql) as $row) {
-                    echo "<h3>Tema -- $titulua -- ya existe</h3>";
-                    return true;
-                }
-                echo "<h3>Tema -- $titulua -- NO existe</h3>";
-                return false;
-            }
-
-            // Despues de hacer las comprobaciones, insertamos a la base de datos
-            function insertarTema($conexionBD, $titulua, $sortzailea, $laburpena, $deskribapena, $argazkia) {
-                $sentencia = $conexionBD-> prepare("INSERT INTO gaia(erabiltzaile_iz, titulua, laburpena, deskribapena, admin) VALUES (?, ?, ?, ?);");
-                $resultado = $sentencia-> execute([$sortzailea, $titulua, $laburpena, $deskribapena]); 
-                
-                if($resultado == true){
-                    echo "<h3>Tema insertado correctamente</h3>";
-                    insertarFoto($conexionBD, $titulua, $sortzailea, $argazkia);
-                } else{
-                    echo "<h3>FAIL</h3>";
-                }     
-            }
-
-            function insertarFoto($conexionBD, $titulua, $sortzailea, $argazkia){
-                $sql = "SELECT * FROM gaia WHERE titulua='$titulua'";
-
-                foreach ($conexionBD->query($sql) as $row) {
-                    $id_gaia = $row['id_gaia'];                
-                }
-
-                $sentencia = $conexionBD-> prepare("INSERT INTO argazkia(id_gaia, izena, url) VALUES (?, ?, ?);");
-                $resultado = $sentencia-> execute([$id_gaia, $sortzailea, $argazkia]); 
-                
-                if($resultado == true){
-                    echo "<h3>Foto insertado correctamente</h3>";
-                } else{
-                    echo "<h3>FAIL</h3>";
-                }   
-
-                echo "<h3>Tema -- $titulua -- NO existe</h3>";
-
-            }            
-
-    
-                        
-        ?>
-
-         <!-- FOOTER -->
+        <!-- FOOTER -->
         <?php include 'footer.php';?>   
 
-</body>
+    </body>
 
 </html>

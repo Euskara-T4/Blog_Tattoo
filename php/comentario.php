@@ -17,7 +17,7 @@
         if ($iruzkina != null){
             // Valores del comentario
             $nombre_usuario = $_SESSION["usuario"];
-            $fecha = "2019/10/20";
+            $fecha = date('Y-m-d');
 
             insertarComentario($nombre_usuario, $id_gaia, $iruzkina, $fecha);                          
         }

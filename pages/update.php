@@ -99,12 +99,12 @@
         <!-- ################################################################################################ -->
         <!-- ################################################################################################ -->
         <!-- Top Background Image Wrapper -->
-        <div class='bgded overlay' style="background-image:url('../images/demo/backgrounds/fondoIndex.jpg');">
+        <div class='bgded overlay' style="background-image:url('../images/demo/backgrounds/fondoNegro.jpg');">
             <!-- ################################################################################################ -->
             <div class='wrapper row1'>
                 <header id='header' class='hoc clear'>
                     <div id='logo' class='fl_left'>
-                    <h1><a href='index.php'>Blog Tattoo</a></h1>
+                        <h1><a href='index.php'>Blog Tattoo</a></h1>
                     </div>
         
                     <!-------------------------------------------------->
@@ -113,9 +113,9 @@
         
                     <nav id='mainav' class='fl_right'>
                         <ul class='clear'>
-                            <li class='active'><a href='index.php'>Hasiera</a></li>
+                            <li><a href='index.php'>Hasiera</a></li>
                             <li><a href='blog.php'>Blog</a></li>
-                            <li><a class='drop' href='#'>Galeria</a>
+                            <!-- <li><a class='drop' href='#'>Galeria</a>
                                 <ul>
                                     <li><a href='galeriaByN.html'>Zuri beltzak</a></li>
                                     <li><a href='galeriaColor.php'>Kolorez</a></li>
@@ -128,8 +128,8 @@
                                     </li>
                 
                                 </ul>
-                            </li>
-                            <li><a href='aboutUs.html'>Guri buruz</a></li>
+                            </li> -->
+                            <li><a href='aboutUs.php'>Guri buruz</a></li>
                         </ul>
                     </nav>
                     <!-- ################################################################################################ -->
@@ -148,6 +148,7 @@
               </div>
             </div>
             <!-- ----------------- -->
+        </div>
 
         <!-- ################################################################################################ -->
         <div class="wrapper row4 bgded overlay" style="background-image:url('../images/demo/backgrounds/fondoRegistro.jpg');">

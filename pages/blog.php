@@ -98,57 +98,57 @@
         </div>
         <!-- ################################################################################################ -->
         <!-- ################################################################################################ -->
-        <!-- ################################################################################################ -->
-        <div class='wrapper row1'>
-            <header id='header' class='hoc clear'>
-                <div id='logo' class='fl_left'>
-                <h1><a href='index.php'>Blog Tattoo</a></h1>
-                </div>
-    
-                <!-------------------------------------------------->
-                <!------------------- NAVBAR ----------------------->
-                <!-------------------------------------------------->
-    
-                <nav id='mainav' class='fl_right'>
-                    <ul class='clear'>
-                        <li><a href='index.php'>Hasiera</a></li>
-                        <li class='active'><a href='blog.php'>Blog</a></li>
-                        <li><a class='drop' href='#'>Galeria</a>
-                            <ul>
-                                <li><a href='galeriaByN.html'>Zuri beltzak</a></li>
-                                <li><a href='galeriaColor.php'>Kolorez</a></li>
-                                <li><a class='drop' href='#'>Artistak</a>
+        <!-- Top Background Image Wrapper -->
+        <div class='bgded overlay' style="background-image:url('../images/demo/backgrounds/fondoNegro.jpg');">
+            <!-- ################################################################################################ -->
+            <div class='wrapper row1'>
+                <header id='header' class='hoc clear'>
+                    <div id='logo' class='fl_left'>
+                        <h1><a href='index.php'>Blog Tattoo</a></h1>
+                    </div>
+        
+                    <!-------------------------------------------------->
+                    <!------------------- NAVBAR ----------------------->
+                    <!-------------------------------------------------->
+        
+                    <nav id='mainav' class='fl_right'>
+                        <ul class='clear'>
+                            <li><a href='index.php'>Hasiera</a></li>
+                            <li class='active'><a href='blog.php'>Blog</a></li>
+                            <!-- <li><a class='drop' href='#'>Galeria</a>
                                 <ul>
-                                    <li><a href='galeriaIvanP.html'>Ivan Pelegrin</a></li>
-                                    <li><a href='#'>Ivan Morant</a></li>
-                                    <li><a href='#'>Kat Von D</a></li>
+                                    <li><a href='galeriaByN.html'>Zuri beltzak</a></li>
+                                    <li><a href='galeriaColor.php'>Kolorez</a></li>
+                                    <li><a class='drop' href='#'>Artistak</a>
+                                    <ul>
+                                        <li><a href='galeriaIvanP.html'>Ivan Pelegrin</a></li>
+                                        <li><a href='#'>Ivan Morant</a></li>
+                                        <li><a href='#'>Kat Von D</a></li>
+                                    </ul>
+                                    </li>
+                
                                 </ul>
-                                </li>
-            
-                            </ul>
-                        </li>
-                        <li><a href='aboutUs.php'>Guri buruz</a></li>
-                    </ul>
-                </nav>
-                <!-- ################################################################################################ -->
-            </header>
-        </div>
-        <!-- ################################################################################################ -->
-        <!-- ################################################################################################ -->
-
-        <!-- ----------------- -->
-        <!-- MIGAS -->
-        <div class="migas">
-            <div id="breadcrumb" class="hoc clear">
-                <!-- ################################################################################################ -->
-                <ul>
-                    <li><a href="index.php">Hasiera</a></li>
-                    <li><a href="blog.php">Blog</a></li>
-                </ul>
-                <!-- ################################################################################################ -->
+                            </li> -->
+                            <li><a href='aboutUs.php'>Guri buruz</a></li>
+                        </ul>
+                    </nav>
+                    <!-- ################################################################################################ -->
+                </header>
             </div>
+            <!-- ################################################################################################ -->
+            <!-- MIGAS -->
+            <div class="migas">
+              <div id="breadcrumb" class="hoc clear">
+                  <!-- ################################################################################################ -->
+                  <ul>
+                      <li><a href="index.php">Hasiera</a></li>
+                      <li><a href="blog.php">Blog</a></li>
+                  </ul>
+                  <!-- ################################################################################################ -->
+              </div>
+            </div>
+            <!-- ----------------- -->
         </div>
-        <!-- ----------------- -->
 
       <!-- ################################################################################################ -->
       <!-- ################################################################################################ -->

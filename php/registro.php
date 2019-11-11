@@ -2,7 +2,7 @@
     // INICIAMOS LA SESION
     session_start();
 
-    header("Location: ../index.php");
+    header("Location: ../pages/index.php");
     
     #Salir si alguno de los datos no está presente
     if(!isset($_POST["nombre"]) || !isset($_POST["apellido"]) || !isset($_POST["usuario"]) || !isset($_POST["correo"]) || !isset($_POST["contraseña"]) || !isset($_POST["contraseña_confirm"])) exit();

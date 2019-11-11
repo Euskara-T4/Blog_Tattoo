@@ -20,6 +20,7 @@
         <script src="../layout/scripts/jquery.backtotop.js"></script>
         <script src="../layout/scripts/jquery.mobilemenu.js"></script>
         <script src="../layout/scripts/jquery.fitvids.js"></script>
+        
     </head>
 
     <body id='top'>
@@ -104,7 +105,7 @@
             <div class='wrapper row1'>
                 <header id='header' class='hoc clear'>
                     <div id='logo' class='fl_left'>
-                    <h1><a href='index.php'>Blog Tattoo</a></h1>
+                        <h1><a href='index.php'>Blog Tattoo</a></h1>
                     </div>
         
                     <!-------------------------------------------------->
@@ -115,7 +116,7 @@
                         <ul class='clear'>
                             <li class='active'><a href='index.php'>Hasiera</a></li>
                             <li><a href='blog.php'>Blog</a></li>
-                            <li><a class='drop' href='#'>Galeria</a>
+                            <!-- <li><a class='drop' href='#'>Galeria</a>
                                 <ul>
                                     <li><a href='galeriaByN.html'>Zuri beltzak</a></li>
                                     <li><a href='galeriaColor.php'>Kolorez</a></li>
@@ -125,10 +126,9 @@
                                         <li><a href='#'>Ivan Morant</a></li>
                                         <li><a href='#'>Kat Von D</a></li>
                                     </ul>
-                                    </li>
-                
+                                    </li>                
                                 </ul>
-                            </li>
+                            </li> -->
                             <li><a href='aboutUs.php'>Guri buruz</a></li>
                         </ul>
                     </nav>
@@ -136,19 +136,21 @@
                 </header>
             </div>
 
-      <!-- ################################################################################################ -->
-      <!-- ################################################################################################ -->
-      <!-- ################################################################################################ -->
-      <div id="pageintro" class="hoc clear">
-        <article>
-          <!-- ################################################################################################ -->
-          <h3 class="heading"> BLOG TATTOO</h3>
-          <p> Ongi etorri gure tatuajeen blogera</p>
-          <!-- ################################################################################################ -->
-        </article>
-      </div>
-      <!-- ################################################################################################ -->
-    </div>
+            <!-- ################################################################################################ -->
+            <!-- ################################################################################################ -->
+            <!-- ################################################################################################ -->
+            <div id="pageintro" class="hoc clear">
+                <article>
+                <!-- ################################################################################################ -->
+                <h3 class="heading"> BLOG TATTOO</h3>
+                <p> Ongi etorri gure tatuajeen blogera</p>
+                <!-- ################################################################################################ -->
+                </article>
+            </div>
+            <!-- ################################################################################################ -->
+        </div>
+
+        
     
     <!-- FOOTER -->
     <?php include 'footer.php';?>   
