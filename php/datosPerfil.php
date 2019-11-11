@@ -1,5 +1,6 @@
 <?php
     include_once "../BD/conexionBD.php";
+    header("Location: ../pages/update.php");
     
     // GUARDAR DATOS DE PERFIL
     if(isset($_POST["guardar1"])){
@@ -17,36 +18,25 @@
                 $apellido = $_POST["apellido"];
                 $correo = $_POST["correo"];
                 $correoBD = $_POST["correoBD"];
+                $nombreBD = $_POST["nombreBD"];
+                $apeBD = $_POST["apeBD"];
 
                 //sentencia para actualizar los datos de perfil de usuario
                 $sql = "UPDATE erabiltzailea SET  izena=?, abizena=?, email=? WHERE erabiltzaile_iz='pruebas';";
 
                 //en caso de no querer cambiar de correo....
+
                 //si introducimos correo nuevo
-                if ($correo != NULL) {
+                if ($correo != NULL ) {
                     $conexionBD->prepare($sql)->execute([$nombre, $apellido, $correo]);
                     echo"datos modificados correctamente";
                 }else{ 
                     //en caso de no querer correo nuevo 
-                    $conexionBD->prepare($sql)->execute([$nombre, $apellido, $correoBD]);
+                    $conexionBD->prepare($sql)->execute([$nombreBD, $apeBD, $correoBD]);
                     echo"datos modificados correctamente";
                 }
-                if ($nombre != NULL) {
-                    $conexionBD->prepare($sql)->execute([$nombre, $apellido, $correo]);
-                    echo"datos modificados correctamente";
-                }else{ 
-                    //en caso de no querer nombre nuevo 
-                    $conexionBD->prepare($sql)->execute([$nombre, $apellido, $correoBD]);
-                    echo"datos modificados correctamente";
-                }
-                if ($apellido != NULL) {
-                    $conexionBD->prepare($sql)->execute([$nombre, $apellido, $correo]);
-                    echo"datos modificados correctamente";
-                }else{ 
-                    //en caso de no querer apellido nuevo 
-                    $conexionBD->prepare($sql)->execute([$nombre, $apellido, $correoBD]);
-                    echo"datos modificados correctamente";
-                }
+
+
                 exit;
             }
             echo "<h3>la contraseña no es correcta</h3>";

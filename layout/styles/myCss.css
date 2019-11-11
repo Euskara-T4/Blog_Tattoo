@@ -1,9 +1,9 @@
 body {
   font-family: Arial, Helvetica, sans-serif;
+  background: rgb(43, 43, 43) !important;
 }
 
-input[type="text"],
-input[type="password"] {
+input[type="text"], input[type="password"] {
   width: 100%;
   padding: 12px 20px;
   margin: 8px 0;
@@ -11,27 +11,20 @@ input[type="password"] {
   border: 1px solid #ccc;
   box-sizing: border-box;
   color: black;
-  }
-
-.loginBtn {
-  background-color: grey;
-  color: white;
-  cursor: pointer;
-  border: none;
-  width: auto;
-  margin-right: 10px;
-  font-size: 20px;
 }
 
-.cancelBtn {
-  background-color: #f44336;
-  color: black;
-  cursor: pointer;
-  border: none;
-  width: auto;
-  margin-left: 10px;
-  font-size: 20px;
+
+fieldset input {
+  width: 100%;
+  padding: 12px 20px;
+  margin: 8px 0;
+  display: inline-block;
+  border: 1px solid #ccc;
+  box-sizing: border-box;
+  color: black !important;
+  background-color: white !important;
 }
+
 
 .imgcontainer {
   text-align: center;
@@ -51,15 +44,6 @@ img.avatar {
   color: white;
 }
 
-.btnContainer {
-  display: flex;
-  flex-direction: row;
-  justify-content: center;
-  align-items: center;
-  padding: 16px;
-  background-color: white;
-  color: black;
-}
 
 span.psw {
   float: right;
@@ -104,62 +88,38 @@ span.psw {
   cursor: pointer;
 }
 
-/* Add Zoom Animation */
-.animate {
-  -webkit-animation: animatezoom 0.6s;
-  animation: animatezoom 0.6s;
-}
-
-@-webkit-keyframes animatezoom {
-  from {
-    -webkit-transform: scale(0);
-  }
-
-  to {
-    -webkit-transform: scale(1);
-  }
-}
-
-@keyframes animatezoom {
-  from {
-    transform: scale(0);
-  }
-
-  to {
-    transform: scale(1);
-  }
-}
-
-/* Change styles for span and cancel button on extra small screens */
-@media screen and (max-width: 300px) {
-  span.psw {
-    display: block;
-    float: none;
-  }
-
-  .btnContainer {
-    display: flex;
-    flex-direction: column;
-    justify-content: center;
-    align-items: center;
-    padding: 16px;
-    background-color: white;
-    color: black;
-  }
-
-  .loginBtn {
-    width: 100%;
-  }
-
-  .cancelBtn {
-    width: 100%;
-  }
-}
-
-
-
 
 /*---------- BUTTONS ----------- */
+
+
+.btnContainer {
+  display: flex;
+  flex-direction: row;
+  justify-content: space-around;
+  align-items: center;
+  padding: 16px;
+  background-color: white;
+  color: black;
+}
+
+.loginBtn {
+  background-color: grey;
+  color: white;
+  cursor: pointer;
+  border: none;
+  width: auto;
+  font-size: 20px;
+}
+
+.cancelBtn {
+  background-color: grey;
+  color: white;
+  cursor: pointer;
+  border: none;
+  width: auto;
+  font-size: 20px;
+}
+
 .flex {
 	display: flex;
   flex-direction: row;
@@ -168,7 +128,7 @@ span.psw {
 }
 
 .flexBtn {
-	background: rgb(163, 163, 163);
+	background: white !important;
 	color: black !important;
 	padding: 10px 20px !important;
 	text-align: center;
@@ -178,6 +138,8 @@ span.psw {
 	margin-left: 10px !important;
 	margin-right: 10px !important;
 }
+
+/* ******************* */
 
 .error {
 	border: solid 2px #FF0000;
@@ -200,6 +162,7 @@ span.psw {
   color: white;
   padding: 10px;
 }
+/* ******************* */
 
 /* CSS DEL COMENTARIO */
 .gaiaTitulo {
@@ -244,6 +207,8 @@ span.psw {
 .gaiaImg {
   border: 7px solid black;
   margin-bottom: 10px;  
+  width: 30%;
+  height: auto;
 }
 
 .postImg {
@@ -255,6 +220,7 @@ span.psw {
   /* margin-bottom: 10px;   */
 }
 
+/* ******************* */
 
 
 /* COMMENTS SECTION */
@@ -266,7 +232,8 @@ span.psw {
   display: flex;
   flex-direction: row;
   justify-content: right;
-  align-items: right;
+  align-items: right; 
+  width: 5% !important;
 }
 
 .commentsIcon button {
@@ -279,13 +246,19 @@ span.psw {
 #avatarImg {
   font-size: 2em;
 }
+/* ******************* */
+
 
 /* USER CONFIG */
-#userTable {
+#settingsTable {
   margin-top: 100px;
   margin-bottom: 100px;
   padding: 3%;
   background-color: #888;
+}
+
+#settingsTable input {
+  width: 100% !important ;
 }
 
 .inputSetting {
@@ -297,20 +270,157 @@ span.psw {
   text-align: center;
 }
 
-#email {
-  width: 200px !important;
+#erabiltzaileaTd {
+  width: 20% !important;
 }
 
-#adminRol {
-  width: 50px !important;
+#izenaTd {
+  width: 10% !important;
 }
 
-/** slider  */
+#abizenaTd {
+  width: 20% !important;
+}
+
+#emailTd {
+  width: 25% !important;
+}
+
+#adminRolTd{
+  width: 10% !important;
+}
+
+#passwordTd {
+  width: 10% !important;
+}
+
+/* ******************* */
+
+/* POST CONFIG */
+#tituluaTd {
+  width: 15% !important;
+}
+
+#erabiltzaile_izTd {
+  width: 15% !important;
+}
+
+#laburpenaTd {
+  width: 90% !important;
+}
+/* ******************* */
+
+
+/** SLIDER IMAGES  */
 .mySlides {
-  display:none;
-  width:50%;
-  height:650px  ;
-  margin-left: 25%;
+  width: 30%;
+  height: auto;
   border: 7px solid black;  
+  margin-left: auto;
+  margin-right: auto;
+  margin-bottom: 5%;
 }
 
+.carrusel {
+  text-align: center;
+}
+
+/* ******************* */
+
+
+/* UPDATE PAGE */
+.datos {
+  display: flex;
+  flex-direction: row;
+  justify-content: center;
+  align-items: center;
+}
+
+.divUser {
+  background-color: rgb(58, 58, 58);
+  padding: 5%;
+  color: white !important;
+  margin: 5%;
+}
+
+
+.divUser button {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+}
+
+/* ******************* */
+
+.migas {
+  background-color: rgba(0, 0, 0, 0.384) !important;
+  color: white !important;
+}
+
+#settingsTable ::placeholder {
+  color: black;
+  opacity: 1;
+}
+
+h2 {
+  text-align: center;
+}
+
+hr {
+  color: black;
+  border-color: #474747 !important;
+  width: 40%;
+  padding-bottom: 5%;
+}
+/* ***************** */
+/* TO DO */
+/* FOOTER BOTTM 100% */
+
+
+/* ZOOM ANIMATION */
+.animate {
+  -webkit-animation: animatezoom 0.6s;
+  animation: animatezoom 0.6s;
+}
+
+@-webkit-keyframes animatezoom {
+  from {
+    -webkit-transform: scale(0);
+  }
+
+  to {
+    -webkit-transform: scale(1);
+  }
+}
+
+@keyframes animatezoom {
+  from {
+    transform: scale(0);
+  }
+
+  to {
+    transform: scale(1);
+  }
+}
+
+/* Change styles for span and cancel button on extra small screens */
+@media screen and (max-width: 300px) {
+  span.psw {
+    display: block;
+    float: none;
+  }
+
+  .btnContainer {
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+    padding: 16px;
+    background-color: white;
+    color: black;
+  }
+
+
+}
+
+/* ******************* */

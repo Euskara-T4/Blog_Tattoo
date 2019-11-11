@@ -2,7 +2,7 @@
     // INICIAMOS LA SESION
     session_start();
 
-    header("Location: ../index.html");
+    header("Location: ../pages/index.php");
     
     #Salir si alguno de los datos no está presente
     if(!isset($_POST["nombre"]) || !isset($_POST["apellido"]) || !isset($_POST["usuario"]) || !isset($_POST["correo"]) || !isset($_POST["contraseña"]) || !isset($_POST["contraseña_confirm"])) exit();
@@ -15,13 +15,20 @@
     $correo = $_POST["correo"];
     $pss = $_POST["contraseña"];
     $pss2 = $_POST["contraseña_confirm"];  
+    
+    if($_POST["admin"] != null){
+        $admin = $_POST["admin"];
+    }else {
+        $admin = 0;
+    }
+    
 
     // COMPROBACIONES DB
     $userNameExist = comprobarUsuario($conexionBD, $nombre_usuario);
     $emailExist = comprobarCorreo($conexionBD, $correo);
     
     if($userNameExist == false &&  $emailExist == false){
-        insertarUsuario($conexionBD, $nombre, $apellido, $nombre_usuario, $correo, $pss2);    
+        insertarUsuario($conexionBD, $nombre, $apellido, $nombre_usuario, $correo, $pss2, $admin);    
     } else{
         echo "<h3>Fail insertar el usuario</h3>";
     }          
@@ -49,11 +56,10 @@
     }
 
     // Despues de hacer las comprobaciones, insertamos a la base de datos
-    function insertarUsuario($conexionBD, $nombre, $apellido, $nombre_usuario, $correo, $pss2) {
+    function insertarUsuario($conexionBD, $nombre, $apellido, $nombre_usuario, $correo, $pss2, $admin) {
         $passHash = hash("sha256", $pss2);
-        
-        $sentencia = $conexionBD-> prepare("INSERT INTO erabiltzailea(izena, abizena, erabiltzaile_iz, email, pasahitza) VALUES (?, ?, ?, ?, ?);");
-        $resultado = $sentencia-> execute([$nombre, $apellido, $nombre_usuario, $correo, $passHash]); 
+        $sentencia = $conexionBD-> prepare("INSERT INTO erabiltzailea(izena, abizena, erabiltzaile_iz, email, pasahitza, admin) VALUES (?, ?, ?, ?, ?, ?);");
+        $resultado = $sentencia-> execute([$nombre, $apellido, $nombre_usuario, $correo, $passHash, $admin]); 
         
         if($resultado == true){
             echo "<h3>Usuario insertado correctamente</h3>";

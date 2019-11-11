@@ -20,7 +20,6 @@
         <script src="../layout/scripts/jquery.backtotop.js"></script>
         <script src="../layout/scripts/jquery.mobilemenu.js"></script>
         <script src="../layout/scripts/jquery.fitvids.js"></script>
-        <script src="../js/validacion.js"></script>
     </head>
 
     <body id='top'>
@@ -32,8 +31,8 @@
                 <!-- ################################################################################################ -->
                 <ul>
                     <li><i class='fa fa-clock-o'></i> Mon. - Fri. 8am - 5pm</li>
-                    <li><i class='fa fa-phone'></i> +00 (123) 456 7890</li>
-                    <li><i class='fa fa-envelope-o'></i> info@domain.com</li>
+                    <li><i class='fa fa-phone'></i> 944 12 57 12</li>
+                    <li><i class='fa fa-envelope-o'></i> idazkaria@fpTXurdinaga.com</li>
                     
                     <!-- ################################################################################################ -->
                     <!-- USER ACTION ICONS -->
@@ -130,121 +129,30 @@
                 
                                 </ul>
                             </li>
-                            <li><a href='aboutUs.html'>Guri buruz</a></li>
+                            <li><a href='aboutUs.php'>Guri buruz</a></li>
                         </ul>
                     </nav>
                     <!-- ################################################################################################ -->
                 </header>
             </div>
-            <!-- ################################################################################################ -->
-            <!-- MIGAS -->
-            <div class="migas">
-              <div id="breadcrumb" class="hoc clear">
-                  <!-- ################################################################################################ -->
-                  <ul>
-                      <li><a href="index.php">Hasiera</a></li>
-                      <li><a href="update.php">Perfila</a></li>
-                  </ul>
-                  <!-- ################################################################################################ -->
-              </div>
-            </div>
-            <!-- ----------------- -->
 
-        <!-- ################################################################################################ -->
-        <div class="wrapper row4 bgded overlay" style="background-image:url('../images/demo/backgrounds/fondoRegistro.jpg');">
-            <footer id="footer" class="hoc clear">
-                <!-- ################################################################################################ -->
-                <div class="one_third">
-                    <?php
-                        $nombreUsuario = $_SESSION['usuario'];
-
-                        include_once "../BD/conexionBD.php";
-                       /*seleccionaremos los datos del usuario de la BD y los mostraremos para modificar*/
-                       $sql = "SELECT * FROM erabiltzailea WHERE erabiltzaile_iz = '$nombreUsuario'";
-           
-                       foreach ($conexionBD->query($sql) as $row) {
-                           $usuario = $row['erabiltzaile_iz'];
-                           $izena = $row['izena'];
-                           $abizena = $row['abizena'];
-                           $email = $row['email'];
-                           $pasahitza = $row['pasahitza'];
-           
-                           echo "<h1>$usuario</h1>";
-                       }
-                    
-                    ?>
-                       <!--creamos un form con los posibles datos a modificar-->
-                       <!-- // GUARDAR DATOS DE PERFIL -->
-                    <div class="datos">
-                        <form method="POST" action="../php/datosPerfil.php">
-                            <div class="divUser">
-                                <h3>ERABILTZAILEAREN DATUAK</h3>
-                                <ul>
-                                    <li>
-                                        <label>Izena</label>
-                                        <input class="btmspace-15" type="text" name="nombre" id="nombre" pattern="[A-Za-zñÑ ]{1,20}" minlength="2" maxlength="20" required placeholder="<?php echo $izena; ?>">                                                       
-                                        <input type="hidden" name="nombreBD" value="<?php echo $izena; ?>"> 
-                                    </li>
-
-                                    <li>
-                                        <label>Abizena</label>
-                                        <input class="btmspace-15" type="text" name="apellido" id="apellido" pattern="[A-Za-zñÑ ]{1,30}" minlength="2" maxlength="30" required placeholder="<?php echo $abizena; ?>">                                
-                                        <input type="hidden" name="apeBD" value="<?php echo $abizena; ?>">
-                                    </li>
-
-                                    <li>
-                                        <label>Pasahitza*</label>
-                                        <input class="btmspace-15" type="password" name="PssActual" required placeholder="***********">           
-                                    </li>
-                                </ul>  
-                            
-                                <button type="submit" name="guardar1" id="enviar">Gorde</button>
-
-                            </div>
-
-                    
-                        
-                            <!-- // GUARDAR DATOS DE PERFIL -->
-                            <div class="divUser">
-                                <h3>PERFILAREN DATUAK</h3>
-                                <ul>
-                                    <li>
-                                        <label>Email*</label>
-                                        <input class="btmspace-15" type="text" name="correo" id="correo" placeholder="<?php echo $email; ?>" pattern="[A-Za-z.0-9-_]{1,20}[@][a-z]{1,20}[.][a-z]{1,3}" minlength="10" maxlength="50" required>                                    
-                                        <input type="hidden" name="correoBD" value="<?php echo $email; ?>"> 
-                                    </li>
-                                    <li>
-                                        <label>Pasahitza</label> 
-                                        <input class="btmspace-15" type="text" name="contraseña" id="pss" placeholder="*************">
-                                    </li>
-
-                                    <li> 
-                                        <label>Pasahitza berria</label>
-                                        <input class="btmspace-15" type="password" name="nuevaContra" id="contraseña" pattern="[A-Za-zÑñ0-9]{1,20}" minlength="5" maxlength="100" required>
-                                    </li>
-
-                                    <li> 
-                                        <label>Pasahitza berria berriro</label>
-                                        <input class="btmspace-15" type="password" name="repetirNueva">
-                                    </li>
-                                                                                
-                                    <input type="hidden" name="contraseñaAntigua" value="<?php echo $pasahitza; ?>">
-                                </ul>  
-
-                                <button type="submit" name="guardar2" id="enviar">Gorde</button>
-
-                            </div>
-
-                        </form>
-                    </div>
-                </div>
-                <!-- ################################################################################################ -->
-            </footer>
-        </div>
-       
-        <!-- FOOTER -->
-        <?php include 'footer.php';?>   
-
-</body>
+      <!-- ################################################################################################ -->
+      <!-- ################################################################################################ -->
+      <!-- ################################################################################################ -->
+      <div id="pageintro" class="hoc clear">
+        <article>
+          <!-- ################################################################################################ -->
+          <h3 class="heading"> BLOG TATTOO</h3>
+          <p> Ongi etorri gure tatuajeen blogera</p>
+          <!-- ################################################################################################ -->
+        </article>
+      </div>
+      <!-- ################################################################################################ -->
+    </div>
+    
+    <!-- FOOTER -->
+    <?php include 'footer.php';?>   
+    
+  </body>
 
 </html>

@@ -20,6 +20,7 @@
         <script src="../layout/scripts/jquery.backtotop.js"></script>
         <script src="../layout/scripts/jquery.mobilemenu.js"></script>
         <script src="../layout/scripts/jquery.fitvids.js"></script>
+        <script src="../js/validacion.js"></script>
     </head>
 
     <body id='top'>
@@ -98,21 +99,22 @@
         </div>
         <!-- ################################################################################################ -->
         <!-- ################################################################################################ -->
-        <!-- ################################################################################################ -->
-        <div class='wrapper row1'>
-            <header id='header' class='hoc clear'>
-                <div id='logo' class='fl_left'>
-                <h1><a href='index.php'>Blog Tattoo</a></h1>
-                </div>
-    
-                <!-------------------------------------------------->
+        <!-- Top Background Image Wrapper -->
+            <!-- ################################################################################################ -->
+            <div class='wrapper row1'>
+                <header id='header' class='hoc clear'>
+                    <div id='logo' class='fl_left'>
+                    <h1><a href='index.php'>Blog Tattoo</a></h1>
+                    </div>
+        
+                    <!-------------------------------------------------->
                 <!------------------- NAVBAR ----------------------->
                 <!-------------------------------------------------->
     
                 <nav id='mainav' class='fl_right'>
                     <ul class='clear'>
                         <li><a href='index.php'>Hasiera</a></li>
-                        <li class='active'><a href='blog.php'>Blog</a></li>
+                        <li><a href='blog.php'>Blog</a></li>
                         <li><a class='drop' href='#'>Galeria</a>
                             <ul>
                                 <li><a href='galeriaByN.html'>Zuri beltzak</a></li>
@@ -134,98 +136,66 @@
             </header>
         </div>
         <!-- ################################################################################################ -->
-        <!-- ################################################################################################ -->
 
-        <!-- ----------------- -->
         <!-- MIGAS -->
         <div class="migas">
             <div id="breadcrumb" class="hoc clear">
                 <!-- ################################################################################################ -->
                 <ul>
                     <li><a href="index.php">Hasiera</a></li>
-                    <li><a href="blog.php">Blog</a></li>
+                    <li><a href="registro.php">Erabiltzaile berria</a></li>
                 </ul>
                 <!-- ################################################################################################ -->
             </div>
         </div>
         <!-- ----------------- -->
 
-      <!-- ################################################################################################ -->
-      <!-- ################################################################################################ -->
-        <div class="wrapper row3">
-            <main class="hoc container clear">
-                <h2>TATUAJEEI BURUZKO POSTAK</h2>
-                <hr>
+        <!-- ################################################################################################ -->
+        <div class="wrapper row4 bgded overlay" style="background-image:url('../images/demo/backgrounds/fondoRegistro.jpg');">
+            <footer id="footer" class="hoc clear">
+                <!-- ################################################################################################ -->
+                <div class="one_third">
+                    <h6 class="heading">ERABILTZAILE BERRIA:</h6>
+                    
+                    <!-- FORM REGISTRO PHP -->
+                    <form method="post" action="../php/registro.php">
+                        <fieldset>
+                            <legend>Newsletter:</legend>
+                            <input class="btmspace-15" type="text" placeholder="Izena" name="nombre"  id="nombre" pattern="[A-Za-zñÑ ]{1,20}" minlength="2" maxlength="20" required>
+                            <input class="btmspace-15" type="text" placeholder="Abizena" name="apellido"  id="apellido" pattern="[A-Za-zñÑ ]{1,30}" minlength="2" maxlength="30" required>
+                            <input class="btmspace-15" type="text" placeholder="Erabiltzailea Izena" name="usuario" id="usuario" pattern="[A-Za-zñÑ0-9 ]{1,20}" minlength="5" maxlength="20" required>
+                            <input class="btmspace-15" type="text" placeholder="Email" name="correo" id="correo" pattern="[A-Za-z.0-9-_]{1,20}[@][a-z]{1,20}[.][a-z]{1,3}" minlength="10" maxlength="50" required>
+                            <input class="btmspace-15" type="password" placeholder="Pasahitza" name="contraseña" id="contraseña" pattern="[A-Za-zÑñ0-9]{1,20}" minlength="5" maxlength="100" required>
+                            <input class="btmspace-15" type="password" placeholder="Pasahitzaren Konfirmazioa" name="contraseña_confirm" id="contraseña2" pattern="[A-Za-zÑñ0-9]{1,20}" minlength="5" maxlength="100" required>
+                           
+                            <!-- Solo los administradores podran hacer esto -->
+                            <?php
+                                if(isset($_SESSION['usuario']) && $_SESSION["adminRol"] == 1 || isset($_SESSION['usuario']) && $_SESSION["adminRol"] == 2){
+                            ?>
+                                <input class="btmspace-15" type="text" placeholder="Administratzailearen Rola" name="admin" id="admin" pattern="[0-3]{1,1}" minlength="1" maxlength="1" required>
+                            <?php
+                              }
+                            ?>
 
-                <div class="content">                    
-                    <div id="gallery">
-                        <figure>                            
-                                <?php
-                                    // Recoger informacion sobre los temas correspondientes
-                                    include_once "../BD/conexionBD.php";
 
-                                    // Mostrar solo la primera imagen de cada tema
-                                    $sql = "SELECT * FROM gaia";
 
-                                    foreach ($conexionBD->query($sql) as $row) {    
-                                        $id_gaia = $row['id_gaia'];
-                                        $erabiltzailea = $row['erabiltzaile_iz'];
-                                        $gaia = $row['titulua'];
-                                        $laburpena = $row['laburpena'];
-                                        $deskribapena = $row['deskribapena'];
+                            <p id="mensajeError"></p>
 
-                                        // Recogemos la imagen que le corresponde
-                                        $sqlImg = "SELECT * FROM argazkia WHERE id_gaia='$id_gaia'";
-                                        
-                                        foreach ($conexionBD->query($sqlImg) as $rowImg) {    
-                                            $img_src = $rowImg['url'];
-                                            $img_name = $rowImg['izena'];
-                                ?>
-                                        <div class="gaiaContainer">
-                                            <a href='iruzkinak.php?idGaia=<?php echo $id_gaia;?>'>
-                                                <!-- Imagen -->
-                                                <img class="gaiaImg" src= "<?php echo $img_src; ?>" alt="<?php echo $img_name; ?>">
-                                                <!-- Titulo -->
-                                                <h3 class="gaiaTitulo"><?php echo $gaia;?></h3>                                      
-                                                <!-- Avatar y nombre usuario -->
-                                                <div class="usuarioFlex">
-                                                    <img class="gaiaAvatar" src="../images/demo/avatar.png" alt="user icon">
-                                                    <h4 class="gaiaUsuario"><?php echo $erabiltzailea;?></h4>
-                                                </div>                                
-                                                <!-- Resumen -->
-                                                <figcaption class="gaiaLaburpena"><?php echo $laburpena;?></figcaption>
-                                            </a>
-                                        </div>
-                                <?php
-                                        }
-                                    }
-                                ?>
-                        </figure>
-                    </div>
-                  <!-- ################################################################################################ -->
-                  <!-- ################################################################################################ -->
-                    <nav class="pagination">
-                        <ul>
-                            <li><a href="#">&laquo; Previous</a></li>
-                            <li class="current"><a href="#">1</a></li>
-                            <li><a href="#">2</a></li>
-                            <li><a href="#">3</a></li>
-                            <li><strong>&hellip;</strong></li>
-                            <li><a href="#">Next &raquo;</a></li>
-                        </ul>
-                   </nav>
-                  <!-- ################################################################################################ -->
+                            <div class="flex">
+                                <button type="reset" value="borrar" id="borrar" class="flexBtn">BORRAR</button>
+                                <button type="submit" value="submit" id="enviar" class="flexBtn">SORTU</button>
+                            </div>
+
+                        </fieldset>
+                    </form>
                 </div>
-              <!-- ################################################################################################ -->
-              <!-- / main body -->
-              <div class="clear"></div>
-          </main>
-      </div>
-      <!-- ################################################################################################ -->
-      <!-- ################################################################################################ -->
+                <!-- ################################################################################################ -->
+            </footer>
+        </div>
         
         <!-- FOOTER -->
         <?php include 'footer.php';?>   
-  </body>
+
+</body>
 
 </html>

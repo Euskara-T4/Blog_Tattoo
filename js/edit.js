@@ -24,6 +24,7 @@ function editUser() {
         adminRol.readOnly = false;
         icon.className = "fa fa-lg fa-save";
         btn.type ="button";
+        
         // CAMBIAR ESTILO
         izena.style.border = "1px solid #ccc !important";
         izena.style.backgroundColor = "grey !important";

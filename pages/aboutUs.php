@@ -98,6 +98,7 @@
         </div>
         <!-- ################################################################################################ -->
         <!-- ################################################################################################ -->
+        
         <!-- ################################################################################################ -->
         <div class='wrapper row1'>
             <header id='header' class='hoc clear'>
@@ -112,7 +113,7 @@
                 <nav id='mainav' class='fl_right'>
                     <ul class='clear'>
                         <li><a href='index.php'>Hasiera</a></li>
-                        <li class='active'><a href='blog.php'>Blog</a></li>
+                        <li><a href='blog.php'>Blog</a></li>
                         <li><a class='drop' href='#'>Galeria</a>
                             <ul>
                                 <li><a href='galeriaByN.html'>Zuri beltzak</a></li>
@@ -123,8 +124,7 @@
                                     <li><a href='#'>Ivan Morant</a></li>
                                     <li><a href='#'>Kat Von D</a></li>
                                 </ul>
-                                </li>
-            
+                                </li>                
                             </ul>
                         </li>
                         <li><a href='aboutUs.php'>Guri buruz</a></li>
@@ -134,96 +134,43 @@
             </header>
         </div>
         <!-- ################################################################################################ -->
-        <!-- ################################################################################################ -->
-
-        <!-- ----------------- -->
+      
         <!-- MIGAS -->
         <div class="migas">
             <div id="breadcrumb" class="hoc clear">
                 <!-- ################################################################################################ -->
                 <ul>
                     <li><a href="index.php">Hasiera</a></li>
-                    <li><a href="blog.php">Blog</a></li>
+                    <li><a href="aboutUs.php">Guri buruz</a></li>
                 </ul>
                 <!-- ################################################################################################ -->
             </div>
         </div>
         <!-- ----------------- -->
+        <!-- ################################################################################################ -->
 
-      <!-- ################################################################################################ -->
-      <!-- ################################################################################################ -->
-        <div class="wrapper row3">
-            <main class="hoc container clear">
-                <h2>TATUAJEEI BURUZKO POSTAK</h2>
-                <hr>
+        <footer id="footer" class="hoc clear">
+            <!-- ################################################################################################ -->
+            <div class="one_third first">
+                <h6 class="heading">Non gaude</h6>
+                <ul class="nospace btmspace-30 linklist contact">
+                <li><i class="fa fa-map-marker"></i>
+                    <address>
+                    Ornilla Doctor Kalea, 2, 48004 Bilbo, Bizkaia
+                    </address>
+                </li>
+                <li><i class="fa fa-phone"></i> 944 12 57 12</li>
+                <li><i class="fa fa-fax"></i> 944731359</li>
+                <li><i class="fa fa-envelope-o"></i> idazkaria@fpTXurdinaga.com</li>
+                </ul>
+            </div>
+            <!------------------------>
+            <!-- MAPA DEL INSTITUTO -->
+            <!------------------------>
+            <iframe src="https://www.google.com/maps/embed?pb=!1m18!1m12!1m3!1d2905.6865514897463!2d-2.9053552849856654!3d43.257990685914905!2m3!1f0!2f0!3f0!3m2!1i1024!2i768!4f13.1!3m3!1m2!1s0xd4e4fac87437727%3A0x364f27e82def0130!2sCIFP%20Txurdinaga%20LHII!5e0!3m2!1ses!2ses!4v1571830347683!5m2!1ses!2ses" width="315" height="315" frameborder="0" style="border:0;" allowfullscreen=""></iframe>
+            <!-- ################################################################################################ -->
+        </footer>
 
-                <div class="content">                    
-                    <div id="gallery">
-                        <figure>                            
-                                <?php
-                                    // Recoger informacion sobre los temas correspondientes
-                                    include_once "../BD/conexionBD.php";
-
-                                    // Mostrar solo la primera imagen de cada tema
-                                    $sql = "SELECT * FROM gaia";
-
-                                    foreach ($conexionBD->query($sql) as $row) {    
-                                        $id_gaia = $row['id_gaia'];
-                                        $erabiltzailea = $row['erabiltzaile_iz'];
-                                        $gaia = $row['titulua'];
-                                        $laburpena = $row['laburpena'];
-                                        $deskribapena = $row['deskribapena'];
-
-                                        // Recogemos la imagen que le corresponde
-                                        $sqlImg = "SELECT * FROM argazkia WHERE id_gaia='$id_gaia'";
-                                        
-                                        foreach ($conexionBD->query($sqlImg) as $rowImg) {    
-                                            $img_src = $rowImg['url'];
-                                            $img_name = $rowImg['izena'];
-                                ?>
-                                        <div class="gaiaContainer">
-                                            <a href='iruzkinak.php?idGaia=<?php echo $id_gaia;?>'>
-                                                <!-- Imagen -->
-                                                <img class="gaiaImg" src= "<?php echo $img_src; ?>" alt="<?php echo $img_name; ?>">
-                                                <!-- Titulo -->
-                                                <h3 class="gaiaTitulo"><?php echo $gaia;?></h3>                                      
-                                                <!-- Avatar y nombre usuario -->
-                                                <div class="usuarioFlex">
-                                                    <img class="gaiaAvatar" src="../images/demo/avatar.png" alt="user icon">
-                                                    <h4 class="gaiaUsuario"><?php echo $erabiltzailea;?></h4>
-                                                </div>                                
-                                                <!-- Resumen -->
-                                                <figcaption class="gaiaLaburpena"><?php echo $laburpena;?></figcaption>
-                                            </a>
-                                        </div>
-                                <?php
-                                        }
-                                    }
-                                ?>
-                        </figure>
-                    </div>
-                  <!-- ################################################################################################ -->
-                  <!-- ################################################################################################ -->
-                    <nav class="pagination">
-                        <ul>
-                            <li><a href="#">&laquo; Previous</a></li>
-                            <li class="current"><a href="#">1</a></li>
-                            <li><a href="#">2</a></li>
-                            <li><a href="#">3</a></li>
-                            <li><strong>&hellip;</strong></li>
-                            <li><a href="#">Next &raquo;</a></li>
-                        </ul>
-                   </nav>
-                  <!-- ################################################################################################ -->
-                </div>
-              <!-- ################################################################################################ -->
-              <!-- / main body -->
-              <div class="clear"></div>
-          </main>
-      </div>
-      <!-- ################################################################################################ -->
-      <!-- ################################################################################################ -->
-        
         <!-- FOOTER -->
         <?php include 'footer.php';?>   
   </body>

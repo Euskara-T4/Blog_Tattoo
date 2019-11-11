@@ -1,14 +1,8 @@
 <?php
     // INICIAMOS LA SESION    
     session_start();
-
-    // header("Location: iruzkinak.php");
-
-    #Si todo va bien, se ejecuta esta parte del código...
-    // include_once "../BD/conexionBD.php";
     
     $id_gaia = $_POST["idGaia"];
-
     
     // SI HA SELECIONADO BORRAR
     if (isset($_POST['btnDelete'])){
@@ -38,6 +32,7 @@
     // MANDAR COMENTARIO
     function insertarComentario($nombre_usuario, $id_gaia, $iruzkina, $fecha){
         include_once "../BD/conexionBD.php";
+        
         $sql = "INSERT INTO iruzkina(erabiltzaile_iz, id_gaia, iruzkina, sortze_data) VALUES (?, ?, ?, ?);";
         $sentencia = $conexionBD-> prepare($sql);
         $resultado = $sentencia-> execute([$nombre_usuario, $id_gaia, $iruzkina, $fecha]); 
