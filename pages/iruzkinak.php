@@ -1,192 +1,154 @@
 <?php
-  // INICIAMOS LA SESION    
-  session_start();
+    // INICIAMOS LA SESION
+    session_start();
 ?>
 
 <!DOCTYPE html>
 
-<html lang="es">
+<html lang='es'>
+<!-- HEADER.PHP -->
 
-<head>
-<title>Blog Tattoo</title>
-    <meta charset="utf-8">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=1.0, user-scalable=no">
-    <link href="../layout/styles/layout.css" rel="stylesheet" type="text/css" media="all">
-    <link href="../layout/styles/myCss.css" rel="stylesheet" type="text/css" media="all">
-    <script src="../js/slider.js"></script>
-    <script src="../js/edit.js"></script>
+    <head>
+        <title>Blog Tattoo</title>
+        <meta charset='utf-8'>
+        <meta name='viewport' content='width=device-width, initial-scale=1.0, maximum-scale=1.0, user-scalable=no'>
+        <link href='../layout/styles/layout.css' rel='stylesheet' type='text/css' media='all'>
 
-    <link rel="stylesheet" href="https://www.w3schools.com/w3css/4/w3.css">
+        <!-- JAVASCRIPTS -->
+        <script src='../js/login.js'></script>
+        <script src='../js/slider.js'></script>
+        <script src="../layout/scripts/jquery.min.js"></script>
+        <script src="../layout/scripts/jquery.backtotop.js"></script>
+        <script src="../layout/scripts/jquery.mobilemenu.js"></script>
+        <script src="../layout/scripts/jquery.fitvids.js"></script>
+    </head>
 
-</head>
-
-<body id="top">
-    <!-- ################################################################################################ -->
-    <!-- ################################################################################################ -->
-    <div class="wrapper row0">
-        <div id="topbar" class="hoc clear">
-            <!-- ################################################################################################ -->
-            <ul>
-                    <li><i class="fa fa-clock-o"></i> Mon. - Fri. 8am - 5pm</li>
-                    <li><i class="fa fa-phone"></i> +00 (123) 456 7890</li>
-                    <li><i class="fa fa-envelope-o"></i> info@domain.com</li>
-                    <li><a href="#"><i class="fa fa-lg fa-home"></i></a></li>
-
+    <body id='top'>
+        <!-- ################################################################################################ -->
+        <!-- ################################################################################################ -->
+        <!-- ################################################################################################ -->
+        <div class='wrapper row0'>
+            <div id='topbar' class='hoc clear'>
+                <!-- ################################################################################################ -->
+                <ul>
+                    <li><i class='fa fa-clock-o'></i> Mon. - Fri. 8am - 5pm</li>
+                    <li><i class='fa fa-phone'></i> +00 (123) 456 7890</li>
+                    <li><i class='fa fa-envelope-o'></i> info@domain.com</li>
+                    
+                    <!-- ################################################################################################ -->
+                    <!-- USER ACTION ICONS -->
                     <?php
-                        if(!isset($_SESSION['usuario'])){
+                        if(isset($_SESSION['usuario'])){          
                     ?>
-                        <!-- Si la sesion no esta iniciada -->
-                        <li><a href='#' title='Login' id='btnLogin'><i class='fa fa-lg fa-sign-in'></i></a></li>
+                            <li><a href='update.php' title='Perfila'><i class='fa fa-lg fa-home'></i></a></li>            
+                    <?php
+                            echo $_SESSION['usuario'];
+                    ?>
+                            <li><a href='#' title='Irten' id='btnLogout'><i class='fa fa-lg fa-sign-out'></i></a></li>
                     
                     <?php
-                        } else{
-                        echo $_SESSION['usuario'];
-                    ?>              
-                        <li><a href='../php/logout.php' title='Logout' id='btnLogout'><i class='fa fa-lg fa-sign-out'></i></a></li>
-                        
+                            if($_SESSION['adminRol'] == 1 || $_SESSION['adminRol'] == 2){
+                            ?>
+                                <li><a href='ajusteak.php' title='Ajusteak' id='btnSettings'><i class='fa fa-lg fa-cog'></i></a></li>
+                                <li><a href='addPost.php' title='Posta gehitu' id='btnPost'><i class='fa fa-lg fa-plus-square'></i></a></li>
+            
+                            <?php
+                            }          
+                    
+                        } else {        
+                    ?>
+                        <li><a href='#' title='Logeatu' id='btnLogin'><i class='fa fa-lg fa-sign-in'></i></a></li>
                     <?php
                         }
                     ?>
+                    <!-- -------------------------------------- -->
                     
-                    <li><a href="pages/registro.html" title="Sign Up"><i class="fa fa-lg fa-user-plus"></i></a></li>
-              </ul>
-              <!-- ################################################################################################ -->
-            <!-- ################################################################################################ -->
+                    <li><a href='registro.php' title='Sortu'><i class='fa fa-lg fa-user-plus'></i></a></li>
+                </ul>
+                <!-- ################################################################################################ -->
+            </div>
         </div>
-    </div>
-    <!-- ################################################################################################ -->
-    <!-- ################################################################################################ -->
-    <!-- Top Background Image Wrapper -->
-    <div class="bgded overlay">
-        <div class="wrapper row1">
-
-            <header id="header" class="hoc clear">
-                <div id="logo" class="fl_left">
-                    <h1><a href="../index.html">Natucam</a></h1>
+        <!-- ################################################################################################ -->
+        <!-- ################################################################################################ -->
+    
+        <!-- LOGIN MODAL -->
+        <div id='loginModal' class='modal'>
+            <form class='modal-content animate' action='../php/login.php' method='post'>
+                <!-- ################################################################################################ -->
+                <div class='imgcontainer'>
+                    <span class='close' id='close' title='Close Modal'>&times;</span>
+                    <img src='../images/demo/avatar.png' alt='Avatar' class='avatar'>
                 </div>
+        
+                <div class='logContainer'>
+                    <label for='erabiltzaile_iz'><b>Erabiltzaile izena:</b></label>
+                    <input type='text' placeholder='Sartu erabiltzailea' name='erabiltzaile_iz' required>
+        
+                    <label for='psw'><b>Pasahitza:</b></label>
+                    <input type='password' placeholder='Sartu pasahitza' name='pasahitza' required>
+                    <!-- <label>
+                        <input type='checkbox' checked='checked' name='remember'> Remember me
+                    </label> -->
+                </div>
+        
+                <div class='btnContainer'>
+                    <button type='submit' class='loginBtn' id='loginBtn'>Login</button>
+                    <button type='button' class='cancelBtn' id='cancelBtn'>Cancel</button>
+                </div>
+            </form>
+        </div>
+        <!-- ################################################################################################ -->
+        <!-- ################################################################################################ -->
 
-                <nav id="mainav" class="fl_right">
-                    <ul class="clear">
-                        <li><a href="../index.html">Home</a></li>
-                        <li class="active"><a class="drop" href="#">Pages</a>
+        <div class='wrapper row1'>
+            <header id='header' class='hoc clear'>
+                <div id='logo' class='fl_left'>
+                <h1><a href='index.php'>Blog Tattoo</a></h1>
+                </div>
+    
+                <!-------------------------------------------------->
+                <!------------------- NAVBAR ----------------------->
+                <!-------------------------------------------------->
+    
+                <nav id='mainav' class='fl_right'>
+                    <ul class='clear'>
+                        <li><a href='index.php'>Hasiera</a></li>
+                        <li class='active'><a href='blog.php'>Blog</a></li>
+                        <li><a class='drop' href='#'>Galeria</a>
                             <ul>
-                                <li><a href="gallery.html">Gallery</a></li>
-                                <li class="active"><a href="full-width.html">Full Width</a></li>
-                                <li><a href="sidebar-left.html">Sidebar Left</a></li>
-                                <li><a href="sidebar-right.html">Sidebar Right</a></li>
-                                <li><a href="basic-grid.html">Basic Grid</a></li>
-                            </ul>
-                        </li>
-                        <li><a class="drop" href="#">Dropdown</a>
-                            <ul>
-                                <li><a href="#">Level 2</a></li>
-                                <li><a class="drop" href="#">Level 2 + Drop</a>
-                                    <ul>
-                                        <li><a href="#">Level 3</a></li>
-                                        <li><a href="#">Level 3</a></li>
-                                        <li><a href="#">Level 3</a></li>
-                                    </ul>
+                                <li><a href='galeriaByN.html'>Zuri beltzak</a></li>
+                                <li><a href='galeriaColor.php'>Kolorez</a></li>
+                                <li><a class='drop' href='#'>Artistak</a>
+                                <ul>
+                                    <li><a href='galeriaIvanP.html'>Ivan Pelegrin</a></li>
+                                    <li><a href='#'>Ivan Morant</a></li>
+                                    <li><a href='#'>Kat Von D</a></li>
+                                </ul>
                                 </li>
-                                <li><a href="#">Level 2</a></li>
+            
                             </ul>
                         </li>
-                        <li><a href="#">Link Text</a></li>
-                        <li><a href="#">Link Text</a></li>
+                        <li><a href='aboutUs.php'>Guri buruz</a></li>
                     </ul>
                 </nav>
                 <!-- ################################################################################################ -->
             </header>
         </div>
-        <!-- ################################################################################################ -->
-        <!-- ################################################################################################ -->
-        <div class="wrapper row2">
-            <div id="breadcrumb" class="hoc clear">
-                <ul>
-                    <li><a href="../index.html">Hasiera</a></li>
-                    <li><a href="iruzkinak.html">IRUZKINAK</a></li>
-                </ul>
-            </div>
+    <!-- ################################################################################################ -->
+    <!-- ################################################################################################ -->
+    <!-- MIGAS -->
+    <div class="migas">
+        <div id="breadcrumb" class="hoc clear">
+            <ul>
+                <li><a href="index.php">Hasiera</a></li>
+                <li><a href="blog.php">Blog</a></li>
+                <li><a href="iruzkinak.php">Iruzkinak</a></li>
+            </ul>
         </div>
-        <!-- ################################################################################################ -->
     </div>
-    <!-- End Top Background Image Wrapper -->
+    <!-- ------------- -->
     <!-- ################################################################################################ -->
     <!-- ################################################################################################ -->
-    <!-- ################################################################################################ -->
-<<<<<<< HEAD
-  </div>
-  <!-- End Top Background Image Wrapper -->
-  <!-- ################################################################################################ -->
-  <!-- ################################################################################################ -->
-  <!-- ################################################################################################ -->
-  <div class="wrapper row3">
-    <main class="hoc container clear">
-      <!-- main body -->
-      <!-- ################################################################################################ -->
-      <div class="content">
-
-        <!--------------------------------->
-        <!-- SELECT DE TITULOS DEL TEMA  -->
-        <!--------------------------------->
-        <?php
-        include_once "../BD/conexionBD.php";
-        $id_gaia = $_GET["idGaia"];
-        $sql = "SELECT * FROM gaia WHERE id_gaia='$id_gaia'";
-
-        foreach ($conexionBD->query($sql) as $row) {
-          $erabiltzailea = $row['erabiltzaile_iz'];
-          $gaia = $row['titulua'];
-          $deskribapena = $row['deskribapena'];
-
-          $sqlImg = "SELECT * FROM argazkia WHERE id_gaia='$id_gaia'";
-
-          foreach ($conexionBD->query($sqlImg) as $rowImg) {
-            $img_src = $rowImg['url'];
-            $img_name = $rowImg['izena'];
-            ?>
-
-            <!-------slider imagen de blog con botones
-          
-                  carga de imagenes desde la BD-------------------------->
-
-            <div class="carrusel">
-              <!-- Informacion sobre el tema  -->
-              <img class="mySlides" src="<?php echo $img_src; ?>" alt="<?php echo $img_name; ?>">
-            </div>
-              <!----------------------------------------------------------------->
-              <!---------------script para recorrer imagen automatica ---------------------->
-            <?php
-              }
-              ?>
-            <script>
-                var slideIndex = 1;
-                var slideIndex = 0;
-                  carousel();
-
-                  function carousel() {
-                    var i;
-                    var x = document.getElementsByClassName("mySlides");
-                    for (i = 0; i < x.length; i++) {
-                      x[i].style.display = "none";
-                    }
-                    slideIndex++;
-                    if (slideIndex > x.length) {slideIndex = 1}
-                    x[slideIndex-1].style.display = "block";
-                    setTimeout(carousel, 8000); // Change image every 8 seconds
-                  }
-          </script>
-          <?php
-          }
-          ?>
-
-      </div>
-  <div id="comments">
-    <h3 class="iruzkinakTitle">Iruzkinak</h3>
-    <!-- Vamos a mostrar los comentarios de la base de datos -->
-    <?php
-    include_once "../BD/conexionBD.php";
-    $sql = "SELECT * FROM iruzkina WHERE id_gaia='$id_gaia'";
-=======
     <div class="wrapper row3">
         <main class="hoc container clear">
             <!-- main body -->
@@ -208,26 +170,34 @@
 
                   $sqlImg = "SELECT * FROM argazkia WHERE id_gaia='$id_gaia'";
 
+            ?>
+                    <h2><?php echo $gaia; ?></h2>
+                    <hr>
+            <?php
+
                   foreach ($conexionBD->query($sqlImg) as $rowImg) {
                     $img_src = $rowImg['url'];
                     $img_name = $rowImg['izena'];
               ?>
-
-                    <!------- Slider imagen de blog con botones          
-                      carga de imagenes desde la BD --------->
-
+                  
+                    <!-- SLIDER -->
                     <div class="carrusel">
-                        <!-- Informacion sobre el tema  -->
                         <img class="mySlides" src="<?php echo $img_src; ?>" alt="<?php echo $img_name; ?>">
                     </div>
                 <?php
                   }
-                ?>
-
-              <?php
                 }
               ?>
-
+                <div class="gaiaContainer">
+                        <!-- Avatar y nombre usuario -->
+                        <div class="usuarioFlex">
+                            <img class="gaiaAvatar" src="../images/demo/avatar.png" alt="user icon">
+                            <h4 class="gaiaUsuario"><?php echo $erabiltzailea;?></h4>
+                        </div>                                
+                        <!-- Resumen -->
+                        <figcaption class="gaiaLaburpena"><?php echo $deskribapena;?></figcaption>
+                </div>
+                    
             </div>
 
             <!-------------------------------->
@@ -256,7 +226,6 @@
                             <figure class="avatar">
                                 <i class="fa fa-user-circle-o" id="avatarImg"></i>
                             </figure>
->>>>>>> 277e9b81157f40a1da533267cdc1f0e5aced8e6f
 
                             <address><?php echo $erabiltzailea;?></address>
 
@@ -335,24 +304,8 @@
     </main>
     </div>
     <!-- ################################################################################################ -->
-    <!-- ################################################################################################ -->
-    <div class="wrapper row5">
-        <div id="copyright" class="hoc clear">
-            <!-- ################################################################################################ -->
-            <p class="fl_left">Copyright &copy; 2018 - All Rights Reserved - <a href="#">Domain Name</a></p>
-            <p class="fl_right">Template by <a target="_blank" href="https://www.os-templates.com/"
-                    title="Free Website Templates">OS Templates</a></p>
-            <!-- ################################################################################################ -->
-        </div>
-    </div>
-    <!-- ################################################################################################ -->
-    <!-- ################################################################################################ -->
-    <!-- ################################################################################################ -->
-    <a id="backtotop" href="#top"><i class="fa fa-chevron-up"></i></a>
-    <!-- JAVASCRIPTS -->
-    <script src="../layout/scripts/jquery.min.js"></script>
-    <script src="../layout/scripts/jquery.backtotop.js"></script>
-    <script src="../layout/scripts/jquery.mobilemenu.js"></script>
+    <!-- FOOTER -->
+    <?php include 'footer.php';?>   
 </body>
 
 </html>

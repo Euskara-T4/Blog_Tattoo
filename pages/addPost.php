@@ -99,7 +99,7 @@
         <!-- ################################################################################################ -->
         <!-- ################################################################################################ -->
         <!-- Top Background Image Wrapper -->
-        <div class='bgded overlay' style="background-image:url('../images/demo/backgrounds/fondoIndex.jpg');">
+        <div class='bgded overlay'>
             <!-- ################################################################################################ -->
             <div class='wrapper row1'>
                 <header id='header' class='hoc clear'>
@@ -113,7 +113,7 @@
         
                     <nav id='mainav' class='fl_right'>
                         <ul class='clear'>
-                            <li class='active'><a href='index.php'>Hasiera</a></li>
+                            <li><a href='index.php'>Hasiera</a></li>
                             <li><a href='blog.php'>Blog</a></li>
                             <li><a class='drop' href='#'>Galeria</a>
                                 <ul>
@@ -129,120 +129,127 @@
                 
                                 </ul>
                             </li>
-                            <li><a href='aboutUs.html'>Guri buruz</a></li>
+                            <li><a href='aboutUs.php'>Guri buruz</a></li>
                         </ul>
                     </nav>
                     <!-- ################################################################################################ -->
                 </header>
             </div>
-            <!-- ################################################################################################ -->
-            <!-- MIGAS -->
-            <div class="migas">
-              <div id="breadcrumb" class="hoc clear">
-                  <!-- ################################################################################################ -->
-                  <ul>
-                      <li><a href="index.php">Hasiera</a></li>
-                      <li><a href="update.php">Perfila</a></li>
-                  </ul>
-                  <!-- ################################################################################################ -->
-              </div>
+        <!-- ################################################################################################ -->
+        <!-- MIGAS -->
+        <div class="migas">
+            <div id="breadcrumb" class="hoc clear">
+                <!-- ################################################################################################ -->
+                <ul>
+                    <li><a href="index.php">Hasiera</a></li>
+                    <li><a href="addPost.php">Posta gehitu</a></li>
+                </ul>
+                <!-- ################################################################################################ -->
             </div>
-            <!-- ----------------- -->
-
+        </div>
+        <!-- ----------------- -->
+        
         <!-- ################################################################################################ -->
         <div class="wrapper row4 bgded overlay" style="background-image:url('../images/demo/backgrounds/fondoRegistro.jpg');">
-            <footer id="footer" class="hoc clear">
+            <div id="footer" class="hoc clear">
                 <!-- ################################################################################################ -->
                 <div class="one_third">
-                    <?php
-                        $nombreUsuario = $_SESSION['usuario'];
-
-                        include_once "../BD/conexionBD.php";
-                       /*seleccionaremos los datos del usuario de la BD y los mostraremos para modificar*/
-                       $sql = "SELECT * FROM erabiltzailea WHERE erabiltzaile_iz = '$nombreUsuario'";
-           
-                       foreach ($conexionBD->query($sql) as $row) {
-                           $usuario = $row['erabiltzaile_iz'];
-                           $izena = $row['izena'];
-                           $abizena = $row['abizena'];
-                           $email = $row['email'];
-                           $pasahitza = $row['pasahitza'];
-           
-                           echo "<h1>$usuario</h1>";
-                       }
+                    <h6 class="heading">POST BERRIA</h6>
                     
-                    ?>
-                       <!--creamos un form con los posibles datos a modificar-->
-                       <!-- // GUARDAR DATOS DE PERFIL -->
-                    <div class="datos">
-                        <form method="POST" action="../php/datosPerfil.php">
-                            <div class="divUser">
-                                <h3>ERABILTZAILEAREN DATUAK</h3>
-                                <ul>
-                                    <li>
-                                        <label>Izena</label>
-                                        <input class="btmspace-15" type="text" name="nombre" id="nombre" placeholder="<?php echo $izena; ?>">                                                       
-                                        <input type="hidden" name="nombreBD" value="<?php echo $izena; ?>"> 
-                                    </li>
+                    <!-- FORM REGISTRO PHP -->
+                    <form method="post" action="<?php $SERVER['PHP_SELF']?>">
+                        <fieldset>
+                            <legend>Newsletter:</legend>
+                            <input class="btmspace-15" type="text" placeholder="Titulua" name="titulua"  id="titulua" pattern="[A-Za-zñÑ ]{1,20}" minlength="2" maxlength="20" required>
+                            <input class="btmspace-15" type="text" placeholder="Laburpena" name="laburpena" id="laburpena" pattern="[A-Za-zñÑ0-9 ]{1,20}" minlength="5" maxlength="50" required>
+                            <input class="btmspace-15" type="text" placeholder="Deskribapena" name="deskribapena" id="deskribapena" pattern="[A-Za-zñÑ0-9 ]{1,40}" minlength="10" maxlength="100" required>
+                            <input class="btmspace-15" type="text" placeholder="Argazkia" name="argazkia" id="argazkia" pattern="[A-Za-zñÑ0-9/ ]{1,40}" minlength="5" maxlength="100" required>
 
-                                    <li>
-                                        <label>Abizena</label>
-                                        <input class="btmspace-15" type="text" name="apellido" id="apellido" placeholder="<?php echo $abizena; ?>">                                
-                                        <input type="hidden" name="apeBD" value="<?php echo $abizena; ?>">
-                                    </li> 
+                            <p id="mensajeError"></p>
 
-                                    <li>
-                                        <label>Email</label>
-                                        <input class="btmspace-15" type="text" name="correo" placeholder="<?php echo $email; ?>">                                    
-                                        <input type="hidden" name="correoBD" value="<?php echo $email; ?>"> 
-                                    </li>
-
-                                    <li>
-                                        <label>Pasahitza</label>
-                                        <input class="btmspace-15" type="password" name="PssActual" placeholder="***********">           
-                                    </li>
-                                </ul>  
-                            
-                                <button type="submit" name="guardar1" id="enviar">Gorde</button>
-
+                            <div class="flex">
+                                <button type="reset" value="borrar" id="borrar" class="flexBtn">BORRAR</button>
+                                <button type="submit" value="submit" id="enviar" class="flexBtn">SORTU</button>
                             </div>
 
-                    
-                        
-                            <!-- // GUARDAR DATOS DE PERFIL -->
-                            <div class="divUser">
-                                <h3>PASAHITZAREN DATUAK</h3>
-                                <ul>
-                                    <li>
-                                        <label>Pasahitza</label> 
-                                        <input class="btmspace-15" type="text" name="contraseña" id="pss" placeholder="*************">
-                                    </li>
-
-                                    <li> 
-                                        <label>Pasahitza berria</label>
-                                        <input class="btmspace-15" type="password" name="nuevaContra" id="pss">
-                                    </li>
-
-                                    <li> 
-                                        <label>Pasahitza berria berriro</label>
-                                        <input class="btmspace-15" type="password" name="repetirNueva">
-                                    </li>
-                                                                                
-                                    <input type="hidden" name="contraseñaAntigua" value="<?php echo $pasahitza; ?>">
-                                </ul>  
-
-                                <button type="submit" name="guardar2" id="enviar">Gorde</button>
-
-                            </div>
-
-                        </form>
-                    </div>
+                        </fieldset>
+                    </form>
                 </div>
                 <!-- ################################################################################################ -->
             </footer>
         </div>
-       
-        <!-- FOOTER -->
+        
+
+        <?php
+            if(!isset($_POST["titulua"]) || !isset($_POST["deskribapena"]) || !isset($_POST["argazkia"]) || !isset($_POST["laburpena"]) || !isset($_POST["enviar"])) exit();
+
+            #Si todo va bien, se ejecuta esta parte del código...
+            include_once "../BD/conexionBD.php";
+            $sortzailea = $_SESSION['usuario'];
+            $titulua = $_POST["titulua"];
+            $laburpena = $_POST["laburpena"];
+            $deskribapena = $_POST["deskribapena"];
+            $argazkia = $_POST["argazkia"];
+            
+            // COMPROBACIONES DB
+            $temaExist = comprobarTema($conexionBD, $titulua);
+            
+            if($temaExist == false){
+                insertarTema($conexionBD, $titulua, $sortzailea, $laburpena, $deskribapena, $argazkia);       
+            } else{
+                echo "<h3>Fail insertar el tema</h3>";
+            }          
+        
+            // Comprobaremos si el tema ya metido existe en la base de datos
+            function comprobarTema($conexionBD, $titulua){
+                $sql = "SELECT * FROM gaia WHERE titulua='$titulua'";
+
+                foreach ($conexionBD->query($sql) as $row) {
+                    echo "<h3>Tema -- $titulua -- ya existe</h3>";
+                    return true;
+                }
+                echo "<h3>Tema -- $titulua -- NO existe</h3>";
+                return false;
+            }
+
+            // Despues de hacer las comprobaciones, insertamos a la base de datos
+            function insertarTema($conexionBD, $titulua, $sortzailea, $laburpena, $deskribapena, $argazkia) {
+                $sentencia = $conexionBD-> prepare("INSERT INTO gaia(erabiltzaile_iz, titulua, laburpena, deskribapena, admin) VALUES (?, ?, ?, ?);");
+                $resultado = $sentencia-> execute([$sortzailea, $titulua, $laburpena, $deskribapena]); 
+                
+                if($resultado == true){
+                    echo "<h3>Tema insertado correctamente</h3>";
+                    insertarFoto($conexionBD, $titulua, $sortzailea, $argazkia);
+                } else{
+                    echo "<h3>FAIL</h3>";
+                }     
+            }
+
+            function insertarFoto($conexionBD, $titulua, $sortzailea, $argazkia){
+                $sql = "SELECT * FROM gaia WHERE titulua='$titulua'";
+
+                foreach ($conexionBD->query($sql) as $row) {
+                    $id_gaia = $row['id_gaia'];                
+                }
+
+                $sentencia = $conexionBD-> prepare("INSERT INTO argazkia(id_gaia, izena, url) VALUES (?, ?, ?);");
+                $resultado = $sentencia-> execute([$id_gaia, $sortzailea, $argazkia]); 
+                
+                if($resultado == true){
+                    echo "<h3>Foto insertado correctamente</h3>";
+                } else{
+                    echo "<h3>FAIL</h3>";
+                }   
+
+                echo "<h3>Tema -- $titulua -- NO existe</h3>";
+
+            }            
+
+    
+                        
+        ?>
+
+         <!-- FOOTER -->
         <?php include 'footer.php';?>   
 
 </body>

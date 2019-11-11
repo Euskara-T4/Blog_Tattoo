@@ -16,7 +16,7 @@
 		if(isset($_SESSION["usuario"])){
 			// header("Location: user.php");
 			$_SESSION["adminRol"] = $adminRol; 
-			header("Location: ../index.php");
+			header("Location: ../pages/index.php");
 			echo "<h3>ONGI ETORRI", $_SESSION["usuario"], "</h3>";
 		} else{
 			echo "Ez da ondo ireki sesioa";

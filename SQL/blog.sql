@@ -3,7 +3,7 @@
 -- https://www.phpmyadmin.net/
 --
 -- Servidor: 127.0.0.1
--- Tiempo de generación: 29-10-2019 a las 12:44:45
+-- Tiempo de generación: 10-11-2019 a las 21:33:09
 -- Versión del servidor: 10.4.6-MariaDB
 -- Versión de PHP: 7.3.9
 
@@ -41,7 +41,11 @@ CREATE TABLE `argazkia` (
 
 INSERT INTO `argazkia` (`id_img`, `id_gaia`, `izena`, `url`) VALUES
 (1, 1, 'hotsoa', '../images/tattoos/animaliak/01.jpg'),
-(3, 1, 'buho', '../images/tattoos/animaliak/02.jpg');
+(3, 1, 'buho', '../images/tattoos/animaliak/02.jpg'),
+(4, 2, 'cuervo', '../images/tattoos/zuribeltz/02.jpg'),
+(5, 2, 'lobo y chica', '../images/tattoos/zuribeltz/03.jpg'),
+(6, 5, 'yin yang', '../images/tattoos/koloreak/01.jpg'),
+(7, 5, 'larrosa', '../images/tattoos/koloreak/02.jpg');
 
 -- --------------------------------------------------------
 
@@ -63,8 +67,10 @@ CREATE TABLE `erabiltzailea` (
 --
 
 INSERT INTO `erabiltzailea` (`erabiltzaile_iz`, `izena`, `abizena`, `email`, `pasahitza`, `admin`) VALUES
-('nahia19', 'nahia', 'maguregui', 'nahia19@hotmail.com', '8c6976e5b5410415bde908bd4dee15dfb167a9c873fc4bb8a81f6f2ab448a918', 1),
-('ruedaslocas', 'alex', 'mendiluce', 'mendiluce3@hotmail.com', '8c6976e5b5410415bde908bd4dee15dfb167a9c873fc4bb8a81f6f2ab448a918', 1);
+('aa', 'ee', 'ee', 'ee', 'ee', 0),
+('admin', 'admin', 'admin', 'admin@admin.com', '8c6976e5b5410415bde908bd4dee15dfb167a9c873fc4bb8a81f6f2ab448a918', 2),
+('ander45', 'ander', 'ander', 'ander@admin.com', 'ander', 0),
+('aSSSSSa', 'ee', 'ee', 'ee', 'ee', 0);
 
 -- --------------------------------------------------------
 
@@ -85,7 +91,9 @@ CREATE TABLE `gaia` (
 --
 
 INSERT INTO `gaia` (`id_gaia`, `erabiltzaile_iz`, `titulua`, `laburpena`, `deskribapena`) VALUES
-(1, 'nahia19', 'animales', 'Animaliei buruzko argazkiak jarriko ditugu atal honetan; adibidez, hotsoak, zaldiak, lehoiak ... ', 'BLablablablablablablablabla');
+(1, 'admin', 'animaliak', 'Animaliei buruzko argazkiak jarriko ditugu atal honetan; adibidez, hotsoak, zaldiak, lehoiak ... ', 'BLablablablablablablablabla'),
+(2, 'ander45', 'zuri beltzean', 'Tatuaje hauek zuri beltzean izango dira denak', 'blablalablablablabla'),
+(5, 'ander45', 'koloreak', 'adasasasas', 'asasasasasasasasasasasasasasasasasasasasasasasasasas');
 
 -- --------------------------------------------------------
 
@@ -98,8 +106,17 @@ CREATE TABLE `iruzkina` (
   `erabiltzaile_iz` varchar(20) DEFAULT NULL,
   `id_gaia` int(2) DEFAULT NULL,
   `iruzkina` varchar(500) NOT NULL,
-  `data` date NOT NULL
+  `sortze_data` date NOT NULL
 ) ENGINE=InnoDB DEFAULT CHARSET=utf8;
+
+--
+-- Volcado de datos para la tabla `iruzkina`
+--
+
+INSERT INTO `iruzkina` (`id_iruzkina`, `erabiltzaile_iz`, `id_gaia`, `iruzkina`, `sortze_data`) VALUES
+(2, NULL, 1, 'sagasfgafgfdg', '2019-10-01'),
+(3, NULL, 2, 'asdgsgdsgasdg', '2019-11-05'),
+(4, 'admin', 5, 'asdasdasdasdasd', '2019-10-20');
 
 --
 -- Índices para tablas volcadas
@@ -141,19 +158,19 @@ ALTER TABLE `iruzkina`
 -- AUTO_INCREMENT de la tabla `argazkia`
 --
 ALTER TABLE `argazkia`
-  MODIFY `id_img` int(2) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=4;
+  MODIFY `id_img` int(2) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=8;
 
 --
 -- AUTO_INCREMENT de la tabla `gaia`
 --
 ALTER TABLE `gaia`
-  MODIFY `id_gaia` int(2) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=4;
+  MODIFY `id_gaia` int(2) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=8;
 
 --
 -- AUTO_INCREMENT de la tabla `iruzkina`
 --
 ALTER TABLE `iruzkina`
-  MODIFY `id_iruzkina` int(2) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=2;
+  MODIFY `id_iruzkina` int(2) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=6;
 
 --
 -- Restricciones para tablas volcadas
