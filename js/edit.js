@@ -2,11 +2,8 @@ window.addEventListener("load", hasiera);
 
 function hasiera() {
     document.getElementById("btnEditUser").addEventListener("click", editUser);
-<<<<<<< HEAD
-    // document.getElementById("btnEditPost").addEventListener("click", editPost);
-=======
-   // document.getElementById("btnEditPost").addEventListener("click", editUser);
->>>>>>> 93c22c27f0e60b9161ef075693a54025d6b70924
+
+   // document.getElementById("btnEditPost").addEventListener("click", editpost);
 
 }
 
@@ -19,7 +16,6 @@ function editUser() {
     var adminRol = document.getElementById("adminRolTxt");
     var icon = document.getElementById("iconEdit");
     var btn = document.getElementById("btnEditUser");
-
 
 
     // Comprobamos si estan para editar
