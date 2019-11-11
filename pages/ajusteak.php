@@ -193,15 +193,11 @@
                             <form method="post" action="../php/ajustes.php">
                                 <td id="erabiltzaileaTd"> <input class="inputSetting" type="text" id="erabiltzaileaTxt" name="erabiltzailea" value="<?php echo $erabiltzaile_iz ?>" readonly></td>
                                 
-                                <td id="izenaTd"> <input class="inputSetting" type="text" id="izenaTxt" name="izena" placeholder="<?php echo $izena ?>" readonly></td>
-                                <input type="hidden" name="izena" value="<?php echo $izena ?>">
-
+                                <td id="izenaTd"> <input class="inputSetting" type="text" id="izenaTxt" name="izena" value="<?php echo $izena ?>" readonly></td>
                                 <td id="abizenaTd"> <input class="inputSetting" type="text" id="abizenaTxt" name="abizena" value="<?php echo $abizena ?>" readonly></td>
-                                
-                                <td id="emailTd"> <input class="inputSetting" type="text" id="emailTxt"  name="email" value="<?php echo $email ?>" readonly></td>
-                                
-                                <td id="passwordTd"> <input class="inputSetting" type="text" id="passwordTxt" name="password" value="*********" readonly></td>
-                                
+                                <td id="emailTd"> <input class="inputSetting" type="text" id="emailTxt"  name="email" value="<?php echo $email ?>" readonly></td>                                
+                                <td id="passwordTd"> <input class="inputSetting" type="text" id="passwordTxt" name="password"  placeholder="***yyy***" readonly></td>                                
+                                <input class="inputSetting" type="hidden" id="passwordTxtBD" name="passwordBD" value="*<?php echo $pasahitza ?>">
                                 <td id="adminRolTd"> <input class="inputSetting" type="text" id="adminRolTxt" name="adminRol" value="<?php echo $adminRol ?>" readonly></td>
                                 <td>
                                     <!-- BOTONES DE LAS OPCIONES CORRESPONDIENTES -->
@@ -216,12 +212,12 @@
                                     </div>
                                 </td>             
                     
-                </tr>                            
-
+                </tr>       
+                            </form>
+                     
                     <?php
                         }
                     ?>
-                </form>
 
             </table>    
         </div>

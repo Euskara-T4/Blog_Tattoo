@@ -8,19 +8,18 @@
         $izena = $_POST["izena"];
         $abizena = $_POST["abizena"];
         $email = $_POST["email"];
-        $password = $_POST["password"];
+        $password = $_POST["passwordBD"];
+        $passHash = hash("sha256", $password);
         $adminRol = $_POST["adminRol"];
 
-        // Me coge el valor anterior
-        echo $izena;
-        //editarUsuario($erabiltzaile_iz, $izena, $abizena, $email, $password, $adminRol);                                 
+        editarUsuario($erabiltzaile_iz, $izena, $abizena, $email, $passHash, $adminRol);                                 
     }
 
     // SI HA SELECIONADO BORRAR USUARIO
     if (isset($_POST['btnDeleteUser'])){
         $erabiltzaile_iz = $_POST["erabiltzailea"];
         echo $erabiltzaile_iz;
-        //borrarUsuario($erabiltzaile_iz);
+        borrarUsuario($erabiltzaile_iz);
     }
 
     
@@ -50,12 +49,12 @@
     // COMPROBAR QUE BOTON HA SIDO SELECCIONADO
     // ------------------------------------------
     // EDITAR USUARIO
-    function editarUsuario($erabiltzaile_iz, $izena, $abizena, $email, $password, $adminRol){
+    function editarUsuario($erabiltzaile_iz, $izena, $abizena, $email, $passHash, $adminRol){
         include_once "../BD/conexionBD.php";
 
         $sql = "UPDATE erabiltzailea SET izena=?, abizena=?, email=?, pasahitza=?, admin=? WHERE erabiltzaile_iz='$erabiltzaile_iz';";
         $sentencia = $conexionBD-> prepare($sql);
-        $resultado = $sentencia-> execute([$izena, $abizena, $email, $password, $adminRol]); 
+        $resultado = $sentencia-> execute([$izena, $abizena, $email, $passHash, $adminRol]); 
 
         if ($resultado === TRUE) {
             echo "Record updated successfully";
@@ -88,7 +87,7 @@
 
         $sql = "UPDATE gaia SET titulua=?, erabiltzaile_iz=?, laburpena=? WHERE titulua='$titulua';";
         $sentencia = $conexionBD-> prepare($sql);
-        $resultado = $sentencia-> execute([$titulua, $sortzailea, $laburpena, $password, $adminRol]); 
+        $resultado = $sentencia-> execute([$titulua, $sortzailea, $laburpena, $passHash, $adminRol]); 
 
         if ($resultado === TRUE) {
             echo "Record updated successfully";
@@ -101,11 +100,11 @@
     function borrarPost($titulua){
         include_once "../BD/conexionBD.php";
 
-        $sql = "DELETE FROM gaia WHERE titulua='$titulua';";
-        echo $sql;
-        $sentencia = $conexionBD-> prepare($sql);       
+        $sql2 = "DELETE FROM gaia WHERE titulua='$titulua';";
+        echo "$sql2<br>";
+        $sentencia = $conexionBD-> prepare($sql2);       
            
-        if ($conexionBD->query($sql) == TRUE) {
+        if ($conexionBD->query($sql2) == TRUE) {
             echo "Record deleted successfully";
         } else {
             echo "Error deleting record";
