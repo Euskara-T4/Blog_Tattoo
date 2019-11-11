@@ -109,8 +109,9 @@
                        <div name="DatosUsuario">
                            <h3>datos de perfil</h3>
                            <ul>
-                               <li><label>nombre</label> <input class="btmspace-15" type="text" name="nombre" id="nombre" placeholder="<?php echo $izena; ?>">
-                                                        <input type="hidden" name="nombreBD" value="<?php echo $izena; ?>"> 
+                               <li>
+                                   <label>nombre</label> <input class="btmspace-15" type="text" name="nombre" id="nombre" placeholder="<?php echo $izena; ?>">
+                                <input type="hidden" name="nombreBD" value="<?php echo $izena; ?>"> 
                                </li>
                                <li> <label>apellido</label> <input class="btmspace-15" type="text" name="apellido" id="apellido" placeholder="<?php echo $abizena; ?>">
                                                             <input type="hidden" name="apeBD" value="<?php echo $abizena; ?>">

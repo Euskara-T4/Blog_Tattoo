@@ -31,6 +31,22 @@
                     $conexionBD->prepare($sql)->execute([$nombre, $apellido, $correoBD]);
                     echo"datos modificados correctamente";
                 }
+                if ($nombre != NULL) {
+                    $conexionBD->prepare($sql)->execute([$nombre, $apellido, $correo]);
+                    echo"datos modificados correctamente";
+                }else{ 
+                    //en caso de no querer nombre nuevo 
+                    $conexionBD->prepare($sql)->execute([$nombre, $apellido, $correoBD]);
+                    echo"datos modificados correctamente";
+                }
+                if ($apellido != NULL) {
+                    $conexionBD->prepare($sql)->execute([$nombre, $apellido, $correo]);
+                    echo"datos modificados correctamente";
+                }else{ 
+                    //en caso de no querer apellido nuevo 
+                    $conexionBD->prepare($sql)->execute([$nombre, $apellido, $correoBD]);
+                    echo"datos modificados correctamente";
+                }
                 exit;
             }
             echo "<h3>la contraseña no es correcta</h3>";
