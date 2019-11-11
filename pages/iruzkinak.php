@@ -32,8 +32,8 @@
                 <!-- ################################################################################################ -->
                 <ul>
                     <li><i class='fa fa-clock-o'></i> Mon. - Fri. 8am - 5pm</li>
-                    <li><i class='fa fa-phone'></i> +00 (123) 456 7890</li>
-                    <li><i class='fa fa-envelope-o'></i> info@domain.com</li>
+                    <li><i class='fa fa-phone'></i> 944 12 57 12</li>
+                    <li><i class='fa fa-envelope-o'></i> idazkaria@fpTXurdinaga.com</li>
                     
                     <!-- ################################################################################################ -->
                     <!-- USER ACTION ICONS -->

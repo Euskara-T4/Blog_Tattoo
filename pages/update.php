@@ -20,6 +20,7 @@
         <script src="../layout/scripts/jquery.backtotop.js"></script>
         <script src="../layout/scripts/jquery.mobilemenu.js"></script>
         <script src="../layout/scripts/jquery.fitvids.js"></script>
+        <script src="../js/validacion.js"></script>
     </head>
 
     <body id='top'>
@@ -157,7 +158,6 @@
                 <div class="one_third">
                     <?php
                         $nombreUsuario = $_SESSION['usuario'];
-
                         include_once "../BD/conexionBD.php";
                        /*seleccionaremos los datos del usuario de la BD y los mostraremos para modificar*/
                        $sql = "SELECT * FROM erabiltzailea WHERE erabiltzaile_iz = '$nombreUsuario'";
@@ -190,17 +190,17 @@
                                         <label>Abizena</label>
                                         <input class="btmspace-15" type="text" name="apellido" id="apellido" placeholder="<?php echo $abizena; ?>">                                
                                         <input type="hidden" name="apeBD" value="<?php echo $abizena; ?>">
-                                    </li> 
+                                    </li>
 
                                     <li>
                                         <label>Email</label>
-                                        <input class="btmspace-15" type="text" name="correo" placeholder="<?php echo $email; ?>">                                    
+                                        <input class="btmspace-15" type="text" name="correo" id="correo" placeholder="<?php echo $email; ?>" >                                    
                                         <input type="hidden" name="correoBD" value="<?php echo $email; ?>"> 
                                     </li>
 
                                     <li>
-                                        <label>Pasahitza</label>
-                                        <input class="btmspace-15" type="password" name="PssActual" placeholder="***********">           
+                                        <label>Pasahitza*</label>
+                                        <input class="btmspace-15" type="password" name="PssActual"  placeholder="***********">           
                                     </li>
                                 </ul>  
                             
@@ -212,20 +212,21 @@
                         
                             <!-- // GUARDAR DATOS DE PERFIL -->
                             <div class="divUser">
-                                <h3>PASAHITZAREN DATUAK</h3>
+                                <h3>PERFILAREN DATUAK</h3>
                                 <ul>
+                                    
                                     <li>
-                                        <label>Pasahitza</label> 
+                                        <label>Pasahitza*</label> 
                                         <input class="btmspace-15" type="text" name="contraseña" id="pss" placeholder="*************">
                                     </li>
 
                                     <li> 
-                                        <label>Pasahitza berria</label>
-                                        <input class="btmspace-15" type="password" name="nuevaContra" id="pss">
+                                        <label>Pasahitza berria*</label>
+                                        <input class="btmspace-15" type="password" name="nuevaContra" id="contraseña" >
                                     </li>
 
                                     <li> 
-                                        <label>Pasahitza berria berriro</label>
+                                        <label>Pasahitza berria berriro*</label>
                                         <input class="btmspace-15" type="password" name="repetirNueva">
                                     </li>
                                                                                 

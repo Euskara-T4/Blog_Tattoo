@@ -32,8 +32,8 @@
                 <!-- ################################################################################################ -->
                 <ul>
                     <li><i class='fa fa-clock-o'></i> Mon. - Fri. 8am - 5pm</li>
-                    <li><i class='fa fa-phone'></i> +00 (123) 456 7890</li>
-                    <li><i class='fa fa-envelope-o'></i> info@domain.com</li>
+                    <li><i class='fa fa-phone'></i> 944 12 57 12</li>
+                    <li><i class='fa fa-envelope-o'></i> idazkaria@fpTXurdinaga.com</li>
                     
                     <!-- ################################################################################################ -->
                     <!-- USER ACTION ICONS -->
@@ -153,21 +153,73 @@
 
         <!-- ################################################################################################ -->
 
-        <!-- ---------------------------------- -->
-        <!-- TABLA DE USUARIOS -->
-        <div id="settingsTable" class="hoc clear">
-            <h2>ERABILTZAILEEN TAULA</h2>
+            <!-- ---------------------------------- -->
+            <!-- TABLA DE USUARIOS -->
+            <div id="settingsTable" class="hoc clear">
+                <h2>ERABILTZAILEEN TAULA</h2>
 
-            <table>
-                <tr>
-                    <th>Erabiltzailea</th>
-                    <th>Izena</th>
-                    <th>Abizena</th>
-                    <th>Emaila</th>
-                    <th>Pasahitza</th>
-                    <th>Admin Rol</th>
-                    <th>Aukerak</th>
-                </tr>
+                <table>
+                    <tr>
+                        <th>Erabiltzailea</th>
+                        <th>Izena</th>
+                        <th>Abizena</th>
+                        <th>Emaila</th>
+                        <th>Pasahitza</th>
+                        <th>Admin Rol</th>
+                        <th>Aukerak</th>
+                    </tr>
+
+                    <tr>
+                        
+                            <?php
+                                include_once "../BD/conexionBD.php";
+
+                                // Comprobar que administrador ha entrado
+                                if($_SESSION["adminRol"] == 2){
+                                    $sql = "SELECT * FROM erabiltzailea WHERE admin!=2";
+                                    
+                                } else if($_SESSION["adminRol"] == 1){
+                                    $sql = "SELECT * FROM erabiltzailea WHERE admin=0";
+                                }
+
+                                foreach ($conexionBD->query($sql) as $row) {
+                                    $erabiltzaile_iz = $row['erabiltzaile_iz'];
+                                    $izena = $row['izena'];
+                                    $abizena = $row['abizena'];
+                                    $email = $row['email'];
+                                    $pasahitza = $row['pasahitza'];
+                                    $adminRol = $row['admin'];            
+                            ?>
+                                <form method="post" action="../php/ajustes.php">
+                                    <td id="erabiltzaileaTd"> <input class="inputSetting" type="text" id="erabiltzaileaTxt" name="erabiltzailea" value="<?php echo $erabiltzaile_iz ?>" readonly></td>
+                                    <td id="izenaTd"> <input class="inputSetting" type="text" id="izenaTxt" name="izena" placeholder="<?php echo $izena ?>" readonly></td>
+                                    <input type="hidden" name="izena" value="<?php echo $izena ?>">
+
+                                    <td id="abizenaTd"> <input class="inputSetting" type="text" id="abizenaTxt" name="abizena" value="<?php echo $abizena ?>" readonly></td>
+                                    <td id="emailTd"> <input class="inputSetting" type="text" id="emailTxt"  name="email" value="<?php echo $email ?>" readonly></td>
+                                    <td id="passwordTd"> <input class="inputSetting" type="text" id="passwordTxt" name="password" value="*********" readonly></td>
+                                    <td id="adminRolTd"> <input class="inputSetting" type="text" id="adminRolTxt" name="adminRol" value="<?php echo $adminRol ?>" readonly></td>
+                                    <td>
+                                        <!-- BOTONES DE LAS OPCIONES CORRESPONDIENTES -->
+                                        <div class="commentsIcon">
+                                            <button type="submit" name="btnDeleteUser">
+                                                <i class="fa fa-lg fa-trash-o"></i>
+                                            </button>
+
+                                            <button type="button" name="btnEditUser" id="btnEditUser">
+                                                <i class="fa fa-lg fa-edit" id="iconEdit"></i>
+                                            </button>
+                                        </div>
+                                    </td>
+                    
+                    
+                    </tr>
+                            
+                        </form>
+                    <?php
+                                }
+                        ?>
+                </table>           
 
                 <tr>
                     <?php
@@ -191,35 +243,25 @@
                     ?>
                             <form method="post" action="../php/ajustes.php">
 
-                                <td id="erabiltzaileaTd"> <input class="inputSetting" type="text" id="erabiltzaileaTxt" name="erabiltzailea" value="<?php echo $erabiltzaile_iz ?>" readonly></td>
+                                    <td id="tituluaTd"> <input class="inputSetting" type="text" id="tituluaTxt" name="titulua" value="<?php echo $titulua ?>" readonly></td>
+                                    <td id="erabiltzaile_izTd"> <input class="inputSetting" type="text" id="erabiltzaile_izTxt" name="erabiltzaile_iz" value="<?php echo $erabiltzaile_iz ?>" readonly></td>
+                                    <td id="laburpenaTd" > <input class="inputSetting" type="text" id="laburpenaTxt"  name="laburpena" value="<?php echo $laburpena ?>" readonly></td>
+                                    <td>
+                                        <!-- BOTONES DE LAS OPCIONES CORRESPONDIENTES -->
+                                        <div class="commentsIcon">
+                                            <button type="submit" name="btnDeletePost">
+                                                <i class="fa fa-lg fa-trash-o"></i>
+                                            </button>
 
-                                <td id="izenaTd"> <input class="inputSetting" type="text" id="izenaTxt" name="izena" value="<?php echo $izena ?>" readonly></td>
-                                <input type="hidden" name="izena" value="<?php echo $izena ?>">
-
-                                <td id="abizenaTd"> <input class="inputSetting" type="text" id="abizenaTxt" name="abizena" value="<?php echo $abizena ?>" readonly></td>
-
-                                <td id="emailTd"> <input class="inputSetting" type="text" id="emailTxt"  name="email" value="<?php echo $email ?>" readonly></td>
-
-                                <td id="passwordTd"> <input class="inputSetting" type="text" id="passwordTxt" name="password" value="*********" readonly></td>
-
-                                <td id="adminRolTd"> <input class="inputSetting" type="text" id="adminRolTxt" name="adminRol" value="<?php echo $adminRol ?>" readonly></td>
-                                <td>
-                                    <!-- BOTONES DE LAS OPCIONES CORRESPONDIENTES -->
-                                    <div class="commentsIcon">
-                                        <button type="submit" name="btnDeleteUser">
-                                            <i class="fa fa-lg fa-trash-o"></i>
-                                        </button>
-
-                                        <button type="button" name="btnEdit" id="btnEditUser">
-                                            <i class="fa fa-lg fa-edit" id="iconEdit"></i>
-                                        </button>
-                                    </div>
-                                </td>                
-                
-                </tr>
-                        <?php
-                            }
-                        ?>
+                                            <button type="button" name="btnEditPost" id="btnEditPost">
+                                                <i class="fa fa-lg fa-edit" id="iconEdit"></i>
+                                            </button>
+                                        </div>
+                                    </td>
+                    </tr>
+                            <?php
+                                }
+                            ?>
                         </form>
             </table>           
 

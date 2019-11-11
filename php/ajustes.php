@@ -32,6 +32,8 @@
         $sortzailea = $_POST["erabiltzaile_iz"];
         $laburpena = $_POST["laburpena"];
 
+        echo $izena;
+
         editarPost($titulua, $sortzailea, $laburpena);                                 
     }
 
