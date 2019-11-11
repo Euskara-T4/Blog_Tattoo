@@ -117,6 +117,15 @@
                             <li class='active'><a href='index.php'>Hasiera</a></li>
                             <li><a href='blog.php'>Blog</a></li>
                             <li><a class='drop' href='#'>Galeria</a>
+                                <ul>
+                                    <li><a href='galeriaByN.html'>Zuri beltzak</a></li>
+                                    <li><a href='galeriaColor.php'>Kolorez</a></li>
+                                    <li><a class='drop' href='#'>Artistak</a>
+                                    <ul>
+                                        <li><a href='galeriaIvanP.html'>Ivan Pelegrin</a></li>
+                                        <li><a href='#'>Ivan Morant</a></li>
+                                        <li><a href='#'>Kat Von D</a></li>
+                                    </ul>
                                     </li>
                 
                                 </ul>
@@ -148,7 +157,6 @@
                 <div class="one_third">
                     <?php
                         $nombreUsuario = $_SESSION['usuario'];
-
                         include_once "../BD/conexionBD.php";
                        /*seleccionaremos los datos del usuario de la BD y los mostraremos para modificar*/
                        $sql = "SELECT * FROM erabiltzailea WHERE erabiltzaile_iz = '$nombreUsuario'";
@@ -184,7 +192,7 @@
                                     </li>
 
                                     <li>
-                                        <label>Email*</label>
+                                        <label>Email</label>
                                         <input class="btmspace-15" type="text" name="correo" id="correo" placeholder="<?php echo $email; ?>" >                                    
                                         <input type="hidden" name="correoBD" value="<?php echo $email; ?>"> 
                                     </li>
@@ -202,22 +210,22 @@
                     
                         
                             <!-- // GUARDAR DATOS DE PERFIL -->
-                            <div class="divPer">
+                            <div class="divUser">
                                 <h3>PERFILAREN DATUAK</h3>
                                 <ul>
                                     
                                     <li>
-                                        <label>Pasahitza</label> 
+                                        <label>Pasahitza*</label> 
                                         <input class="btmspace-15" type="text" name="contraseña" id="pss" placeholder="*************">
                                     </li>
 
                                     <li> 
-                                        <label>Pasahitza berria</label>
+                                        <label>Pasahitza berria*</label>
                                         <input class="btmspace-15" type="password" name="nuevaContra" id="contraseña" >
                                     </li>
 
                                     <li> 
-                                        <label>Pasahitza berria berriro</label>
+                                        <label>Pasahitza berria berriro*</label>
                                         <input class="btmspace-15" type="password" name="repetirNueva">
                                     </li>
                                                                                 
