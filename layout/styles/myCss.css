@@ -11,8 +11,8 @@ input[type="text"], input[type="password"] {
   border: 1px solid #ccc;
   box-sizing: border-box;
   color: black;
-  background-color: white !important;
 }
+ 
 
 
 fieldset input {
@@ -348,6 +348,7 @@ span.psw {
   margin: 5%;
   
 }
+
 .divPer {
   background-color: rgb(58, 58, 58);
   padding: 5%;
@@ -423,11 +424,7 @@ iframe {
   width: 25% !important;
 }
 
-.inputFile {
-  position: relative;
-  cursor: pointer !important;
-  border: none !important;  
-}
+
 
 /* ******************* */
 
