@@ -21,6 +21,7 @@
         <script src="../layout/scripts/jquery.mobilemenu.js"></script>
         <script src="../layout/scripts/jquery.fitvids.js"></script>
         <script src="../js/validacion.js"></script>
+        <link rel='shortcut icon' type='image/x-icon' href='../images/demo/logo3Txiki.jpg'/>
     </head>
 
     <body id='top'>

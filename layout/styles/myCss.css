@@ -364,11 +364,14 @@ span.psw {
   
 }
 
-
 .divUser button {
   display: flex;
   justify-content: center;
   align-items: center;
+}
+
+#enviar {
+  margin-left: 30%;
 }
 
 /* ******************* */
