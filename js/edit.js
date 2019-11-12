@@ -1,9 +1,6 @@
 window.addEventListener("load", hasiera);
 
-function hasiera() {
-    // document.getElementById("btnEditUser").addEventListener("click", editUser);
-    // document.getElementById("btnEditPost").addEventListener("click", editpost);
-   
+function hasiera() {     
     var btnsEditUser = document.getElementsByClassName("iconEditUser");
     for (var i = 0; i < btnsEditUser.length; i++){
         btnsEditUser[i].addEventListener("click", editUser);
@@ -26,7 +23,6 @@ function editUser(e) {
     var email = document.getElementsByClassName(erab)[2];
     var password = document.getElementsByClassName(erab)[3];
     var adminRol = document.getElementsByClassName(erab)[4];
-
 
     // Comprobamos si estan para editar
     if (izena.readOnly) {

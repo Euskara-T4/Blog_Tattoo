@@ -17,6 +17,7 @@ input[type="text"], input[type="password"] {
   box-sizing: border-box;
   color: black;
 }
+ 
 
 fieldset input {
   width: 100%;

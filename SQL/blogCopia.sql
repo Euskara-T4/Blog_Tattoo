@@ -1,11 +1,11 @@
 -- phpMyAdmin SQL Dump
--- version 4.8.5
+-- version 4.9.0.1
 -- https://www.phpmyadmin.net/
 --
 -- Servidor: 127.0.0.1
--- Tiempo de generación: 12-11-2019 a las 01:16:24
--- Versión del servidor: 10.1.40-MariaDB
--- Versión de PHP: 7.1.29
+-- Tiempo de generación: 10-11-2019 a las 21:33:09
+-- Versión del servidor: 10.4.6-MariaDB
+-- Versión de PHP: 7.3.9
 
 SET SQL_MODE = "NO_AUTO_VALUE_ON_ZERO";
 SET AUTOCOMMIT = 0;
@@ -92,7 +92,8 @@ CREATE TABLE `gaia` (
 
 INSERT INTO `gaia` (`id_gaia`, `erabiltzaile_iz`, `titulua`, `laburpena`, `deskribapena`) VALUES
 (1, 'admin', 'animaliak', 'Animaliei buruzko argazkiak jarriko ditugu atal honetan; adibidez, hotsoak, zaldiak, lehoiak ... ', 'BLablablablablablablablabla'),
-(2, 'ander45', 'zuri beltzean', 'Tatuaje hauek zuri beltzean izango dira denak', 'blablalablablablabla');
+(2, 'ander45', 'zuri beltzean', 'Tatuaje hauek zuri beltzean izango dira denak', 'blablalablablablabla'),
+(5, 'ander45', 'koloreak', 'adasasasas', 'asasasasasasasasasasasasasasasasasasasasasasasasasas');
 
 -- --------------------------------------------------------
 
@@ -115,7 +116,7 @@ CREATE TABLE `iruzkina` (
 INSERT INTO `iruzkina` (`id_iruzkina`, `erabiltzaile_iz`, `id_gaia`, `iruzkina`, `sortze_data`) VALUES
 (2, NULL, 1, 'sagasfgafgfdg', '2019-10-01'),
 (3, NULL, 2, 'asdgsgdsgasdg', '2019-11-05'),
-(4, 'admin', NULL, 'asdasdasdasdasd', '2019-10-20');
+(4, 'admin', 5, 'asdasdasdasdasd', '2019-10-20');
 
 --
 -- Índices para tablas volcadas
@@ -163,7 +164,7 @@ ALTER TABLE `argazkia`
 -- AUTO_INCREMENT de la tabla `gaia`
 --
 ALTER TABLE `gaia`
-  MODIFY `id_gaia` int(2) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=9;
+  MODIFY `id_gaia` int(2) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=8;
 
 --
 -- AUTO_INCREMENT de la tabla `iruzkina`
@@ -176,6 +177,12 @@ ALTER TABLE `iruzkina`
 --
 
 --
+-- Filtros para la tabla `argazkia`
+--
+ALTER TABLE `argazkia`
+  ADD CONSTRAINT `argazkia_ibfk_1` FOREIGN KEY (`id_gaia`) REFERENCES `gaia` (`id_gaia`);
+
+--
 -- Filtros para la tabla `gaia`
 --
 ALTER TABLE `gaia`
@@ -186,7 +193,7 @@ ALTER TABLE `gaia`
 --
 ALTER TABLE `iruzkina`
   ADD CONSTRAINT `iruzkina_ibfk_1` FOREIGN KEY (`erabiltzaile_iz`) REFERENCES `erabiltzailea` (`erabiltzaile_iz`) ON DELETE SET NULL ON UPDATE SET NULL,
-  ADD CONSTRAINT `iruzkina_ibfk_2` FOREIGN KEY (`id_gaia`) REFERENCES `gaia` (`id_gaia`) ON DELETE SET NULL;
+  ADD CONSTRAINT `iruzkina_ibfk_2` FOREIGN KEY (`id_gaia`) REFERENCES `gaia` (`id_gaia`);
 COMMIT;
 
 /*!40101 SET CHARACTER_SET_CLIENT=@OLD_CHARACTER_SET_CLIENT */;

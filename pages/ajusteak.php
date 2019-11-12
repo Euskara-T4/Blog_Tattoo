@@ -198,6 +198,16 @@
                                 <td id="abizenaTd"> <input class="inputSetting <?php echo $erabiltzaile_iz ?>" type="text" name="abizena" value="<?php echo $abizena ?>" readonly></td>
                                 <td id="emailTd"> <input class="inputSetting <?php echo $erabiltzaile_iz ?>" type="text" name="email" value="<?php echo $email ?>" readonly></td>                                
                                 <td id="passwordTd"> <input class="inputSetting <?php echo $erabiltzaile_iz ?>" type="text" name="password" value="*********" readonly></td>                                
+                                <input type="hidden" name="passwordBD" value value="<?php echo $pasahitza ?>">
+                                
+                                <?php
+                                    if($adminRol == 1){
+                                        $adminRol = "BAI";
+                                    } else {
+                                        $adminRol = "EZ";
+                                    }
+                                ?>
+                                
                                 <td id="adminRolTd"> <input class="inputSetting <?php echo $erabiltzaile_iz ?>" type="text" name="adminRol" value="<?php echo $adminRol ?>" readonly></td>
                                 <td>
                                     <!-- BOTONES DE LAS OPCIONES CORRESPONDIENTES -->
