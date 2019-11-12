@@ -49,7 +49,7 @@
     // COMPROBAR QUE BOTON HA SIDO SELECCIONADO
     // ------------------------------------------
     // EDITAR USUARIO
-    function editarUsuario($erabiltzaile_iz, $izena, $abizena, $email, $password, $adminRol){
+    function editarUsuario($erabiltzaile_iz, $izena, $abizena, $email, $passHash, $adminRol){
         include_once "../BD/conexionBD.php";
 
         $sql = "UPDATE erabiltzailea SET izena=?, abizena=?, email=?, pasahitza=?, admin=? WHERE erabiltzaile_iz='$erabiltzaile_iz';";
