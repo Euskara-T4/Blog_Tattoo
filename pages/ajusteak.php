@@ -270,10 +270,11 @@
                                 </td>
                     </tr>                            
 
+                    </form>
+                     
                     <?php
                         }
                     ?>
-                    </form>
 
             </table>    
         </div>

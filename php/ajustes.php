@@ -49,7 +49,7 @@
     // COMPROBAR QUE BOTON HA SIDO SELECCIONADO
     // ------------------------------------------
     // EDITAR USUARIO
-    function editarUsuario($erabiltzaile_iz, $izena, $abizena, $email, $passHash, $adminRol){
+    function editarUsuario($erabiltzaile_iz, $izena, $abizena, $email, $password, $adminRol){
         include_once "../BD/conexionBD.php";
 
         $sql = "UPDATE erabiltzailea SET izena=?, abizena=?, email=?, pasahitza=?, admin=? WHERE erabiltzaile_iz='$erabiltzaile_iz';";
@@ -100,11 +100,11 @@
     function borrarPost($titulua){
         include_once "../BD/conexionBD.php";
 
-        $sql2 = "DELETE FROM gaia WHERE titulua='$titulua';";
-        echo "$sql2<br>";
-        $sentencia = $conexionBD-> prepare($sql2);       
+        $sql = "DELETE FROM gaia WHERE titulua='$titulua';";
+        echo $sql;
+        $sentencia = $conexionBD-> prepare($sql);       
            
-        if ($conexionBD->query($sql2) == TRUE) {
+        if ($conexionBD->query($sql) == TRUE) {
             echo "Record deleted successfully";
         } else {
             echo "Error deleting record";
