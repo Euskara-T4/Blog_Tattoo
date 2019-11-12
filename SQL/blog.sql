@@ -1,11 +1,11 @@
 -- phpMyAdmin SQL Dump
--- version 4.8.5
+-- version 4.9.0.1
 -- https://www.phpmyadmin.net/
 --
 -- Servidor: 127.0.0.1
--- Tiempo de generación: 12-11-2019 a las 01:16:24
--- Versión del servidor: 10.1.40-MariaDB
--- Versión de PHP: 7.1.29
+-- Tiempo de generación: 12-11-2019 a las 11:41:43
+-- Versión del servidor: 10.4.6-MariaDB
+-- Versión de PHP: 7.3.9
 
 SET SQL_MODE = "NO_AUTO_VALUE_ON_ZERO";
 SET AUTOCOMMIT = 0;
@@ -44,8 +44,8 @@ INSERT INTO `argazkia` (`id_img`, `id_gaia`, `izena`, `url`) VALUES
 (3, 1, 'buho', '../images/tattoos/animaliak/02.jpg'),
 (4, 2, 'cuervo', '../images/tattoos/zuribeltz/02.jpg'),
 (5, 2, 'lobo y chica', '../images/tattoos/zuribeltz/03.jpg'),
-(6, 5, 'yin yang', '../images/tattoos/koloreak/01.jpg'),
-(7, 5, 'larrosa', '../images/tattoos/koloreak/02.jpg');
+(6, 3, 'yin yang', '../images/tattoos/koloreak/01.jpg'),
+(7, 3, 'larrosa', '../images/tattoos/koloreak/02.jpg');
 
 -- --------------------------------------------------------
 
@@ -67,10 +67,11 @@ CREATE TABLE `erabiltzailea` (
 --
 
 INSERT INTO `erabiltzailea` (`erabiltzaile_iz`, `izena`, `abizena`, `email`, `pasahitza`, `admin`) VALUES
-('aa', 'ee', 'ee', 'ee', 'ee', 0),
 ('admin', 'admin', 'admin', 'admin@admin.com', '8c6976e5b5410415bde908bd4dee15dfb167a9c873fc4bb8a81f6f2ab448a918', 2),
-('ander45', 'ander', 'ander', 'ander@admin.com', 'ander', 0),
-('aSSSSSa', 'ee', 'ee', 'ee', 'ee', 0);
+('anderP', 'ander', 'perez', 'alex@hotmail.com', '8d969eef6ecad3c29a3a629280e686cf0c3f5d5a86aff3ca12020c923adc6c92', 0),
+('nahia19', 'nahia', 'magu', 'nahia19@gmail.com', '8c6976e5b5410415bde908bd4dee15dfb167a9c873fc4bb8a81f6f2ab448a918', 1),
+('prueba', 'pruebas', 'prueba', 'pruebas@hotmail.com', 'e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855', 0),
+('ruedaslocas', 'alex', 'mendiluce', 'mendiluce3@hotmail.com', '8c6976e5b5410415bde908bd4dee15dfb167a9c873fc4bb8a81f6f2ab448a918', 1);
 
 -- --------------------------------------------------------
 
@@ -91,8 +92,9 @@ CREATE TABLE `gaia` (
 --
 
 INSERT INTO `gaia` (`id_gaia`, `erabiltzaile_iz`, `titulua`, `laburpena`, `deskribapena`) VALUES
-(1, 'admin', 'animaliak', 'Animaliei buruzko argazkiak jarriko ditugu atal honetan; adibidez, hotsoak, zaldiak, lehoiak ... ', 'BLablablablablablablablabla'),
-(2, 'ander45', 'zuri beltzean', 'Tatuaje hauek zuri beltzean izango dira denak', 'blablalablablablabla');
+(1, 'admin', 'animaliak', 'Animaliei buruzko argazkiak jarriko ditugu atal honetan; adibidez, hotsoak, zaldiak, lehoiak ... ', 'leku honetan ikusiko dugu nola animalietako tatuak bizitza artzen duten.'),
+(2, 'nahia19', 'zuri beltzean', 'Tatuaje hauek zuri beltzean izango dira denak', 'ikusiko dugu nola zuri beltzekin lortu al dugun realismo gustiak, texturak eta nola ez dela behar koloreak tatu bat destakatzeko'),
+(3, 'ruedaslocas', 'koloreak', 'tatu bizitza koloreekin', 'hemen ikusiko dugu nola lortu kolore biziak tatuetan eta nola konbinatu beltzeekin ');
 
 -- --------------------------------------------------------
 
@@ -113,9 +115,9 @@ CREATE TABLE `iruzkina` (
 --
 
 INSERT INTO `iruzkina` (`id_iruzkina`, `erabiltzaile_iz`, `id_gaia`, `iruzkina`, `sortze_data`) VALUES
-(2, NULL, 1, 'sagasfgafgfdg', '2019-10-01'),
-(3, NULL, 2, 'asdgsgdsgasdg', '2019-11-05'),
-(4, 'admin', NULL, 'asdasdasdasdasd', '2019-10-20');
+(6, 'anderP', 1, 'hola este es mi nuevo comentario', '2019-11-12'),
+(7, 'anderP', 2, 'quiero hacer un comentario ', '2019-11-12'),
+(8, 'anderP', 3, 'buaaaaa que tatu mas guaaapoo!!!!! yo quiero', '2019-11-12');
 
 --
 -- Índices para tablas volcadas
@@ -163,13 +165,13 @@ ALTER TABLE `argazkia`
 -- AUTO_INCREMENT de la tabla `gaia`
 --
 ALTER TABLE `gaia`
-  MODIFY `id_gaia` int(2) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=9;
+  MODIFY `id_gaia` int(2) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=10;
 
 --
 -- AUTO_INCREMENT de la tabla `iruzkina`
 --
 ALTER TABLE `iruzkina`
-  MODIFY `id_iruzkina` int(2) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=6;
+  MODIFY `id_iruzkina` int(2) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=9;
 
 --
 -- Restricciones para tablas volcadas
