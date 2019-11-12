@@ -18,10 +18,9 @@
     // SI HA SELECIONADO BORRAR USUARIO
     if (isset($_POST['btnDeleteUser'])){
         $erabiltzaile_iz = $_POST["erabiltzailea"];
-        echo $erabiltzaile_iz;
+        
         borrarUsuario($erabiltzaile_iz);
     }
-
     
 
     // SI HA SELECCIONADO EDITAR POST
@@ -31,19 +30,18 @@
         $sortzailea = $_POST["erabiltzaile_iz"];
         $laburpena = $_POST["laburpena"];
 
-        echo $izena;
-
         editarPost($titulua, $sortzailea, $laburpena);                                 
     }
 
     // SI HA SELECIONADO BORRAR POST
     if (isset($_POST['btnDeletePost'])){
         $titulua = $_POST["titulua"];
+        
         borrarPost($titulua);
     }
     
     
-    // header("Location: ../pages/ajusteak.php");
+    header("Location: ../pages/ajusteak.php");
 
 
     // COMPROBAR QUE BOTON HA SIDO SELECCIONADO
@@ -87,7 +85,7 @@
 
         $sql = "UPDATE gaia SET titulua=?, erabiltzaile_iz=?, laburpena=? WHERE titulua='$titulua';";
         $sentencia = $conexionBD-> prepare($sql);
-        $resultado = $sentencia-> execute([$titulua, $sortzailea, $laburpena, $passHash, $adminRol]); 
+        $resultado = $sentencia-> execute([$titulua, $sortzailea, $laburpena]); 
 
         if ($resultado === TRUE) {
             echo "Record updated successfully";

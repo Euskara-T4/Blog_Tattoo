@@ -20,6 +20,8 @@
         <script src="../layout/scripts/jquery.backtotop.js"></script>
         <script src="../layout/scripts/jquery.mobilemenu.js"></script>
         <script src="../layout/scripts/jquery.fitvids.js"></script>
+        <link rel='shortcut icon' type='image/x-icon' href='../images/demo/logo3Txiki.jpg'/>
+
     </head>
 
     <body id='top'>
@@ -105,7 +107,8 @@
             <!-- ################################################################################################ -->
             <div class='wrapper row1'>
                 <header id='header' class='hoc clear'>
-                    <div id='logo' class='fl_left'>
+                    <div id='logo' class='fl_left flex'>
+                        <img src='../images/demo/logo3Txiki.jpg' alt='Logo' class='logo'>
                         <h1><a href='index.php'>Blog Tattoo</a></h1>
                     </div>
         
@@ -166,7 +169,7 @@
                             <input class="btmspace-15" type="text" placeholder="Titulua" name="titulua"  id="titulua" pattern="[A-Za-zñÑ ]{1,20}" minlength="2" maxlength="20" required>
                             <input class="btmspace-15" type="text" placeholder="Laburpena" name="laburpena" id="laburpena" pattern="[A-Za-zñÑ0-9 ]{1,20}" minlength="5" maxlength="50" required>
                             <input class="btmspace-15" type="text" placeholder="Deskribapena" name="deskribapena" id="deskribapena" pattern="[A-Za-zñÑ0-9 ]{1,40}" minlength="10" maxlength="100" required>
-                            <input class="btmspace-15" type="text" placeholder="Argazkiaren izena" name="izena" id="izena" pattern="[A-Za-zñ ]{1,40}" minlength="10" maxlength="100" required>
+                            <input class="btmspace-15" type="text" placeholder="Argazkiaren izena" name="izena" id="izena" pattern="[A-Za-zñ ]{1,40}" minlength="5" maxlength="10" required>
                             <input class="btmspace-15 inputFile" type="file" name="argazkia" multiple required>
 
                             <p id="mensajeError"></p>

@@ -4,8 +4,6 @@
 
     if(!isset($_POST["enviar"])) exit();
 
-    echo "ey";
-
     #Si todo va bien, se ejecuta esta parte del código...
     include_once "../BD/conexionBD.php";
     $sortzailea = $_SESSION['usuario'];
@@ -15,6 +13,7 @@
     $argazkia = $_POST["argazkia"];
     $izena = $_POST["izena"];
 
+    header("Location: ../pages/addPost.php");
 
     // COMPROBACIONES DB
     $temaExist = comprobarTema($conexionBD, $titulua);
@@ -70,10 +69,6 @@
                 echo "<h3>FAIL</h3>";
             }   
         }
-
-
-        echo "<h3>Tema -- $titulua -- NO existe</h3>";
-
     }          
         
 

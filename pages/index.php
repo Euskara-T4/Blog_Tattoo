@@ -20,6 +20,7 @@
         <script src="../layout/scripts/jquery.backtotop.js"></script>
         <script src="../layout/scripts/jquery.mobilemenu.js"></script>
         <script src="../layout/scripts/jquery.fitvids.js"></script>
+        <link rel='shortcut icon' type='image/x-icon' href='../images/demo/logo3Txiki.jpg'/>
         
     </head>
 
@@ -104,7 +105,8 @@
             <!-- ################################################################################################ -->
             <div class='wrapper row1'>
                 <header id='header' class='hoc clear'>
-                    <div id='logo' class='fl_left'>
+                    <div id='logo' class='fl_left flex'>
+                        <img src='../images/demo/logo3Txiki.jpg' alt='Logo' class='logo'>
                         <h1><a href='index.php'>Blog Tattoo</a></h1>
                     </div>
         

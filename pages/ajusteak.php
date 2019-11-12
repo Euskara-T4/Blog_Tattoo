@@ -21,6 +21,7 @@
         <script src="../layout/scripts/jquery.backtotop.js"></script>
         <script src="../layout/scripts/jquery.mobilemenu.js"></script>
         <script src="../layout/scripts/jquery.fitvids.js"></script>
+        <link rel='shortcut icon' type='image/x-icon' href='../images/demo/logo3Txiki.jpg'/>
     </head>
 
     <body id='top'>
@@ -104,7 +105,8 @@
             <!-- ################################################################################################ -->
             <div class='wrapper row1'>
                 <header id='header' class='hoc clear'>
-                    <div id='logo' class='fl_left'>
+                    <div id='logo' class='fl_left flex'>
+                        <img src='../images/demo/logo3Txiki.jpg' alt='Logo' class='logo'>
                         <h1><a href='index.php'>Blog Tattoo</a></h1>
                     </div>
         
@@ -183,6 +185,7 @@
                         }
 
                         foreach ($conexionBD->query($sql) as $row) {
+                            
                             $erabiltzaile_iz = $row['erabiltzaile_iz'];
                             $izena = $row['izena'];
                             $abizena = $row['abizena'];
@@ -192,22 +195,30 @@
                     ?>
                             <form method="post" action="../php/ajustes.php">
                                 <td id="erabiltzaileaTd"> <input class="inputSetting" type="text" id="erabiltzaileaTxt" name="erabiltzailea" value="<?php echo $erabiltzaile_iz ?>" readonly></td>
+                                <td id="izenaTd"> <input class="inputSetting <?php echo $erabiltzaile_iz ?>" type="text" name="izena" value="<?php echo $izena ?>" readonly></td>
+                                <td id="abizenaTd"> <input class="inputSetting <?php echo $erabiltzaile_iz ?>" type="text" name="abizena" value="<?php echo $abizena ?>" readonly></td>
+                                <td id="emailTd"> <input class="inputSetting <?php echo $erabiltzaile_iz ?>" type="text" name="email" value="<?php echo $email ?>" readonly></td>                                
+                                <td id="passwordTd"> <input class="inputSetting <?php echo $erabiltzaile_iz ?>" type="text" name="password" value="*********" readonly></td>                                
+                                <input type="hidden" name="passwordBD" value value="<?php echo $pasahitza ?>">
                                 
-                                <td id="izenaTd"> <input class="inputSetting" type="text" id="izenaTxt" name="izena" value="<?php echo $izena ?>" readonly></td>
-                                <td id="abizenaTd"> <input class="inputSetting" type="text" id="abizenaTxt" name="abizena" value="<?php echo $abizena ?>" readonly></td>
-                                <td id="emailTd"> <input class="inputSetting" type="text" id="emailTxt"  name="email" value="<?php echo $email ?>" readonly></td>                                
-                                <td id="passwordTd"> <input class="inputSetting" type="text" id="passwordTxt" name="password"  placeholder="******" readonly></td>                                
-                                                    <input class="inputSetting" type="hidden" id="passwordTxtBD" name="passwordBD" value="*<?php echo $pasahitza ?>">
-                                <td id="adminRolTd"> <input class="inputSetting" type="text" id="adminRolTxt" name="adminRol" value="<?php echo $adminRol ?>" readonly></td>
+                                <?php
+                                    if($adminRol == 1){
+                                        $adminRol = "BAI";
+                                    } else {
+                                        $adminRol = "EZ";
+                                    }
+                                ?>
+                                
+                                <td id="adminRolTd"> <input class="inputSetting <?php echo $erabiltzaile_iz ?>" type="text" name="adminRol" value="<?php echo $adminRol ?>" readonly></td>
                                 <td>
                                     <!-- BOTONES DE LAS OPCIONES CORRESPONDIENTES -->
                                     <div class="commentsIcon">
-                                        <button type="submit" name="btnDeleteUser">
+                                        <button type="submit" name="btnDeleteUser" class="<?php echo $erabiltzaile_iz ?>">
                                             <i class="fa fa-lg fa-trash-o"></i>
                                         </button>
 
-                                        <button type="button" name="btnEditUser" id="btnEditUser">
-                                            <i class="fa fa-lg fa-edit" id="iconEdit"></i>
+                                        <button type="button" name="btnEditUser" class="<?php echo $erabiltzaile_iz ?>">
+                                            <i class="fa fa-lg fa-edit iconEditUser"></i>
                                         </button>
                                     </div>
                                 </td>             
@@ -243,40 +254,39 @@
                     <?php
                         include_once "../BD/conexionBD.php";
                         
-                        $sql = "SELECT * FROM gaia";
-                        
+                        $sql = "SELECT * FROM gaia";                        
 
                         foreach ($conexionBD->query($sql) as $row) {
+                            $id_gaia = $row['id_gaia'];
                             $titulua = $row['titulua'];
                             $erabiltzaile_iz = $row['erabiltzaile_iz'];
                             $laburpena = $row['laburpena'];
                     ?>
                             <form method="post" action="../php/ajustes.php">
 
-                                <td id="tituluaTd"> <input class="inputSetting" type="text" id="tituluaTxt" name="titulua" value="<?php echo $titulua ?>" readonly></td>
-                                <td id="erabiltzaile_izTd"> <input class="inputSetting" type="text" id="erabiltzaile_izTxt" name="erabiltzaile_iz" value="<?php echo $erabiltzaile_iz ?>" readonly></td>
-                                <td id="laburpenaTd" > <input class="inputSetting" type="text" id="laburpenaTxt"  name="laburpena" value="<?php echo $laburpena ?>" readonly></td>
+                                <td id="tituluaTd"> <input class="inputSetting <?php echo $id_gaia ?>" type="text" name="titulua" value="<?php echo $titulua ?>" readonly></td>
+                                <td id="erabiltzaile_izTd"> <input class="inputSetting <?php echo $id_gaia ?>" type="text" name="erabiltzaile_iz" value="<?php echo $erabiltzaile_iz ?>" readonly></td>
+                                <td id="laburpenaTd" > <input class="inputSetting  <?php echo $id_gaia ?>" type="text" name="laburpena" value="<?php echo $laburpena ?>" readonly></td>
                                 <td>
                                     <!-- BOTONES DE LAS OPCIONES CORRESPONDIENTES -->
                                     <div class="commentsIcon">
-                                        <button type="submit" name="btnDeletePost">
+                                        <button type="submit"  name="btnDeletePost" class="<?php echo $id_gaia ?>">
                                             <i class="fa fa-lg fa-trash-o"></i>
                                         </button>
 
-                                        <button type="button" name="btnEdit" id="btnEditPost">
-                                            <i class="fa fa-lg fa-edit" id="iconEdit"></i>
+                                        <button type="button" name="btnEditPost" class="<?php echo $id_gaia ?>">
+                                            <i class="fa fa-lg fa-edit iconEditPost"></i>
                                         </button>
                                     </div>
-                                </td>
-                    </tr>                            
-
-                    </form>
-                     
-                    <?php
-                        }
-                    ?>
-
-            </table>    
+                                </td>             
+                    
+                    </tr>       
+                            </form>
+                         
+                        <?php
+                            }
+                        ?>    
+                </table>    
         </div>
         <!-- ---------------------------------- -->
 

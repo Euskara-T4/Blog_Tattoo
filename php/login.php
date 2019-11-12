@@ -14,9 +14,7 @@
 		$_SESSION["usuario"] = $nombre_usuario;
 		
 		if(isset($_SESSION["usuario"])){
-			// header("Location: user.php");
 			$_SESSION["adminRol"] = $adminRol; 
-			header("Location: ../pages/index.php");
 			echo "<h3>ONGI ETORRI", $_SESSION["usuario"], "</h3>";
 		} else{
 			echo "Ez da ondo ireki sesioa";
@@ -25,6 +23,8 @@
 	} else{
 		echo "<h3>Nombre o contraseña no son correctas--> $nombre_usuario // $passEncript</h3>";
 	}
+
+	header("Location: ../pages/index.php");
 
 	function comprobarUsuario($conexionBD, $nombre_usuario, $passEncript){
 		$sql = "SELECT * FROM erabiltzailea WHERE erabiltzaile_iz='$nombre_usuario' AND pasahitza='$passEncript'";
