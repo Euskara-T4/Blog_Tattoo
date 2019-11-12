@@ -21,46 +21,12 @@
                 $nombre = $_POST["nombre"];
                 $apellido = $_POST["apellido"];
                 $correo = $_POST["correo"];
-                $correoBD = $_POST["correoBD"];
-                $nombreBD = $_POST["nombreBD"];
-                $apeBD = $_POST["apeBD"];
 
                 //sentencia para actualizar los datos de perfil de usuario
                 $sql = "UPDATE erabiltzailea SET  izena=?, abizena=?, email=? WHERE erabiltzaile_iz='$currentUser';";
-
-                //en caso de no querer cambiar de correo....
-
-                //si introducimos correo nuevo
-                if ($correo != NULL ) {
-                    $nuevoCorreo = $correo;
-                }else{ 
-                    $nuevoCorreo = $correoBD;
-                }
-
-                // Darle nuevo valor al nombre
-                if ($nombre != NULL ) {
-                    $nuevoNombre = $nombre;
-                }else{ 
-                    $nuevoNombre = $nombreBD;
-                }
-
-
-                // Darle nuevo valor al apellido
-                if ($apellido != NULL ) {
-                    $nuevoApe = $apellido;
-                }else{ 
-                    //en caso de no querer correo nuevo 
-                    $nuevoApe = $apeBD;                    
-                }
-
-                // Si todo esta bien
-
-
-
-               // echo $nuevoNombre .$nuevoApe. $nuevoCorreo;
-
-                $conexionBD->prepare($sql)->execute([$nuevoNombre, $nuevoApe, $nuevoCorreo]);                
-                //echo $sql;
+                
+                echo $sql;
+                $conexionBD->prepare($sql)->execute([$nombre, $apellido, $correo]);                
 
                 exit;
             }
@@ -85,16 +51,17 @@
 
                 if ($nContrseña == $rContraseña ) {
                     $passHash = hash("sha256", $rContraseña);
-                    //sentencia para actualizar los datos de perfil de usuario
+
                     $sql = "UPDATE erabiltzailea SET  pasahitza=? WHERE erabiltzaile_iz='$currentUser';";
                     $conexionBD->prepare($sql)->execute([$passHash]);
                     echo "contraseña modificada";
                     exit;
+                    
                 }else{
                     echo "las contraseñas no coindicen";
                 }
                 
-                }
+            }
             echo "<h3>la contraseña no es correcta contraseña</h3>";
         }
     }

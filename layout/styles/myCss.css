@@ -3,6 +3,11 @@ body {
   background: rgb(43, 43, 43) !important;
 }
 
+#logo {
+  margin-top: 10px !important;
+  margin-bottom: 10px !important;
+}
+
 input[type="text"], input[type="password"] {
   width: 100%;
   padding: 12px 20px;
@@ -11,9 +16,7 @@ input[type="text"], input[type="password"] {
   border: 1px solid #ccc;
   box-sizing: border-box;
   color: black;
-  background-color: white !important;
 }
-
 
 fieldset input {
   width: 100%;
@@ -25,7 +28,6 @@ fieldset input {
   color: black !important;
   background-color: white !important;
 }
-
 
 .imgcontainer {
   text-align: center;
@@ -266,6 +268,10 @@ span.psw {
   width: 100% !important ;
 }
 
+#settingsTable tr:nth-of-type(odd) {
+  background-color: #47474763;
+}
+
 .inputSetting {
   border: none !important;
   background-color: transparent !important;
@@ -348,6 +354,7 @@ span.psw {
   margin: 5%;
   
 }
+
 .divPer {
   background-color: rgb(58, 58, 58);
   padding: 5%;
@@ -392,9 +399,8 @@ hr {
 /* ABOUT US */
 .aboutUs {
   background-color: #47474742;
-  padding: 5% !important;
+  padding: 10% !important;
   padding-bottom: 0%;
-  margin: 5%;
   text-align: center;
 }
 
@@ -408,13 +414,13 @@ iframe {
   width: 315px; 
   height: 315px; 
   border: none;
-  margin-left: 10%;
+  margin-left: 20%;
 }
 /* ******************* */
 
 /* ADD POST */
 .addPost {
-  background-color: #4747475b;
+  background-color: #474747ad;
   padding: 5%;
   width: 100%;
 }
@@ -423,11 +429,7 @@ iframe {
   width: 25% !important;
 }
 
-.inputFile {
-  position: relative;
-  cursor: pointer !important;
-  border: none !important;  
-}
+
 
 /* ******************* */
 

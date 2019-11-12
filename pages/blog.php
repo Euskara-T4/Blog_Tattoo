@@ -103,7 +103,8 @@
             <!-- ################################################################################################ -->
             <div class='wrapper row1'>
                 <header id='header' class='hoc clear'>
-                    <div id='logo' class='fl_left'>
+                    <div id='logo' class='fl_left flex'>
+                        <img src='../images/demo/logo3Txiki.jpg' alt='Logo' class='logo'>
                         <h1><a href='index.php'>Blog Tattoo</a></h1>
                     </div>
         
@@ -163,23 +164,37 @@
                                 <?php
                                     // Recoger informacion sobre los temas correspondientes
                                     include_once "../BD/conexionBD.php";
+                                    
+                                    // Ya que hay temas repetidos, vamos a hacer una array que contenga cada unico IC del tema
+                                    $sqlDistinct = "SELECT DISTINCT id_gaia FROM argazkia";
+                                    $arrayId = array();
 
-                                    // Mostrar solo la primera imagen de cada tema
-                                    $sql = "SELECT * FROM gaia";
+                                    foreach ($conexionBD->query($sqlDistinct) as $sqlDistinct) {
+                                        $id_gaia = $sqlDistinct['id_gaia'];
+                                        $arrayId[] = ($id_gaia);                                           
+                                    }
 
-                                    foreach ($conexionBD->query($sql) as $row) {    
-                                        $id_gaia = $row['id_gaia'];
-                                        $erabiltzailea = $row['erabiltzaile_iz'];
-                                        $gaia = $row['titulua'];
-                                        $laburpena = $row['laburpena'];
-                                        $deskribapena = $row['deskribapena'];
+                                        for ($i = 0; $i < count($arrayId); $i++) {
 
-                                        // Recogemos la imagen que le corresponde
-                                        $sqlImg = "SELECT * FROM argazkia WHERE id_gaia='$id_gaia'";
+                                            $sqlImg = "SELECT * FROM argazkia WHERE id_gaia='$arrayId[$i]' LIMIT 1";
+
+                                            foreach ($conexionBD->query($sqlImg) as $rowImg) {    
+
+                                                $img_src = $rowImg['url'];
+                                                $img_name = $rowImg['izena'];
+                                                $id_gaia = $rowImg['id_gaia'];
+
+                                                // Mostrar solo la primera imagen de cada tema
+                                                $sql = "SELECT * FROM gaia WHERE id_gaia='$id_gaia'";
+
+                                                foreach ($conexionBD->query($sql) as $row) {    
+                                                    $erabiltzailea = $row['erabiltzaile_iz'];
+                                                    $gaia = $row['titulua'];
+                                                    $laburpena = $row['laburpena'];
+                                                    $deskribapena = $row['deskribapena'];                                   
+                                     
                                         
-                                        foreach ($conexionBD->query($sqlImg) as $rowImg) {    
-                                            $img_src = $rowImg['url'];
-                                            $img_name = $rowImg['izena'];
+                                       
                                 ?>
                                         <div class="gaiaContainer">
                                             <a href='iruzkinak.php?idGaia=<?php echo $id_gaia;?>'>
@@ -197,6 +212,8 @@
                                             </a>
                                         </div>
                                 <?php
+                                        }
+                                            
                                         }
                                     }
                                 ?>

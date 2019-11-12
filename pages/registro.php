@@ -105,7 +105,8 @@
             <!-- ################################################################################################ -->
             <div class='wrapper row1'>
                 <header id='header' class='hoc clear'>
-                    <div id='logo' class='fl_left'>
+                    <div id='logo' class='fl_left flex'>
+                        <img src='../images/demo/logo3Txiki.jpg' alt='Logo' class='logo'>
                         <h1><a href='index.php'>Blog Tattoo</a></h1>
                     </div>
         

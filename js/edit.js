@@ -1,25 +1,31 @@
 window.addEventListener("load", hasiera);
 
 function hasiera() {
-    document.getElementById("btnEditUser").addEventListener("click", editUser);
-<<<<<<< HEAD
-    // document.getElementById("btnEditPost").addEventListener("click", editPost);
-=======
-   // document.getElementById("btnEditPost").addEventListener("click", editUser);
->>>>>>> 93c22c27f0e60b9161ef075693a54025d6b70924
+    // document.getElementById("btnEditUser").addEventListener("click", editUser);
+    // document.getElementById("btnEditPost").addEventListener("click", editpost);
+   
+    var btnsEditUser = document.getElementsByClassName("iconEditUser");
+    for (var i = 0; i < btnsEditUser.length; i++){
+        btnsEditUser[i].addEventListener("click", editUser);
+    }
+
+    var btnsEditPost = document.getElementsByClassName("iconEditPost");
+    for (var i = 0; i < btnsEditPost.length; i++){
+        btnsEditPost[i].addEventListener("click", editPost);
+    }
 
 }
 
 
-function editUser() {
-    var izena = document.getElementById("izenaTxt");
-    var abizena = document.getElementById("abizenaTxt");
-    var email = document.getElementById("emailTxt");
-    var password = document.getElementById("passwordTxt");
-    var adminRol = document.getElementById("adminRolTxt");
-    var icon = document.getElementById("iconEdit");
-    var btn = document.getElementById("btnEditUser");
+function editUser(e) {
+    var icon = e.target;
+    var erab = e.target.parentNode.className;
 
+    var izena = document.getElementsByClassName(erab)[0];
+    var abizena = document.getElementsByClassName(erab)[1];
+    var email = document.getElementsByClassName(erab)[2];
+    var password = document.getElementsByClassName(erab)[3];
+    var adminRol = document.getElementsByClassName(erab)[4];
 
 
     // Comprobamos si estan para editar
@@ -29,28 +35,53 @@ function editUser() {
         email.readOnly = false;
         password.readOnly = false;
         adminRol.readOnly = false;
-        icon.className = "fa fa-lg fa-save";
-        btn.type ="button";
-        
-        // CAMBIAR ESTILO
-        izena.style.border = "1px solid #ccc !important";
-        izena.style.backgroundColor = "grey !important";
 
+        // Cambiamos el tipo de icono
+        icon.className = "fa fa-lg fa-save iconEditUser";
+        icon.parentNode.type ="button";       
+    
     } else {
         izena.readOnly = true;
         abizena.readOnly = true;
         email.readOnly = true;
         password.readOnly = true;
         adminRol.readOnly = true;
-        icon.className = "fa fa-lg fa-edit";
-        btn.type = "submit";
 
-        // LLAMAR AL PHP PARA ACTUALIZAR DATOS
-        // window.open("../php/ajustes.php", "_self");
+        // Cambiamos el tipo de icono
+        icon.className = "fa fa-lg fa-edit iconEditUser";
+        icon.parentNode.type ="submit";       
+    }
+}
+    
+function editPost(e) {
+    var icon = e.target;
+    var title = e.target.parentNode.className;
+    alert(title);
 
-        // CAMBIAR ESTILO
-        izena.style.border = "none !important";
-        izena.style.backgroundColor = "transparent !important";
+    var titulua = document.getElementsByClassName(title)[0];
+    var erabiltzaile_iz = document.getElementsByClassName(title)[1];
+    var laburpena = document.getElementsByClassName(title)[2];
+
+    // Comprobamos si estan para editar
+    if (titulua.readOnly) {
+        titulua.readOnly = false;
+        erabiltzaile_iz.readOnly = false;
+        laburpena.readOnly = false;
+        
+        // Cambiamos el tipo de icono         
+        icon.className = "fa fa-lg fa-save iconEditPost";
+        icon.parentNode.type ="button";          
+    
+    } else {
+        titulua.readOnly = true;
+        erabiltzaile_iz.readOnly = true;
+        laburpena.readOnly = true;
+        
+        // Cambiamos el tipo de icono
+        icon.className = "fa fa-lg fa-edit iconEditPost";
+        icon.parentNode.type ="submit";     
     }
 
+
+    
 }

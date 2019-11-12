@@ -104,7 +104,8 @@
             <!-- ################################################################################################ -->
             <div class='wrapper row1'>
                 <header id='header' class='hoc clear'>
-                    <div id='logo' class='fl_left'>
+                    <div id='logo' class='fl_left flex'>
+                        <img src='../images/demo/logo3Txiki.jpg' alt='Logo' class='logo'>
                         <h1><a href='index.php'>Blog Tattoo</a></h1>
                     </div>
         
@@ -179,31 +180,19 @@
                         <form method="POST" action="../php/datosPerfil.php">
                             <div class="divUser">
                                 <h3>ERABILTZAILEAREN DATUAK</h3>
-                                <ul>
-                                    <li>
-                                        <label>Izena</label>
-                                        <input class="btmspace-15" type="text" name="nombre" id="nombre" placeholder="<?php echo $izena; ?>">                                                       
-                                        <input type="hidden" name="nombreBD" value="<?php echo $izena; ?>"> 
-                                    </li>
 
-                                    <li>
-                                        <label>Abizena</label>
-                                        <input class="btmspace-15" type="text" name="apellido" id="apellido" placeholder="<?php echo $abizena; ?>">                                
-                                        <input type="hidden" name="apeBD" value="<?php echo $abizena; ?>">
-                                    </li>
+                                <label>Izena</label>
+                                <input class="btmspace-15" type="text" name="nombre" id="nombre" value="<?php echo $izena; ?>">                                                       
 
-                                    <li>
-                                        <label>Email</label>
-                                        <input class="btmspace-15" type="text" name="correo" id="correo" placeholder="<?php echo $email; ?>" >                                    
-                                        <input type="hidden" name="correoBD" value="<?php echo $email; ?>"> 
-                                    </li>
+                                <label>Abizena</label>
+                                <input class="btmspace-15" type="text" name="apellido" id="apellido" value="<?php echo $abizena; ?>">                                
 
-                                    <li>
-                                        <label>Pasahitza*</label>
-                                        <input class="btmspace-15" type="password" name="PssActual"  placeholder="***********">           
-                                    </li>
-                                </ul>  
-                            
+                                <label>Email</label>
+                                <input class="btmspace-15" type="text" name="correo" id="correo" value="<?php echo $email; ?>" >                                    
+
+                                <label>Pasahitza*</label>
+                                <input class="btmspace-15" type="password" name="PssActual"  placeholder="***********">                                       
+
                                 <button type="submit" name="guardar1" id="enviar">Gorde</button>
 
                             </div>
@@ -213,25 +202,17 @@
                             <!-- // GUARDAR DATOS DE PERFIL -->
                             <div class="divUser">
                                 <h3>PERFILAREN DATUAK</h3>
-                                <ul>
                                     
-                                    <li>
-                                        <label>Pasahitza*</label> 
-                                        <input class="btmspace-15" type="text" name="contraseña" id="pss" placeholder="*************">
-                                    </li>
+                                <label>Pasahitza*</label> 
+                                <input class="btmspace-15" type="text" name="contraseña" id="pss" placeholder="*************">
 
-                                    <li> 
-                                        <label>Pasahitza berria*</label>
-                                        <input class="btmspace-15" type="password" name="nuevaContra" id="contraseña" >
-                                    </li>
+                                <label>Pasahitza berria*</label>
+                                <input class="btmspace-15" type="password" name="nuevaContra" id="contraseña" >
 
-                                    <li> 
-                                        <label>Pasahitza berria berriro*</label>
-                                        <input class="btmspace-15" type="password" name="repetirNueva">
-                                    </li>
-                                                                                
-                                    <input type="hidden" name="contraseñaAntigua" value="<?php echo $pasahitza; ?>">
-                                </ul>  
+                                <label>Pasahitza berria berriro*</label>
+                                <input class="btmspace-15" type="password" name="repetirNueva">
+                                                                            
+                                <input type="hidden" name="contraseñaAntigua" value="<?php echo $pasahitza; ?>">
 
                                 <button type="submit" name="guardar2" id="enviar">Gorde</button>
 
